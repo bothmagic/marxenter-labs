@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="210mm"
+   height="297mm"
+   id="svg2">
+  <defs
+     id="defs4">
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect3812" />
+    <inkscape:path-effect
+       effect="bend_path"
+       id="path-effect3810" />
+    <inkscape:path-effect
+       effect="construct_grid"
+       id="path-effect3808" />
+    <inkscape:path-effect
+       effect="bend_path"
+       id="path-effect3806" />
+    <inkscape:path-effect
+       effect="gears"
+       id="path-effect3804" />
+    <linearGradient
+       id="linearGradient3795">
+      <stop
+         id="stop3797"
+         style="stop-color:#0000ff;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3799"
+         style="stop-color:#0000ff;stop-opacity:0"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       x1="185.77451"
+       y1="382.10074"
+       x2="185.46732"
+       y2="508.89813"
+       id="linearGradient3801"
+       xlink:href="#linearGradient3795"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1">
+    <path
+       d="m 98.69281,381.77396 154.24837,0 0,127.45098 -154.24837,0 z"
+       id="rect3007"
+       style="fill:url(#linearGradient3801);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+</svg>

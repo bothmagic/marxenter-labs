@@ -1,0 +1,112 @@
+/****************************************************************************
+** Meta object code from reading C++ file 'tst_qgraphicslistview.cpp'
+**
+** Created: Thu 7. Jul 08:18:28 2011
+**      by: The Qt Meta Object Compiler version 62 (Qt 4.7.3)
+**
+** WARNING! All changes made in this file will be lost!
+*****************************************************************************/
+
+#if !defined(Q_MOC_OUTPUT_REVISION)
+#error "The header file 'tst_qgraphicslistview.cpp' doesn't include <QObject>."
+#elif Q_MOC_OUTPUT_REVISION != 62
+#error "This file was generated using the moc from 4.7.3. It"
+#error "cannot be used with the include files from this version of Qt."
+#error "(The moc has changed too much.)"
+#endif
+
+QT_BEGIN_MOC_NAMESPACE
+static const uint qt_meta_data_tst_QtGraphicsListView[] = {
+
+ // content:
+       5,       // revision
+       0,       // classname
+       0,    0, // classinfo
+      15,   14, // methods
+       0,    0, // properties
+       0,    0, // enums/sets
+       0,    0, // constructors
+       0,       // flags
+       0,       // signalCount
+
+ // slots: signature, parameters, type, tag, flags
+      24,   23,   23,   23, 0x0a,
+      39,   23,   23,   23, 0x0a,
+      57,   23,   23,   23, 0x0a,
+      64,   23,   23,   23, 0x0a,
+      74,   23,   23,   23, 0x08,
+      88,   23,   23,   23, 0x08,
+     109,   23,   23,   23, 0x08,
+     125,   23,   23,   23, 0x08,
+     150,   23,   23,   23, 0x08,
+     170,   23,   23,   23, 0x08,
+     190,   23,   23,   23, 0x08,
+     205,   23,   23,   23, 0x08,
+     219,   23,   23,   23, 0x08,
+     228,   23,   23,   23, 0x08,
+     242,   23,   23,   23, 0x08,
+
+       0        // eod
+};
+
+static const char qt_meta_stringdata_tst_QtGraphicsListView[] = {
+    "tst_QtGraphicsListView\0\0initTestCase()\0"
+    "cleanupTestCase()\0init()\0cleanup()\0"
+    "getSetCheck()\0maximumOffset_data()\0"
+    "maximumOffset()\0maximumFirstIndex_data()\0"
+    "maximumFirstIndex()\0itemGeometry_data()\0"
+    "itemGeometry()\0itemAt_data()\0itemAt()\0"
+    "layout_data()\0layout()\0"
+};
+
+const QMetaObject tst_QtGraphicsListView::staticMetaObject = {
+    { &QObject::staticMetaObject, qt_meta_stringdata_tst_QtGraphicsListView,
+      qt_meta_data_tst_QtGraphicsListView, 0 }
+};
+
+#ifdef Q_NO_DATA_RELOCATION
+const QMetaObject &tst_QtGraphicsListView::getStaticMetaObject() { return staticMetaObject; }
+#endif //Q_NO_DATA_RELOCATION
+
+const QMetaObject *tst_QtGraphicsListView::metaObject() const
+{
+    return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
+}
+
+void *tst_QtGraphicsListView::qt_metacast(const char *_clname)
+{
+    if (!_clname) return 0;
+    if (!strcmp(_clname, qt_meta_stringdata_tst_QtGraphicsListView))
+        return static_cast<void*>(const_cast< tst_QtGraphicsListView*>(this));
+    return QObject::qt_metacast(_clname);
+}
+
+int tst_QtGraphicsListView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = QObject::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: initTestCase(); break;
+        case 1: cleanupTestCase(); break;
+        case 2: init(); break;
+        case 3: cleanup(); break;
+        case 4: getSetCheck(); break;
+        case 5: maximumOffset_data(); break;
+        case 6: maximumOffset(); break;
+        case 7: maximumFirstIndex_data(); break;
+        case 8: maximumFirstIndex(); break;
+        case 9: itemGeometry_data(); break;
+        case 10: itemGeometry(); break;
+        case 11: itemAt_data(); break;
+        case 12: itemAt(); break;
+        case 13: layout_data(); break;
+        case 14: layout(); break;
+        default: ;
+        }
+        _id -= 15;
+    }
+    return _id;
+}
+QT_END_MOC_NAMESPACE

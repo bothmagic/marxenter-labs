@@ -1,0 +1,10 @@
+INCLUDEPATH += $$PWD/src $$PWD/src/experimental
+LIBRARYPATH += $$PWD/lib
+QMAKE_RPATHDIR = $$OUT_PWD/lib
+
+QMAKE_INCDIR += $$INCLUDEPATH
+QMAKE_LIBDIR += $$LIBRARYPATH
+LIBS += -L../../lib -litemviews-ng
+
+win32:DEFINES += Q_ITEMVIEWSNG_EXPORT=__declspec(dllimport)
+unix:DEFINES += Q_ITEMVIEWSNG_EXPORT=""
