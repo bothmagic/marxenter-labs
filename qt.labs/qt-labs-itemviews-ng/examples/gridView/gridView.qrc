@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>images/user_32.png</file>
+        <file>images/user_48.png</file>
+        <file>images/user_64.png</file>
+        <file>images/user_128.png</file>
+    </qresource>
+</RCC>

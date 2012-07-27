@@ -1,0 +1,12 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+  <file>icons/chronometer.svgz</file>
+  <file>icons/configure.svgz</file>
+  <file>icons/document-edit.svgz</file>
+  <file>icons/document-encrypt.svgz</file>
+  <file>icons/document-preview-archive.svgz</file>
+  <file>icons/draw-brush.svgz</file>
+  <file>icons/draw-eraser.svgz</file>
+  <file>icons/draw-freehand.svgz</file>
+</qresource>
+</RCC>

@@ -1,0 +1,69 @@
+How to run all tests and only show the relevant output:
+
+1. Add the following to your $HOME/.bashrc
+
+function qtestitemviews {
+    (cd $HOME/work/itemview/tests &&
+        for i in *; do
+        (if test -d $i; then
+                (cd $i && testrunner)
+        fi)
+        done
+    )
+}
+
+2. Put the following perl file in your path and I make sure it can be called as 'testrunner'
+
+#!/usr/bin/perl
+
+system("make 2>&1 > /dev/null") && die "Failed compile, bailing out";
+
+opendir DIR, ".";
+while(1) {
+    $file=readdir(DIR) || last;
+    if ($file=~m/^\./) { next; }
+    stat $file;
+    if (-x _ && -f _) {
+        print "running $file";
+        @output=`./$file`;
+        last;
+    }
+}
+
+$finished = 0;
+foreach $line (@output) {
+    if ($line=~m/^Totals: \d+ passed, (\d+) failed/) {
+        $finished = 1;
+        $failed = $1;
+        if ($failed == 0) {
+            print " all success!\n";
+            exit;
+        }
+        last;
+    }
+    #print "#".$line;
+}
+if ($finished == 0) {
+    print " FAILED to run completely. Probably crashed";
+}
+print "\n";
+
+$lastFailed=false;
+foreach $line (@output) {
+    if ($line=~m/^PASS/) {
+        $lastFailed = false;
+        $buffer="";
+        next;
+    }
+    if ($line=~m/^FAIL/) {
+        print "$buffer$line";
+        $lastFailed = true;
+        $buffer="";
+        next;
+    }
+    if ($lastFailed && $line=~m/^\s+(Loc: |Actual |Expected )/) {
+        print $line;
+        next;
+    }
+    $buffer.=$line;
+}
