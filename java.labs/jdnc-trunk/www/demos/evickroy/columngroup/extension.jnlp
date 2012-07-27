@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jnlp 
+	spec="1.0+" 
+	codebase="https://jdnc-incubator.dev.java.net/demos/evickroy/columngroup" 
+	href="extension.jnlp">
+  <information>
+    <title>Standard Demo Extensions</title>
+    <vendor>Erik Vickroy</vendor>
+    <homepage href=https://jdnc-incubator.dev.java.net/" />
+    <description>3rd party jars</description>
+    <description kind="short">3rd party jars</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="jdnc.jar"/>
+    <jar href="swingx.jar"/>
+    <jar href="liquidlnf.jar"/>
+  </resources>
+  <component-desc/>
+</jnlp>

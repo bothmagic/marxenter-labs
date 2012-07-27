@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.ant.freeform</type>
+    <configuration>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/1">
+            <name>cream-recipes-wiki</name>
+        </general-data>
+        <general-data xmlns="http://www.netbeans.org/ns/freeform-project/2">
+            <!-- Do not use Project Properties customizer when editing this file manually. -->
+            <name>cream-recipes-wiki</name>
+            <properties>
+                <property name="ant.script">d:\seu\play-1.2.3\framework\build.xml</property>
+                <property name="application.path">D:\development_marx\java.labs\playframework\cream-recipes-wiki</property>
+                <property name="application.name">cream-recipes-wiki</property>
+            </properties>
+            <folders>
+                <source-folder>
+                    <label>.</label>
+                    <location>.</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>app</label>
+                    <type>java</type>
+                    <location>app</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+                <source-folder>
+                    <label>test</label>
+                    <type>java</type>
+                    <location>test</location>
+                    <encoding>UTF-8</encoding>
+                </source-folder>
+            </folders>
+            <ide-actions>
+            	<action name="clean">
+                    <script>${ant.script}</script>
+                    <target>doNothing</target>
+                    <property name="application.path">${application.path}</property>
+                </action>
+                <action name="build">
+                    <script>${ant.script}</script>
+                    <target>doNothing</target>
+                    <property name="application.path">${application.path}</property>
+                </action>
+                <action name="rebuild">
+                    <script>${ant.script}</script>
+                    <target>doNothing</target>
+                    <property name="application.path">${application.path}</property>
+                </action>
+                <action name="run">
+                    <script>${ant.script}</script>
+                    <target>nb-run-application</target>
+                    <property name="application.path">${application.path}</property>
+                </action>
+                <action name="debug">
+                    <script>${ant.script}</script>
+                    <target>nb-debug</target>
+                    <property name="application.name">${application.name}</property>
+                    <property name="application.path">${application.path}</property>
+                </action>
+                <action name="test">
+                    <script>${ant.script}</script>
+                    <target>test-application</target>
+                    <property name="application.path">${application.path}</property>
+                </action>
+            </ide-actions>
+            <view>
+                <items>
+                    <source-folder style="packages">
+                        <label>app</label>
+                        <location>app</location>
+                        <excludes>views/**</excludes>
+                    </source-folder>
+                    <source-folder style="tree">
+                        <label>app/views</label>
+                        <location>app/views</location>
+                    </source-folder>
+                    <source-folder style="tree">
+                        <label>public</label>
+                        <location>public</location>
+                    </source-folder>
+                    <source-folder style="tree">
+                        <label>conf</label>
+                        <location>conf</location>
+                    </source-folder>
+                    <source-folder style="packages">
+                        <label>test</label>
+                        <location>test</location>
+                    </source-folder>   
+                    <source-folder style="tree"><label>modules</label><location>modules</location></source-folder>                 
+                </items>
+                <context-menu>
+                    <ide-action name="run"/>
+                    <ide-action name="debug"/>
+                    <ide-action name="test"/>
+                </context-menu>
+            </view>
+            <subprojects/>
+        </general-data>
+        <java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/2">
+            <compilation-unit>
+                <package-root>app</package-root>
+                <package-root>test</package-root>
+                <package-root>D:\seu\play-1.2.4\modules\cream-0.1\app</package-root><package-root>d:\seu\play-1.2.3\modules\gravatar-1.0.2\app</package-root>
+                <classpath mode="compile">D:\development_marx\java.labs\playframework\cream-recipes-wiki\conf;d:\seu\play-1.2.3\framework\play-1.2.3.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\asm-3.1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\bcmail-jdk15-1.45.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\boilerpipe-1.1.0.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\cglib-2.1_3.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\commons-compress-1.1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\commons-dbcp-1.2.2.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\commons-httpclient-3.0.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\commons-pool-1.3.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\concurrent-1.3.4.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\derby-10.5.3.0_1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\fontbox-1.3.1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\geronimo-stax-api_1.0_spec-1.0.1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jackrabbit-api-2.2.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jackrabbit-core-2.2.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jackrabbit-jcr-commons-2.2.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jackrabbit-jcr-rmi-2.2.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jackrabbit-jcr-tests-2.2.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jackrabbit-spi-2.2.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jackrabbit-spi-commons-2.2.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jcr-2.0.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jcrom-1.3.2.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jdom-1.0.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\jempbox-1.3.1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\lucene-core-2.4.1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\metadata-extractor-2.4.0-beta-1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\netcdf-4.2-min.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\pdfbox-1.3.1.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\play-cream.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\poi-3.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\poi-ooxml-3.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\poi-ooxml-schemas-3.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\poi-scratchpad-3.7.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\rome-0.9.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\tagsoup-1.2.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\tika-core-0.8.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\tika-parsers-0.8.jar;D:\seu\play-1.2.4\modules\cream-0.1\lib\xmlbeans-2.3.0.jar;d:\seu\play-1.2.3\modules\gravatar-1.0.2\lib\play-gravatar.jar;d:\seu\play-1.2.3\framework\lib\activation-1.1.1.jar;d:\seu\play-1.2.3\framework\lib\antlr-2.7.6.jar;d:\seu\play-1.2.3\framework\lib\asm-all-3.3.1.jar;d:\seu\play-1.2.3\framework\lib\async-http-client-1.6.3.jar;d:\seu\play-1.2.3\framework\lib\bcprov-jdk15-1.45.jar;d:\seu\play-1.2.3\framework\lib\c3p0-0.9.1.2.jar;d:\seu\play-1.2.3\framework\lib\cglib-nodep-2.2.jar;d:\seu\play-1.2.3\framework\lib\commons-beanutils-1.8.3.jar;d:\seu\play-1.2.3\framework\lib\commons-codec-1.4.jar;d:\seu\play-1.2.3\framework\lib\commons-collections-3.2.1.jar;d:\seu\play-1.2.3\framework\lib\commons-email-1.2.jar;d:\seu\play-1.2.3\framework\lib\commons-fileupload-1.2.2.jar;d:\seu\play-1.2.3\framework\lib\commons-io-2.0.1.jar;d:\seu\play-1.2.3\framework\lib\commons-javaflow-1066591.jar;d:\seu\play-1.2.3\framework\lib\commons-lang-2.6.jar;d:\seu\play-1.2.3\framework\lib\commons-logging-1.1.1.jar;d:\seu\play-1.2.3\framework\lib\dom4j-1.6.1.jar;d:\seu\play-1.2.3\framework\lib\ehcache-core-2.0.0.jar;d:\seu\play-1.2.3\framework\lib\ezmorph-1.0.3.jar;d:\seu\play-1.2.3\framework\lib\geronimo-servlet_2.5_spec-1.2.jar;d:\seu\play-1.2.3\framework\lib\groovy-all-1.7.7.jar;d:\seu\play-1.2.3\framework\lib\gson-1.7.1.jar;d:\seu\play-1.2.3\framework\lib\h2-1.3.149.jar;d:\seu\play-1.2.3\framework\lib\hibernate-commons-annotations-3.2.0.Final.jar;d:\seu\play-1.2.3\framework\lib\hibernate-core-3.6.1.Final.jar;d:\seu\play-1.2.3\framework\lib\hibernate-entitymanager-3.6.0.Final.jar;d:\seu\play-1.2.3\framework\lib\hibernate-jpa-2.0-api-1.0.0.Final.jar;d:\seu\play-1.2.3\framework\lib\ivy-2.2.0.jar;d:\seu\play-1.2.3\framework\lib\jamon-2.7.jar;d:\seu\play-1.2.3\framework\lib\javassist-3.9.0.GA.jar;d:\seu\play-1.2.3\framework\lib\javax.inject-1.0.jar;d:\seu\play-1.2.3\framework\lib\jaxen-1.1.jar;d:\seu\play-1.2.3\framework\lib\jj-imaging.jar;d:\seu\play-1.2.3\framework\lib\jj-simplecaptcha.jar;d:\seu\play-1.2.3\framework\lib\jj-textile.jar;d:\seu\play-1.2.3\framework\lib\jj-wikitext.jar;d:\seu\play-1.2.3\framework\lib\joda-time-1.6.jar;d:\seu\play-1.2.3\framework\lib\jregex-1.2_01.jar;d:\seu\play-1.2.3\framework\lib\jsr107cache-1.0.jar;d:\seu\play-1.2.3\framework\lib\jta-1.1.jar;d:\seu\play-1.2.3\framework\lib\junit-4.8.1.jar;d:\seu\play-1.2.3\framework\lib\log4j-1.2.15.jar;d:\seu\play-1.2.3\framework\lib\mail-1.4.3.jar;d:\seu\play-1.2.3\framework\lib\memcached-2.6.jar;d:\seu\play-1.2.3\framework\lib\mysql-connector-java-5.1.13.jar;d:\seu\play-1.2.3\framework\lib\netty-3.2.4.Final.jar;d:\seu\play-1.2.3\framework\lib\org.eclipse.jdt.core-3.6.0.jar;d:\seu\play-1.2.3\framework\lib\oval-1.50.jar;d:\seu\play-1.2.3\framework\lib\postgresql-9.0.jar;d:\seu\play-1.2.3\framework\lib\signpost-core-1.2.jar;d:\seu\play-1.2.3\framework\lib\slf4j-api-1.6.1.jar;d:\seu\play-1.2.3\framework\lib\slf4j-log4j12-1.6.1.jar;d:\seu\play-1.2.3\framework\lib\snakeyaml-1.7.jar;d:\seu\play-1.2.3\framework\lib\xstream-1.3.jar;nbproject\classes</classpath>
+                <built-to>nbproject/classes</built-to>  
+                <source-level>1.5</source-level>                 
+            </compilation-unit>
+        </java-data>
+    </configuration>
+</project>

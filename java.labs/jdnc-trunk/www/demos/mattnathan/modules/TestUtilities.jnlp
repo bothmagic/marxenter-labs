@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan/modules" href="TestUtilities.jnlp">
+    <information>
+        <title>TestUtilities Jar Extensions</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://swinglabs.dev.java.net/" />
+        <description>TestUtilities Jar</description>
+        <description kind="short">TestUtilities Jar</description>
+        <offline-allowed />
+    </information>
+    <resources>
+        <j2se version="1.6+" />
+        <jar href="TestUtilities.jar" />
+        <extension name="Painters" href="Painters.jnlp" />
+        <extension name="SwingX-head" href="../../lib/share/ext-head.jnlp" />
+    </resources>
+    <component-desc />
+</jnlp>

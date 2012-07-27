@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/weebib/whiteboard" href="whiteboard.jnlp">
+
+    <information>
+        <title>JDNC - WhiteBoard</title>
+        <vendor>Pierre Le Lannic</vendor>
+        <homepage href="https://jdnc-incubator.dev.java.net" />
+        <description/>
+        <offline-allowed/>
+    </information>
+
+    <resources>
+      <j2se version="1.5+" />
+      <jar href="whiteboard.jar"/>
+    </resources>
+
+    <application-desc main-class="org.jdesktop.swingx.whiteboard.WhiteBoardDemo"/>
+
+</jnlp>
+

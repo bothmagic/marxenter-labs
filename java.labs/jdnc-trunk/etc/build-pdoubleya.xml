@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- You may freely edit this file. See commented blocks below for -->
+<!-- some examples of how to customize the build. -->
+<!-- (If you delete it and reopen the project it will be recreated.) -->
+<project name="pdoubleya ant tasks" default="" basedir="..">
+    <description>Builds, tests, and runs the sample/code from user pdoubleya (Patrick Wright).</description>
+    <property environment="env"/>
+    <property file="../build.properties"/>
+    <import file="../build.xml"/>
+    
+    <target name="run-import" depends="-compile" description="Runs an import from a CSV file and exports as XML, using Import/Export API">
+        <java classname="org.jdesktop.jdnc.incubator.pdoubleya.experimental.ImportExample" fork="true">
+          <classpath>
+            <path refid="run.classpath"/>
+          </classpath>
+          <arg value="resources/activity.csv" />
+        </java>
+    </target>
+
+    <target name="run-copy" depends="-compile" description="Runs an import from a CSV file, exports as XML and copies that string to the system clipboard. No args, just run and then paste from clipboard into another app.">
+        <java classname="org.jdesktop.jdnc.incubator.pdoubleya.experimental.ClipboardCopyExample" fork="true">
+          <classpath>
+            <path refid="run.classpath"/>
+          </classpath>
+          <arg value="resources/activity.csv" />
+        </java>
+    </target>
+    
+    <target name="run-paste" depends="-compile" description="Takes current clipboard contents--expects CSV--exports as XML and dumps to the console.">
+        <java classname="org.jdesktop.jdnc.incubator.pdoubleya.experimental.ClipboardPasteExample" fork="true">
+          <classpath>
+            <path refid="run.classpath"/>
+          </classpath>
+          <arg value="resources/activity.csv" />
+        </java>
+    </target>
+
+</project>

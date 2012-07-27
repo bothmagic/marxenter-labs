@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jnlp 
+	spec="1.0+" 
+	codebase="http://jdnc-incubator.java.net/demos/kleopatra/Binding" 
+	href="AlbumManagerApplication.jnlp">
+  <information>
+    <title>AlbumManager Example</title>
+    <vendor>SwingLabs Team</vendor>
+    <homepage href="http://swinglabs.java.net/" />
+    <description>Demo of Appframework: Adapted from JGoodies Tutorial</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="../kleopatra-incubator.jar"/>
+    <jar href="../../lib/share/binding-2.0.1.jar" />
+    <extension name="extensions" href= "../extension.jnlp" />
+  </resources>
+  <application-desc main-class="org.jdesktop.appframework.goodies.album.AlbumManagerApplication" />
+</jnlp>

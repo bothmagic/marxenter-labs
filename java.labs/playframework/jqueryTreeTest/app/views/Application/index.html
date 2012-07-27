@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div id="demo1" class="demo" style="height:100px;">
+</div>
+<script type="text/javascript" class="source below">
+    $(function () {
+	$("#demo1").jstree({ 
+            "json_data" : {
+                "ajax" : {
+                    "url" : "/Application.tree",
+                    "data" : function (n) {
+                        // the result is fed to the AJAX request `data` option                        
+                        return {
+                            "operation" : "get_children",
+                            "id" : n.attr ? n.attr("id").replace("node_","") : 0
+                        };
+ 
+                    }
+
+				
+                }
+            },
+            "plugins" : [ "themes", "json_data" ]
+	});
+    });
+
+</script>

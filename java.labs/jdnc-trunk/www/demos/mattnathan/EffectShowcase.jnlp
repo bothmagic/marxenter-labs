@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan" href="EffectShowcase.jnlp">
+    <information>
+        <title>Runtime Effect Showcase</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://jdnc-incubator.dev.java.net/"/>
+        <description>Shows a collection of runtime graphics effects</description>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <j2se version="1.5+"/>
+        <jar href="demo-all.jar"/>
+        <extension name="incubator" href="ext/incubator.jnlp"/>
+        <extension name="swingx" href="ext/swingx.jnlp"/>
+    </resources>
+    <application-desc main-class="org.jdesktop.swingx.effect.EffectDemo"/>
+</jnlp>

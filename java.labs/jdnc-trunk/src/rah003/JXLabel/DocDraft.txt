@@ -1,0 +1,30 @@
+JXLabel - multiLine support
+
+_Rationale:_
+It is often necessary to display informational text to the application client which might be longer then width available foor component used to display the text. Since text displayed is read only, JLabel seems to be natural choice of component for this purpose. However with current implementation the check whether text fits in the available width or whether it has to be broken in the multiple lines and where to insert such breaks, if necessary, is left completely in hands of the developer. Adding automated layout of the text, coined here  as a "multiLine support" takes this tedious task from hands of developer and performs such operation transparently at runtime.
+
+_Public API changes:_
+MultiLine suppoert introduces two new public API methods
+
+public void setMultiLine(boolean);
+public boolean isMultiLine();
+
+_Implementation details:_
+MultiLine is JXLabel private bound property that is at the core of the support.
+Text handling in the JLabel (and therefore in JXLabel, prior this change), have been delegated to the renderer installed by default UI in case of HTML text, or by BasicLabelUI.paint() in case of plain text.
+
+In MVC terms this could be described as:
+JLabel acts as Controller,
+text variable is the Model,
+BasicLabelUI or renderer (accessed via getClientProperty(BasicHTML.propertyKey)) acts as a View
+
+Implementation of the multiline support in the JXLabel, tries to make bast use of the existing infrastructure by tapping on rudimentary renderer plugin support in JLabel (support of HTML renderer plugin for HTML text rendering). BasicLabelUI delegates painting to the renderer when it exists without further check on what text is provided to the renderer. Therefore JXLabel multiline support implementation provides renderer (replacing default HTML renderer) as a clientProperty when multiLine support is enabled and provided text is not HTML. In case of HTML text, rendering is delegated to the original HTML renderer. In case multiLine supports gets disabled, multiline renderer is removed (or HTML renderer is reinstated as a client property) therefore reverting text rendering to the original process.
+
+Diagram (or two) ? Document = model(mvc) ... ViewFactory uses Document to create text View hierarchy. Renderer = view(mvc) ... rendrer paints view hierarchy.
+
+Multiline support itself is not pure implementation, rather this is an extension of the similar feature already implemented in the JDK for JTextComponent children. Multiline support is based on the javax.swing.text.WrappedPlainView. Due to the existence of few unchecked casts to the JTextCompoent in this class, it was necessary to override default JDK implementation to work around those cases. This brought further problems introduced by package limited visibility of some of the variables and methods in whole implementation of the text handling. Working around this by overriding affected classes led to cascade of JDK classes from javax.swing.text package being overriden in org.jdesktop.swingx.text package. All those could be removed should default WrappedPlainView implementation change in case such functionality is backported to the JDK.
+
+Diagram? WrappedPlainView -> BoxBiew -> CompositeView * <? etends View>
+
+Addition of the multiline support to the JXLabel creates an opening for future additions to the text handling by the JXLabel. Since used renderer already provides support for different kinds of text layout (i.e. left, right or justify) as well as possibility to modify other text rendering affecting properties (i.e. tab length, first line indent, etc) it would be feasible and quite easy to extend multiline support and allow interested parties to provide rendering hints for text renderer to even further customize its behavior to suit their needs.
+

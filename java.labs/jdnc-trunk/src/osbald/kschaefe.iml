@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../kschaefe">
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/datepicker" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/jxcombobox/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/jxcombobox/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/menu/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/menu/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/menu/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/renderer/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/slideout/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/slideout/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/split-button/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/table-renderer/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/table-renderer/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/toolbars/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/toolbars/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/validator/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../kschaefe/validator/test" isTestSource="true" />
+    </content>
+    <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="swingx" level="project" />
+    <orderEntry type="library" name="junit" level="project" />
+    <orderEntryProperties />
+  </component>
+</module>
+

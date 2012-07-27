@@ -1,0 +1,385 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0\fmodern Courier New;}}
+{\colortbl\red255\green255\blue255;\red128\green128\blue128;\red63\green127\blue95;\red63\green127\blue95;\red127\green0\blue85;\red42\green0\blue255;\red153\green0\blue0;\red153\green0\blue0;\red0\green0\blue0;\red127\green0\blue85;\red0\green0\blue0;\red127\green159\blue191;\red127\green127\blue159;\red63\green63\blue191;\red63\green95\blue191;\red255\green97\blue0;}
+\deflang1031\pard\plain\f0\fs24\cb0{\f0\cf2 /*}
+\par {\f0\cf0  }{\f0\cf2 * $Id: JavaBeanPanel.java,v 1.5 2004/10/07 20:11:40 rbair Exp $}
+\par {\f0\cf0  }{\f0\cf2 *}
+\par {\f0\cf0  }{\f0\cf2 * Copyright 2004 Sun Microsystems, Inc., 4150 Network Circle,}
+\par {\f0\cf0  }{\f0\cf2 * Santa Clara, California 95054, U.S.A. All rights reserved.}
+\par {\f0\cf0  }{\f0\cf2 */}
+\par {\f0\b\cf4 package }{\f0\cf10 org.jdesktop.jdnc.incubator.rbair.masterdetail;}
+\par {\f0\cf0 }
+\par {\f0\b\cf4 import }{\f0\cf10 java.math.BigDecimal;}
+\par {\f0\b\cf4 import }{\f0\cf10 java.text.SimpleDateFormat;}
+\par {\f0\b\cf4 import }{\f0\cf10 java.util.ArrayList;}
+\par {\f0\b\cf4 import }{\f0\cf10 java.util.Date;}
+\par {\f0\b\cf4 import }{\f0\cf10 java.util.List;}
+\par {\f0\cf0 }
+\par {\f0\b\cf4 import }{\f0\cf10 org.jdesktop.jdnc.incubator.rbair.swing.data.DataModel;}
+\par {\f0\b\cf4 import }{\f0\cf10 org.jdesktop.jdnc.incubator.rbair.swing.data.JavaBeanDataModel;}
+\par {\f0\b\cf4 import }{\f0\cf10 org.jdesktop.jdnc.incubator.rbair.swing.data.MetaData;}
+\par {\f0\cf0 }
+\par {\f0\cf14 /**}
+\par {\f0\cf0  }{\f0\cf14 * This demo panel implementation is for basic JavaBeans. It has no asynchronous}
+\par {\f0\cf0  }{\f0\cf14 * behavior because the beans have been pre-loaded into memory for the demo.}
+\par {\f0\cf0  }{\f0\cf14 * A very similar panel could be used if hibernate were being used, for example.}
+\par {\f0\cf0  }{\f0\cf14 * }
+\par {\f0\cf0  }{\f0\cf14 * }{\f0\cf11 @author }{\f0\cf14 Richard Bair}
+\par {\f0\cf0  }{\f0\cf14 */}
+\par {\f0\b\cf4 class }{\f0\cf10 JavaBeanPanel }{\f0\b\cf4 extends }{\f0\cf10 DemoPanel }{\f0\cf8 \{}
+\par {\f0\cf0   }{\f0\b\cf4 private }{\f0\cf10 JavaBeanDataModel itemsDM;}
+\par {\f0\cf0   }{\f0\b\cf4 private }{\f0\cf10 JavaBeanDataModel userDM;}
+\par {\f0\cf0   }{\f0\b\cf4 private }{\f0\cf10 JavaBeanDataModel userItemsDM;}
+\par {\f0\cf0 }
+\par {\f0\cf0   }{\f0\cf10 JavaBeanPanel}{\f0\cf8 () \{}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf0   }
+\par {\f0\cf0   }{\f0\cf2 /* (non-Javadoc)}
+\par {\f0\cf0    }{\f0\cf2 * @see org.jdesktop.jdnc.incubator.rbair.masterdetail.DemoPanel#getItemsDM()}
+\par {\f0\cf0    }{\f0\cf2 */}
+\par {\f0\cf0   }{\f0\b\cf4 protected }{\f0\cf10 DataModel getItemsDM}{\f0\cf8 () \{}
+\par {\f0\cf0     }{\f0\b\cf4 try }{\f0\cf8 \{}
+\par {\f0\cf0       }{\f0\cf10 itemsDM = }{\f0\b\cf4 new }{\f0\cf10 JavaBeanDataModel}{\f0\cf8 (}{\f0\cf10 Item.}{\f0\b\cf4 class}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 itemsDM;}
+\par {\f0\cf0     }{\f0\cf8 \} }{\f0\b\cf4 catch }{\f0\cf8 (}{\f0\cf10 Exception e}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\cf10 e.printStackTrace}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\b\cf4 return null}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf0 }
+\par {\f0\cf0   }{\f0\cf2 /* (non-Javadoc)}
+\par {\f0\cf0    }{\f0\cf2 * @see org.jdesktop.jdnc.incubator.rbair.masterdetail.DemoPanel#getUserDM()}
+\par {\f0\cf0    }{\f0\cf2 */}
+\par {\f0\cf0   }{\f0\b\cf4 protected }{\f0\cf10 DataModel getUserDM}{\f0\cf8 () \{}
+\par {\f0\cf0     }{\f0\b\cf4 try }{\f0\cf8 \{}
+\par {\f0\cf0       }{\f0\cf10 userDM = }{\f0\b\cf4 new }{\f0\cf10 JavaBeanDataModel}{\f0\cf8 (}{\f0\cf10 User.}{\f0\b\cf4 class}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userDM.setKey}{\f0\cf8 (}{\f0\cf5 "seller"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userDM.setMasterFieldName}{\f0\cf8 (}{\f0\cf5 "seller"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userDM.setMasterDataModel}{\f0\cf8 (}{\f0\cf10 itemsDM}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 userDM;}
+\par {\f0\cf0     }{\f0\cf8 \} }{\f0\b\cf4 catch }{\f0\cf8 (}{\f0\cf10 Exception e}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\cf10 e.printStackTrace}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\b\cf4 return null}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf0 }
+\par {\f0\cf0   }{\f0\cf2 /* (non-Javadoc)}
+\par {\f0\cf0    }{\f0\cf2 * @see org.jdesktop.jdnc.incubator.rbair.masterdetail.DemoPanel#getUserItemsDM()}
+\par {\f0\cf0    }{\f0\cf2 */}
+\par {\f0\cf0   }{\f0\b\cf4 protected }{\f0\cf10 DataModel getUserItemsDM}{\f0\cf8 () \{}
+\par {\f0\cf0     }{\f0\b\cf4 try }{\f0\cf8 \{}
+\par {\f0\cf0       }{\f0\cf10 userItemsDM = }{\f0\b\cf4 new }{\f0\cf10 JavaBeanDataModel}{\f0\cf8 (}{\f0\cf10 Item.}{\f0\b\cf4 class}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userItemsDM.setKey}{\f0\cf8 (}{\f0\cf5 "items"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userItemsDM.setMasterFieldName}{\f0\cf8 (}{\f0\cf5 "items"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userItemsDM.addField}{\f0\cf8 (}{\f0\b\cf4 new }{\f0\cf10 MetaData}{\f0\cf8 (}{\f0\cf5 "name"}{\f0\cf10 , String.class, }{\f0\cf5 "Name"}{\f0\cf8 ))}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userItemsDM.addField}{\f0\cf8 (}{\f0\b\cf4 new }{\f0\cf10 MetaData}{\f0\cf8 (}{\f0\cf5 "description"}{\f0\cf10 , String.class, }{\f0\cf5 "Description"}{\f0\cf8 ))}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 userItemsDM.setMasterDataModel}{\f0\cf8 (}{\f0\cf10 userDM}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 userItemsDM;}
+\par {\f0\cf0     }{\f0\cf8 \} }{\f0\b\cf4 catch }{\f0\cf8 (}{\f0\cf10 Exception e}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\cf10 e.printStackTrace}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\b\cf4 return null}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf0 }
+\par {\f0\cf0   }{\f0\cf2 /* (non-Javadoc)}
+\par {\f0\cf0    }{\f0\cf2 * @see org.jdesktop.jdnc.incubator.rbair.masterdetail.DemoPanel#postconfigure()}
+\par {\f0\cf0    }{\f0\cf2 */}
+\par {\f0\cf0   }{\f0\b\cf4 protected }{\f0\b\cf9 void }{\f0\cf10 postconfigure}{\f0\cf8 () \{}
+\par {\f0\cf0     }{\f0\b\cf4 try }{\f0\cf8 \{}
+\par {\f0\cf0       }{\f0\cf10 List items = getItems}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf10 itemsDM.setJavaBean}{\f0\cf8 (}{\f0\cf10 items}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf8 \} }{\f0\b\cf4 catch }{\f0\cf8 (}{\f0\cf10 Exception e}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\cf10 e.printStackTrace}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf0   }
+\par {\f0\cf0   }{\f0\b\cf4 static }{\f0\cf10 List getItems}{\f0\cf8 () }{\f0\b\cf4 throws }{\f0\cf10 Exception }{\f0\cf8 \{}
+\par {\f0\cf0     }{\f0\cf10 SimpleDateFormat sdf = }{\f0\b\cf4 new }{\f0\cf10 SimpleDateFormat}{\f0\cf8 (}{\f0\cf5 "yyyy-mm-dd hh:MM:ss.S"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 List items = }{\f0\b\cf4 new }{\f0\cf10 ArrayList}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 User user = }{\f0\b\cf4 new }{\f0\cf10 User}{\f0\cf8 (}{\f0\cf7 1}{\f0\cf10 , }{\f0\cf5 "Snow"}{\f0\cf10 , }{\f0\cf5 "White"}{\f0\cf10 , }{\f0\cf5 "iluvapples"}{\f0\cf10 , }{\f0\cf5 "sweetlips"}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "swhite@fairytaleserver.grimm"}{\f0\cf10 , }{\f0\cf7 1}{\f0\cf10 , false,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "1234 Cottage Way"}{\f0\cf10 , }{\f0\cf5 "Woodsville"}{\f0\cf10 , }{\f0\cf5 "55555"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 Item item = }{\f0\b\cf4 new }{\f0\cf10 Item}{\f0\cf8 (}{\f0\cf7 1}{\f0\cf10 , }{\f0\cf5 "Apple"}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "Insomniac? Can't get a decent nights sleep? Try this " }{\f0\cf10 +}
+\par {\f0\cf0         }{\f0\cf5 "delicious apple! You'll be amazed!"}{\f0\cf10 , }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 35.00}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 50.00}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 user}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 items.add}{\f0\cf8 (}{\f0\cf10 item}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 user = }{\f0\b\cf4 new }{\f0\cf10 User}{\f0\cf8 (}{\f0\cf7 2}{\f0\cf10 , }{\f0\cf5 "Robin"}{\f0\cf10 , }{\f0\cf5 "Hood"}{\f0\cf10 , }{\f0\cf5 "rhood"}{\f0\cf10 , }{\f0\cf5 "marian"}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "tights@fairytaleserver.grimm"}{\f0\cf10 , }{\f0\cf7 1}{\f0\cf10 , false,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "The Big Oak Tree"}{\f0\cf10 , }{\f0\cf5 "Sherwood Forest"}{\f0\cf10 , }{\f0\cf5 "55555"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 item = }{\f0\b\cf4 new }{\f0\cf10 Item}{\f0\cf8 (}{\f0\cf7 2}{\f0\cf10 , }{\f0\cf5 "Silver Arrow"}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "Need to impress someone? Imagine yourself showing off this " }{\f0\cf10 +}
+\par {\f0\cf0         }{\f0\cf5 "amazing sterling silver arrow to your friends! You'll be the " }{\f0\cf10 +}
+\par {\f0\cf0         }{\f0\cf5 "hit of the party! "}{\f0\cf10 , }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 9050.00}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 49999.99}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 user}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 items.add}{\f0\cf8 (}{\f0\cf10 item}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 item = }{\f0\b\cf4 new }{\f0\cf10 Item}{\f0\cf8 (}{\f0\cf7 3}{\f0\cf10 , }{\f0\cf5 "Quarterstaff"}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "Slightly used, excellent condition"}{\f0\cf10 , }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 0.00}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 45.00}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 user}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 items.add}{\f0\cf8 (}{\f0\cf10 item}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 user = }{\f0\b\cf4 new }{\f0\cf10 User}{\f0\cf8 (}{\f0\cf7 3}{\f0\cf10 , }{\f0\cf5 "Captain"}{\f0\cf10 , }{\f0\cf5 "Nemo"}{\f0\cf10 , }{\f0\cf5 "captain"}{\f0\cf10 , }{\f0\cf5 "dive!"}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "captain@fairytaleserver.grimm"}{\f0\cf10 , }{\f0\cf7 1}{\f0\cf10 , false,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "4433 Dock #3"}{\f0\cf10 , }{\f0\cf5 "Oceanside"}{\f0\cf10 , }{\f0\cf5 "55555"}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 item = }{\f0\b\cf4 new }{\f0\cf10 Item}{\f0\cf8 (}{\f0\cf7 4}{\f0\cf10 , }{\f0\cf5 "Calamari"}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf5 "Nemo Enterprises brings you the *best* in deep sea " }{\f0\cf10 +}
+\par {\f0\cf0         }{\f0\cf5 "Calamari! Direct from the ocean, no preservatives, " }{\f0\cf10 +}
+\par {\f0\cf0         }{\f0\cf5 "all natural!"}{\f0\cf10 , }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 15.00}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 25.00}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 ,}
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 sdf.parse}{\f0\cf8 (}{\f0\cf5 "2004-07-03 08:30:00.0"}{\f0\cf8 )}{\f0\cf10 , }
+\par {\f0\cf0         }{\f0\cf10 user}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf10 items.add}{\f0\cf8 (}{\f0\cf10 item}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 return }{\f0\cf10 items;}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf0   }
+\par {\f0\cf0   }{\f0\b\cf4 public static final class }{\f0\cf10 Item }{\f0\cf8 \{}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 Item}{\f0\cf8 (}{\f0\b\cf9 int }{\f0\cf10 itemId, String name, String description, }
+\par {\f0\cf0         }{\f0\cf10 BigDecimal initialPrice, BigDecimal reservePrice,}
+\par {\f0\cf0         }{\f0\cf10 Date startDate, Date endDate, Date approvalDateTime,}
+\par {\f0\cf0         }{\f0\cf10 Date created, User seller}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .itemId = itemId;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .name = name;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .description = description;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .initialPrice = initialPrice;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .reservePrice = reservePrice;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .startDate = startDate;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .endDate = endDate;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .approvalDateTime = approvalDateTime;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .created = created;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .seller = seller;}
+\par {\f0\cf0       }
+\par {\f0\cf0       }{\f0\b\cf4 if }{\f0\cf8 (}{\f0\cf10 seller != }{\f0\b\cf4 null}{\f0\cf8 ) \{}
+\par {\f0\cf0         }{\f0\cf10 seller.getItems}{\f0\cf8 ()}{\f0\cf10 .add}{\f0\cf8 (}{\f0\b\cf4 this}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String name = }{\f0\cf5 "<enter item name>"}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String description = }{\f0\cf5 "<enter description>"}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\cf3 //java 1.5 syntax}
+\par {\f0\cf3 //    private BigDecimal initialPrice = BigDecimal.ZERO;}
+\par {\f0\cf3 //    private BigDecimal reservePrice = BigDecimal.ZERO;}
+\par {\f0\cf0     }{\f0\cf3 //java 1.4 syntax}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 BigDecimal initialPrice = }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 0.00}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 BigDecimal reservePrice = }{\f0\b\cf4 new }{\f0\cf10 BigDecimal}{\f0\cf8 (}{\f0\cf7 0.00}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 Date startDate = }{\f0\b\cf4 new }{\f0\cf10 Date}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 Date endDate = }{\f0\b\cf4 new }{\f0\cf10 Date}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 Date approvalDateTime = }{\f0\b\cf4 new }{\f0\cf10 Date}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 Date created = }{\f0\b\cf4 new }{\f0\cf10 Date}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 User approvedBy = }{\f0\b\cf4 null}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 User seller = }{\f0\b\cf4 null}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\b\cf9 int }{\f0\cf10 itemId;}
+\par {\f0\cf0     }
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 Date getApprovalDateTime}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 approvalDateTime;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setApprovalDateTime}{\f0\cf8 (}{\f0\cf10 Date approvalDateTime}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .approvalDateTime = approvalDateTime;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 User getApprovedBy}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 approvedBy;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setApprovedBy}{\f0\cf8 (}{\f0\cf10 User approvedBy}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .approvedBy = approvedBy;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 Date getCreated}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 created;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setCreated}{\f0\cf8 (}{\f0\cf10 Date created}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .created = created;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getDescription}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 description;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setDescription}{\f0\cf8 (}{\f0\cf10 String description}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .description = description;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 Date getEndDate}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 endDate;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setEndDate}{\f0\cf8 (}{\f0\cf10 Date endDate}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .endDate = endDate;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 BigDecimal getInitialPrice}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 initialPrice;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setInitialPrice}{\f0\cf8 (}{\f0\cf10 BigDecimal initialPrice}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .initialPrice = initialPrice;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getName}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 name;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setName}{\f0\cf8 (}{\f0\cf10 String name}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .name = name;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 BigDecimal getReservePrice}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 reservePrice;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setReservePrice}{\f0\cf8 (}{\f0\cf10 BigDecimal reservePrice}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .reservePrice = reservePrice;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 User getSeller}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 seller;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setSeller}{\f0\cf8 (}{\f0\cf10 User seller}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 if }{\f0\cf8 (}{\f0\b\cf4 this}{\f0\cf10 .seller != }{\f0\b\cf4 null }{\f0\cf10 && }{\f0\b\cf4 this}{\f0\cf10 .seller != seller}{\f0\cf8 ) \{}
+\par {\f0\cf0         }{\f0\b\cf4 this}{\f0\cf10 .seller.getItems}{\f0\cf8 ()}{\f0\cf10 .remove}{\f0\cf8 (}{\f0\b\cf4 this}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf8 \}}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .seller = seller;}
+\par {\f0\cf0       }{\f0\b\cf4 if }{\f0\cf8 (}{\f0\b\cf4 this}{\f0\cf10 .seller != }{\f0\b\cf4 null}{\f0\cf8 ) \{}
+\par {\f0\cf0         }{\f0\b\cf4 this}{\f0\cf10 .seller.getItems}{\f0\cf8 ()}{\f0\cf10 .add}{\f0\cf8 (}{\f0\b\cf4 this}{\f0\cf8 )}{\f0\cf10 ;}
+\par {\f0\cf0       }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 Date getStartDate}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 startDate;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setStartDate}{\f0\cf8 (}{\f0\cf10 Date startDate}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .startDate = startDate;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\cf14 /**}
+\par {\f0\cf0      }{\f0\cf14 * }{\f0\cf11 @return }{\f0\cf14 Returns the itemId.}
+\par {\f0\cf0      }{\f0\cf14 */}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 int }{\f0\cf10 getItemId}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 itemId;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\cf14 /**}
+\par {\f0\cf0      }{\f0\cf14 * }{\f0\cf11 @param }{\f0\cf14 itemId The itemId to set.}
+\par {\f0\cf0      }{\f0\cf14 */}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setItemId}{\f0\cf8 (}{\f0\b\cf9 int }{\f0\cf10 itemId}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .itemId = itemId;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf0   }
+\par {\f0\cf0   }{\f0\b\cf4 public static final class }{\f0\cf10 User }{\f0\cf8 \{}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 User}{\f0\cf8 (}{\f0\b\cf9 int }{\f0\cf10 userId, String fn, String ln, String un, String passwd,}
+\par {\f0\cf0         }{\f0\cf10 String email, }{\f0\b\cf9 int }{\f0\cf10 ranking, }{\f0\b\cf9 boolean }{\f0\cf10 admin, Date created,}
+\par {\f0\cf0         }{\f0\cf10 String street, String city, String zip}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .userId = userId;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .firstName = fn;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .lastName = ln;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .userName = un;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .password = passwd;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .email = email;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .ranking = ranking;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .admin = admin;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .created = created;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .street = street;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .city = city;}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .zipCode = zip;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0 }
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String firstName = }{\f0\cf5 "<enter first name>"}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String lastName = }{\f0\cf5 "<enter last name>"}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String userName = }{\f0\cf5 ""}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String password = }{\f0\cf5 ""}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String email = }{\f0\cf5 ""}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\b\cf9 int }{\f0\cf10 ranking = }{\f0\cf7 0}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\b\cf9 boolean }{\f0\cf10 admin = }{\f0\b\cf4 false}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 Date created = }{\f0\b\cf4 new }{\f0\cf10 Date}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String street = }{\f0\cf5 "<enter street address>"}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String zipCode = }{\f0\cf5 ""}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 String city = }{\f0\cf5 ""}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\cf10 List items = }{\f0\b\cf4 new }{\f0\cf10 ArrayList}{\f0\cf8 ()}{\f0\cf10 ;}
+\par {\f0\cf0     }{\f0\b\cf4 private }{\f0\b\cf9 int }{\f0\cf10 userId;}
+\par {\f0\cf0     }
+\par {\f0\cf0     }
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 boolean }{\f0\cf10 isAdmin}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 admin;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setAdmin}{\f0\cf8 (}{\f0\b\cf9 boolean }{\f0\cf10 admin}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .admin = admin;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getCity}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 city;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setCity}{\f0\cf8 (}{\f0\cf10 String city}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .city = city;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 Date getCreated}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 created;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setCreated}{\f0\cf8 (}{\f0\cf10 Date created}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .created = created;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getEmail}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 email;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setEmail}{\f0\cf8 (}{\f0\cf10 String email}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .email = email;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getFirstName}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 firstName;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setFirstName}{\f0\cf8 (}{\f0\cf10 String firstName}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .firstName = firstName;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getLastName}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 lastName;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setLastName}{\f0\cf8 (}{\f0\cf10 String lastName}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .lastName = lastName;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getPassword}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 password;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setPassword}{\f0\cf8 (}{\f0\cf10 String password}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .password = password;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 int }{\f0\cf10 getRanking}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 ranking;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setRanking}{\f0\cf8 (}{\f0\b\cf9 int }{\f0\cf10 ranking}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .ranking = ranking;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getStreet}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 street;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setStreet}{\f0\cf8 (}{\f0\cf10 String street}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .street = street;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getUserName}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 userName;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setUserName}{\f0\cf8 (}{\f0\cf10 String userName}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .userName = userName;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 String getZipCode}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 zipCode;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setZipCode}{\f0\cf8 (}{\f0\cf10 String zipCode}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .zipCode = zipCode;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\cf10 List getItems}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 items;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\cf14 /**}
+\par {\f0\cf0      }{\f0\cf14 * }{\f0\cf11 @return }{\f0\cf14 Returns the userId.}
+\par {\f0\cf0      }{\f0\cf14 */}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 int }{\f0\cf10 getUserId}{\f0\cf8 () \{}
+\par {\f0\cf0       }{\f0\b\cf4 return }{\f0\cf10 userId;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0     }{\f0\cf14 /**}
+\par {\f0\cf0      }{\f0\cf14 * }{\f0\cf11 @param }{\f0\cf14 userId The userId to set.}
+\par {\f0\cf0      }{\f0\cf14 */}
+\par {\f0\cf0     }{\f0\b\cf4 public }{\f0\b\cf9 void }{\f0\cf10 setUserId}{\f0\cf8 (}{\f0\b\cf9 int }{\f0\cf10 userId}{\f0\cf8 ) \{}
+\par {\f0\cf0       }{\f0\b\cf4 this}{\f0\cf10 .userId = userId;}
+\par {\f0\cf0     }{\f0\cf8 \}}
+\par {\f0\cf0   }{\f0\cf8 \}}
+\par {\f0\cf8 \}}}

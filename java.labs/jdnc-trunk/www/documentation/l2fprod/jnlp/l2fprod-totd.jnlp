@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File for L2FProd Common Components -->
+<!-- updated on 2005-06-03 -->
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/documentation/l2fprod/jnlp" href="l2fprod-totd.jnlp">
+  <information>
+    <title>SwingX - JXTipOfTheDay</title>
+    <vendor>l2fprod</vendor>
+    <homepage href="https://jdnc-incubator.dev.java.net/documentation/l2fprod/"/>
+    <offline-allowed/>
+  </information>
+  <resources> 
+    <j2se version="1.5+"/> 
+    <jar href="jdnc-l2fprod-totd.jar"/>
+  </resources> 
+  <application-desc main-class="org.jdesktop.swingx.TOTDTest">
+  </application-desc>
+</jnlp>

@@ -1,0 +1,51 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:ns1="http://tracx.de/pkp/interfaces/core/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+     <pkp-msg:auctionBookingRequestMessage xmlns:pkp-core="http://tracx.de/pkp/interfaces/core/1.0" xmlns:pkp-msg="http://tracx.de/pkp/interfaces/msg/1.0">
+               <pkp-core:messageIdentification>69f99c6b-0aa0-3d49-370a-59f9ca1ceb85</pkp-core:messageIdentification>
+               <pkp-core:creationDateTime>2011-06-07T14:00:24.171+02:00</pkp-core:creationDateTime>
+               <pkp-core:sender>
+                    <pkp-core:identificationCode>PKP</pkp-core:identificationCode>
+               </pkp-core:sender>
+               <pkp-core:recipient>
+                    <pkp-core:identificationCode>9870006901111</pkp-core:identificationCode>
+               </pkp-core:recipient>
+               <pkp-msg:auctionID>32768197</pkp-msg:auctionID>
+               <pkp-msg:booking>
+                    <pkp-msg:shipper>
+                         <pkp-core:authorityCode>DVGW</pkp-core:authorityCode>
+                         <pkp-core:identificationCode>9870099200007</pkp-core:identificationCode>
+                    </pkp-msg:shipper>
+                    <pkp-msg:shipperUser>user047.TK47@btc-ag.com</pkp-msg:shipperUser>
+                    <pkp-msg:dealID>32768001</pkp-msg:dealID>
+                    <pkp-msg:capacity>
+                    <pkp-core:offerID>PY-FZK-EN-7000690-13YDE2-3-B-20131001</pkp-core:offerID>
+                         <ns:location xmlns:ns="http://tracx.de/pkp/interfaces/core/1.0">
+                              <ns4:identifier xmlns="http://tracx.de/pkp/internal/core/1.0" xmlns:ns2="http://tracx.de/pkp/internal/masterdata/1.0" xmlns:ns3="http://tracx.de/pkp/processes/services/AuctionService/1.0" xmlns:ns4="http://tracx.de/pkp/interfaces/core/1.0" xmlns:ns5="http://tracx.de/pkp/internal/trading/1.0" xmlns:ns6="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsc="http://tracx.de/pkp/processes/services/FcfsBookingService/1.0">
+                                   <ns4:authorityCode>EIC</ns4:authorityCode>
+                                   <ns4:identificationCode>13YDE2-3-B</ns4:identificationCode>
+                              </ns4:identifier>
+                              <ns4:type xmlns="http://tracx.de/pkp/internal/core/1.0" xmlns:ns2="http://tracx.de/pkp/internal/masterdata/1.0" xmlns:ns3="http://tracx.de/pkp/processes/services/AuctionService/1.0" xmlns:ns4="http://tracx.de/pkp/interfaces/core/1.0" xmlns:ns5="http://tracx.de/pkp/internal/trading/1.0" xmlns:ns6="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsc="http://tracx.de/pkp/processes/services/FcfsBookingService/1.0">ConnectionPoint</ns4:type>
+                         </ns:location>
+                         <ns:capacity xmlns:ns="http://tracx.de/pkp/interfaces/core/1.0">
+                              <ns:interval>
+                                   <ns4:start xmlns="http://tracx.de/pkp/internal/core/1.0" xmlns:ns2="http://tracx.de/pkp/internal/masterdata/1.0" xmlns:ns3="http://tracx.de/pkp/processes/services/AuctionService/1.0" xmlns:ns4="http://tracx.de/pkp/interfaces/core/1.0" xmlns:ns5="http://tracx.de/pkp/internal/trading/1.0" xmlns:ns6="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsc="http://tracx.de/pkp/processes/services/FcfsBookingService/1.0">2013-10-01T06:00:00.000+02:00</ns4:start>
+                                   <ns4:end xmlns="http://tracx.de/pkp/internal/core/1.0" xmlns:ns2="http://tracx.de/pkp/internal/masterdata/1.0" xmlns:ns3="http://tracx.de/pkp/processes/services/AuctionService/1.0" xmlns:ns4="http://tracx.de/pkp/interfaces/core/1.0" xmlns:ns5="http://tracx.de/pkp/internal/trading/1.0" xmlns:ns6="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsc="http://tracx.de/pkp/processes/services/FcfsBookingService/1.0">2014-10-01T06:00:00.000+02:00</ns4:end>
+                              </ns:interval>
+                              <ns:direction>entry</ns:direction>
+                              <ns:category>FZK</ns:category>
+                              <ns:quantity>
+                                   <ns4:quantity xmlns="http://tracx.de/pkp/internal/core/1.0" xmlns:ns2="http://tracx.de/pkp/internal/masterdata/1.0" xmlns:ns3="http://tracx.de/pkp/processes/services/AuctionService/1.0" xmlns:ns4="http://tracx.de/pkp/interfaces/core/1.0" xmlns:ns5="http://tracx.de/pkp/internal/trading/1.0" xmlns:ns6="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsc="http://tracx.de/pkp/processes/services/FcfsBookingService/1.0">200</ns4:quantity>
+                                   <ns4:unit xmlns="http://tracx.de/pkp/internal/core/1.0" xmlns:ns2="http://tracx.de/pkp/internal/masterdata/1.0" xmlns:ns3="http://tracx.de/pkp/processes/services/AuctionService/1.0" xmlns:ns4="http://tracx.de/pkp/interfaces/core/1.0" xmlns:ns5="http://tracx.de/pkp/internal/trading/1.0" xmlns:ns6="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsc="http://tracx.de/pkp/processes/services/FcfsBookingService/1.0">kWh/h</ns4:unit>
+                              </ns:quantity>
+                              <ns:methane>H</ns:methane>
+                              <ns:assignability/>
+                              <ns:biogas>false</ns:biogas>
+                              <ns:bundled>false</ns:bundled>
+                         </ns:capacity>
+                         <ns:price xmlns:ns="http://tracx.de/pkp/interfaces/core/1.0"/>
+                    </pkp-msg:capacity>
+               </pkp-msg:booking>
+         </pkp-msg:auctionBookingRequestMessage>
+   </soapenv:Body>
+</soapenv:Envelope>

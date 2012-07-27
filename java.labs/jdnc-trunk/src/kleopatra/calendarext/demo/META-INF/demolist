@@ -1,0 +1,48 @@
+# Intro
+#org.jdesktop.swingxset.IntroPanelDemo
+
+# functionality
+
+#Data
+
+#Top-Level Containers
+#com.sun.swingset3.demos.dialog.DialogDemo
+#org.jdesktop.swingx.demos.xdialog.XDialogDemo
+#com.sun.swingset3.demos.frame.FrameDemo
+#org.jdesktop.swingx.demos.xframe.XFrameDemo
+
+#Containers
+
+
+#Controls
+org.jdesktop.swingx.demos.calendarext.CalendarBaseDemo
+org.jdesktop.swingx.demos.calendarext.DummyTableEditDemo
+#org.jdesktop.swingx.demos.calendarext.CalendarViewDemo
+
+
+#Text
+
+
+# Visual Decorations
+
+#Choosers
+# temporarily removed - broken, see Issue #28-demos
+#org.jdesktop.swingx.demos.gradientchooser.GradientChooserDemo
+
+# Visualization (PENDING: unmaintained ..)
+#org.jdesktop.swingx.demos.graph.GraphDemo
+
+#UNIMPLEMENTED SwingX Components (with comments)
+#this component is of debatable quality
+#org.jdesktop.swingx.demos.colorselectionbutton.ColorSelectionButtonDemo
+
+#should these find components be done together? in a search section?
+#org.jdesktop.swingx.demos.findbar.FindBarDemo
+#org.jdesktop.swingx.demos.findpanel.FindPanelDemo
+#org.jdesktop.swingx.demos.searchpanel.SearchPanelDemo
+
+#todo
+#org.jdesktop.swingx.demos.header.HeaderDemo
+
+#this component has no lasting value and will be removed
+#org.jdesktop.swingx.demos.logindialog.LoginDialogDemo

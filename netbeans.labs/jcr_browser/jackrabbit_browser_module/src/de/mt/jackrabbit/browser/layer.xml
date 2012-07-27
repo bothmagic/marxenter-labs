@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.1//EN" "http://www.netbeans.org/dtds/filesystem-1_1.dtd">
+<filesystem>
+    <folder name="Actions">
+        <folder name="File"/>
+        </folder>
+    <folder name="Menu">
+      <folder name="File">
+        <attr name="de-mt-jackrabbit-browser-ui-SomeAction.shadow/org-openide-actions-SaveAsAction.shadow" boolvalue="true"/>
+            <attr name="org-openide-actions-SaveAction.instance/de-mt-jackrabbit-browser-ui-SomeAction.shadow" boolvalue="true"/>
+            <file name="de-mt-jackrabbit-browser-ui-ConnectWizardAction.instance">
+            <attr name="name" stringvalue="de-mt-jackrabbit-browser-ui-ConnectWizardAction"/>
+                <attr name="position" intvalue="1300"/>
+        </file>
+          </folder>
+        </folder>
+    <folder name="Windows2">
+        <folder name="Components">
+            <file name="ExplorerTopComponent.settings" url="ExplorerTopComponentSettings.xml"/>
+            <file name="NodeExplorerTopComponent.settings" url="NodeExplorerTopComponentSettings.xml"/>
+        </folder>
+        <folder name="Modes">
+            <folder name="editor">
+                <file name="ExplorerTopComponent.wstcref" url="ExplorerTopComponentWstcref.xml"/>
+            </folder>
+            <folder name="explorer">
+                <file name="NodeExplorerTopComponent.wstcref" url="NodeExplorerTopComponentWstcref.xml"/>
+            </folder>
+        </folder>
+    </folder>
+</filesystem>

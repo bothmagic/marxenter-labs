@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/kschaefe/prompt-1.6.1" href="prompt.jnlp">
+  <information>
+    <title>SwingX PromptSupport Demo</title>
+    <vendor>SwingLabs Team</vendor>
+    <homepage href="https://swingx.dev.java.net/" />
+    <description>Demo of PromptSupport.</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.6+"/>
+    <jar href="prompt-demo.jar"/>
+    <jar href="../swingx-1.6.1.jar"/>
+  </resources>
+  <application-desc main-class="org.jdesktop.swingx.PromptSupportDemo" />
+</jnlp>

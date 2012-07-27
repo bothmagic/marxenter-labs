@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/rah003/login" href="login.jnlp">
+  <information>
+    <title>Login panel Demo</title>
+    <vendor>Swinglabs</vendor>
+    <homepage href="https://swinglabs.dev.java.net/" />
+    <description>Demo of Login Panel with CapsLock notification.</description>
+    <offline-allowed />
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="loginpanel.jar"/>
+    <jar href="swing-worker.jar"/>
+  </resources>
+  <application-desc main-class="org.jdesktop.swingx.LoginPanelDemo" />
+</jnlp>

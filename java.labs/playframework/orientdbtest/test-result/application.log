@@ -1,0 +1,14 @@
+15 Feb 2012 21:40:19,742 INFO  ~ Starting E:\development\java.labs\playframework\orientdbtest
+15 Feb 2012 21:40:19,746 INFO  ~ Module crud is available (E:\seu\play-1.2.4\modules\crud)
+15 Feb 2012 21:40:19,747 INFO  ~ Module orientdb is available (E:\seu\play-1.2.4\modules\orientdb-0.1.1)
+15 Feb 2012 21:40:20,253 WARN  ~ You're running Play! in DEV mode
+15 Feb 2012 21:40:20,339 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+15 Feb 2012 21:40:31,013 INFO  ~ [ODB] Starting OrientDB embbeded
+15 Feb 2012 21:40:31,388 INFO  ~ [ODB] OrientDB started
+15 Feb 2012 21:40:31,394 INFO  ~ [ODB] Registering Entities
+15 Feb 2012 21:40:31,394 INFO  ~ [ODB] Entity: models.Item
+15 Feb 2012 21:40:31,394 INFO  ~ [ODB] Schema: Item
+15 Feb 2012 21:40:31,398 INFO  ~ [ODB] Registering Database Listeners
+15 Feb 2012 21:40:31,399 INFO  ~ [ODB] Registering Record Hooks
+15 Feb 2012 21:40:31,628 INFO  ~ Connected to jdbc:h2:mem:play;MODE=MYSQL;LOCK_MODE=0
+15 Feb 2012 21:40:31,643 INFO  ~ Application 'orientdbtest' is now started !

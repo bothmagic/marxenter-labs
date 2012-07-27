@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan/modules" href="Rollover.jnlp">
+    <information>
+        <title>Rollover Jar Extensions</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://swinglabs.dev.java.net/" />
+        <description>Rollover Jar</description>
+        <description kind="short">Rollover Jar</description>
+        <offline-allowed />
+    </information>
+    <resources>
+        <j2se version="1.6+" />
+        <jar href="Rollover.jar" />
+        <extension name="Core" href="Core.jnlp" />
+        <extension name="Painters" href="Painters.jnlp" />
+        <extension name="SwingX-head" href="../../lib/share/ext-head.jnlp" />
+    </resources>
+    <component-desc />
+</jnlp>

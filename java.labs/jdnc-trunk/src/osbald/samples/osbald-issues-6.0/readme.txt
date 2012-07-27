@@ -1,0 +1,1 @@
+Module for issues involving JSE 6.0 code - as the majority of my incubator and swingx itself is still currently 5.0 based.

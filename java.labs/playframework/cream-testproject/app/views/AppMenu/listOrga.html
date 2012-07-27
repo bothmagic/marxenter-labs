@@ -1,0 +1,49 @@
+#{extends 'appmenumain.html' /}
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="toolbar">
+    <input type="button" id="add_orga" value="add orga" />
+    <input type="button" id="delete_orga" value="edit orga" />
+    <input type="button" id="edit_orga" value="remove orga" />
+</DIV>
+
+<div class="ui-widget">
+    <table id="orgas" >
+        <thead><tr><th>UUID</th><th>Name</th><th>Adress</th><th>City</th></tr></thead>
+        <tbody>
+            #{list orgas, as:'orga'}
+            <tr><td>${orga.path}</td><td>${orga.name}</td><td>${orga.name}</td><td>${orga.name}</td></tr>
+            #{/list}
+        </tbody>
+    </table>
+
+</div>
+<script type="text/javascript">
+    var oTable;
+    $(function () { 
+        $("input").click(function () {
+            switch(this.id) {
+                case "add_orga":
+                    window.location = "/appmenu/editOrga";
+                    break;
+			
+            }
+        });
+        oTable = $('#orgas').dataTable({
+            "bJQueryUI": true,
+            "sDom": '<"toolbar">'
+        });
+        
+        $("#orgas tbody tr").click( function( e ) {
+            if ( $(this).hasClass('ui-selected') ) {
+                $(this).removeClass('ui-selected');
+            }
+            else {
+                oTable.$('tr.ui-selected').removeClass('ui-selected');
+                $(this).addClass('ui-selected');
+            }
+        });
+    });
+</script>

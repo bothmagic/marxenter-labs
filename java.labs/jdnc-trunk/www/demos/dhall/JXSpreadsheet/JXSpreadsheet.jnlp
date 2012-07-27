@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+"
+      codebase="https://jdnc-incubator.dev.java.net/demos/dhall/JXSpreadsheet"
+      href="JXSpreadsheet.jnlp">
+  <information>
+    <title>JXSpreadsheet</title>
+    <vendor>David A. Hall</vendor>
+    <homepage href="https://jdnc-incubator.dev.java.net"/>
+    <description>swingx spreadsheet component</description>
+    <description kind="short">
+        A Spreadsheet where the cells contain Java objects.  Formulas may be entered
+        using any JSR-223 compliant scriptiong engine (the default is rhino, as it 
+        is included with the jvm starting with version 1.6).
+    </description>
+    <offline-allowed/> 
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="jdnc-dhall.jar"/>
+    <jar href="script-api.jar"/>
+    <jar href="script-js.jar"/>
+    <jar href="js.jar"/>
+  </resources>
+  <application-desc main-class="org.jdesktop.swingx.spreadsheet.JXSpreadsheet"/>
+</jnlp> 

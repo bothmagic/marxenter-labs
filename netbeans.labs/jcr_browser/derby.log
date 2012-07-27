@@ -1,0 +1,12 @@
+----------------------------------------------------------------
+2011-09-30 07:08:19.926 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.2.1.6 - (452058): instance c013800d-0132-b929-8a07-00000287a5c8
+on database directory D:\development_marx\netbeans.labs\jcr_browser\test-repo\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2011-09-30 07:08:21.457 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.2.1.6 - (452058): instance cbf5809d-0132-b929-8a07-00000287a5c8
+on database directory D:\development_marx\netbeans.labs\jcr_browser\test-repo\workspaces\default\db  
+
+Database Class Loader started - derby.database.classpath=''

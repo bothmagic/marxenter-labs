@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan/effects" href="EffectsDemoCore.jnlp">
+    <information>
+        <title>EffectsDemoCore</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://jdnc-incubator.dev.java.net/" />
+        <description>EffectsDemoCore API extension.</description>
+        <offline-allowed />
+    </information>
+    <resources>
+        <j2se version="1.6+" />
+        <jar href="EffectsDemoCore.jar" />
+        <extension name="Core" href="../modules/Core.jnlp" />
+        <extension name="JXComponent" href="../modules/JXComponent.jnlp" />
+        <extension name="JXEffectPanel" href="../modules/JXEffectPanel.jnlp" />
+        <extension name="TestUtilities" href="../modules/TestUtilities.jnlp" />
+    </resources>
+    <component-desc />
+</jnlp>
