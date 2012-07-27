@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../mattnathan">
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Core/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/BlurEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/ColorFilterEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/EffectsDemoCore/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/IdentityEffectsDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/MaskEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/MouseShadowEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/ParallelEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/ReflectionEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/RelativeTranslationEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/RippleEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/RotationEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/ScaleEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/SerialEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/ShadowEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/ShearEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Demos/Effects/TraslucentEffectDemo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXClock/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXComponent/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXEffectPanel/beaninfo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXEffectPanel/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXInspectionPane/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXSlider/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXTitledSeparator/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/JXTransitionPane/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Painters/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/Rollover/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/ScalableIcons/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/ScalePolicy/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/ScalePolicy/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/TestUtilities/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../mattnathan/demo" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/../mattnathan/demo/org/jdesktop/swingx/icon" />
+    </content>
+    <orderEntry type="jdk" jdkName="1.6" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="swingx" level="project" />
+    <orderEntry type="library" name="timingframework" level="project" />
+    <orderEntry type="library" name="junit" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../lib/ibiblio/org/swinglabs/multiplegradientpaint/1.0/multiplegradientpaint-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntryProperties />
+  </component>
+</module>
+

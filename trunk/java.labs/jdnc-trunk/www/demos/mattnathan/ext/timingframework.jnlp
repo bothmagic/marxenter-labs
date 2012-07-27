@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan/ext" href="timingfrmaework.jnlp">
+    <information>
+        <title>Timing Framework Extensions</title>
+        <vendor>Chet Hasse</vendor>
+        <homepage href="https://timingframework.dev.java.net/"/>
+        <description>SwingX Jar</description>
+        <description kind="short">TimingFramework Jar</description>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <j2se version="1.5+"/>
+        <jar href="TimingFramework.jar"/>
+    </resources>
+    <component-desc/>
+</jnlp>

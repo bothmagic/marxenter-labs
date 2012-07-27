@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+ $Id: build.xml 675 2005-09-16 03:11:57Z david_hall $
+
+ Copyright 2004 Sun Microsystems, Inc., 4150 Network Circle,
+ Santa Clara, California 95054, U.S.A. All rights reserved.
+
+ author: Mark Davidson
+
+-->
+
+<project name="JDNC Incubator" default="test" basedir=".">
+
+  <!-- use "env" as a prefix for enviroment variables -->
+  <property environment="env"/>
+  <property file="build.properties"/>
+
+  <!-- This pulls in references to the other swinglabs projects -->
+  <!-- If you have a non-standard swinglabs environment (ie, if -->
+  <!-- the other swinglabs projects are not siblings to the     -->
+  <!-- incubator projects, then you may override the settings in-->
+  <!-- this property file by adding the appropriate entries to  -->
+  <!-- build.properties                                         -->
+
+  <property file="project.properties"/>
+
+  <!-- Determines which project layout is in use -->
+  <property name="java.net.id.root" value="${basedir}/src/${java.net.id}"/>
+  <property name="original.root" value="${basedir}/src"/>
+
+  <available property="src.dir" value="${java.net.id.root}" type="dir" file="${java.net.id.root}"/>
+  <available property="src.dir" value="${original.root}"    type="dir" file="${java.net.id}">
+    <filepath>
+      <fileset dir="${original.root}">
+        <include name="java/**"/>
+        <include name="demo/**"/>
+        <include name="test/**"/>
+      </fileset>
+    </filepath>
+  </available>
+
+  <condition property="search.path" value="**">
+    <equals arg1="${src.dir}" arg2="${java.net.id.root}"/>
+  </condition>
+
+  <condition property="search.path" value="**/${java.net.id}/**">
+    <equals arg1="${src.dir}" arg2="${original.root}"/>
+  </condition>
+
+  <!-- sources directory -->
+  <available property="src.java" type="dir" file="${src.dir}/java" value="${src.dir}/java"/>
+  <available property="src.test" type="dir" file="${src.dir}/test" value="${src.dir}/test"/>
+  <available property="src.demo" type="dir" file="${src.dir}/demo" value="${src.dir}/demo"/>
+
+  <!-- library directories -->
+  <property name="lib.dir" location="${basedir}/lib"/>
+  <available property="lib.share" type="dir" file="${lib.dir}/share"/>
+  <available property="lib.user" type="dir" file="${lib.dir}/${java.net.id}"/>
+
+  <!-- build directory -->
+  <property name="build.dir" location="${basedir}/build"/>
+  <property name="build.javadoc" location="${build.dir}/javadoc"/>
+  <property name="build.classes" location="${build.dir}/classes"/>
+  <property name="build.test.classes" location="${build.dir}/test/classes"/>
+  <property name="build.demo.classes" location="${build.dir}/demo/classes"/>
+
+  <!-- default build flags -->
+  <property name="build.debug" value="true"/>
+  <property name="build.optimize" value="false"/>
+
+  <!-- dist artifacts -->
+  <property name="dist.dir" location="${basedir}/dist"/>
+
+  <!-- java web start -->
+  <condition property="javaws.dir" value="${java.home}/lib/">
+    <equals arg1="${java.specification.version}" arg2="1.5"/>
+  </condition>
+  <condition property="javaws.dir"
+    value="/Applications/Utilities/Java/Java Web Start.app/Contents/MacOS/">
+    <os family="mac"/>
+  </condition>
+  <condition property="javaws.dir" value="${java.home}/javaws/">
+    <not>
+      <isset property="javaws.dir"/>
+    </not>
+  </condition>
+
+  <!-- class paths -->
+  <path id="swinglabs.classpath">
+    <pathelement location="${reference.swingx.jar}"/>
+    <pathelement location="${reference.databinding.jar}"/>
+    <pathelement location="${reference.jdnc.jar}"/>
+    <pathelement location="${reference.swinglabs-demos.jar}"/>
+    <fileset dir="${project.swinglabs-demos}" includes="lib/*.jar"/>
+  </path>
+
+  <path id="compile.classpath">
+    <fileset dir="${javaws.dir}" includes="**/javaws*.jar"/>
+    <fileset dir="${lib.dir}">
+      <include name="share/*.jar" if="lib.share"/>
+      <include name="${java.net.id}/*.jar" if="lib.user"/>
+    </fileset>
+    <path refid="swinglabs.classpath"/>
+  </path>
+
+  <path id="run.classpath">
+    <!-- Put the built classes at the head of the classpath -->
+    <pathelement location="${build.classes}"/>
+    <path refid="compile.classpath"/>
+  </path>
+
+  <path id="test.classpath">
+    <!-- Put the built classes at the head of the classpath -->
+    <pathelement location="${build.test.classes}"/>
+    <path refid="run.classpath"/>
+  </path>
+
+  <path id="demo.classpath">
+    <!-- Put the built classes at the head of the classpath -->
+    <pathelement location="${build.demo.classes}"/>
+    <path refid="run.classpath"/>
+  </path>
+
+  <!-- Test settings -->
+  <condition property="test.package" value="org/jdesktop/jdnc/incubator/${java.net.id}">
+    <not>
+      <isset property="test.package"/>
+    </not>
+  </condition>
+
+  <!-- Demo settings (default) -->
+  <property name="demo.class" value="org.jdesktop.demo.MainWindow"/>
+
+  <import file="src/${java.net.id}/build-impl.xml" optional="true"/>
+
+  <!-- <property name="demo.args" value=""/> -->
+
+  <!-- ************************    -->
+  <!--    Target definitions       -->
+  <!-- ************************    -->
+
+  <target name="-check">
+    <available classname="junit.framework.Test" property="junit.present"/>
+
+    <fail message="Error: Missing JUnit classes" unless="junit.present"/>
+    <fail message="You must set your java.net id in build.properties" unless="java.net.id"/>
+  </target>
+
+  <target name="-prepare" depends="-check">
+    <tstamp/>
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+  </target>
+
+  <target name="clean" description="Deletes the build directory and the user's jar fil">
+    <delete dir="${build.dir}" quiet="true"/>
+    <delete file="${dist.dir}/jdnc-${java.net.id}.jar" quiet="true"/>
+  </target>
+
+  <target name="realclean" description="Deletes the dist and build directories">
+    <delete dir="${build.dir}" quiet="true"/>
+    <delete dir="${dist.dir}" quiet="true"/>
+  </target>
+
+  <target name="--compile" depends="-prepare">
+    <mkdir dir="${classes.output}"/>
+    <javac srcdir="${sources.input}" destdir="${classes.output}"
+      classpathref="${classpath.compile}" source="1.5" deprecation="on"
+      includes="${search.path}" 
+      debug="${build.debug}" optimize="${build.optimize}"/>
+
+    <copy todir="${classes.output}">
+      <fileset dir="${sources.input}">
+        <include name="${search.path}/resources/**"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="-compile" depends="-prepare">
+    <antcall target="--compile">
+      <param name="sources.input" value="${src.java}"/>
+      <param name="classes.output" value="${build.classes}"/>
+      <param name="classpath.compile" value="compile.classpath"/>
+    </antcall>
+  </target>
+
+  <!-- will build all the classes in the project -->
+  <target name="build" depends="-compile-test, -compile-demo"
+    description="Builds the sources, copies resources"/>
+
+  <target name="run" depends="-compile" description="Run the main of a class: -Drun.class=[class]">
+    <java classname="${run.class}" fork="true">
+      <classpath>
+        <path refid="run.classpath"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="debug" depends="-compile" description="Debug in NetBeans 4.0">
+    <ant antfile="build-nb-impl.xml" inheritRefs="true">
+      <property name="main.class" value="${run.class}"/>
+      <property name="main.classpath" value="run.classpath"/>
+    </ant>
+  </target>
+
+  <target name="-compile-test" depends="-compile" if="src.test">
+    <antcall target="--compile">
+      <param name="sources.input" value="${src.test}"/>
+      <param name="classes.output" value="${build.test.classes}"/>
+      <param name="classpath.compile" value="test.classpath"/>
+    </antcall>
+  </target>
+
+  <target name="test" depends="-compile-test" if="src.test"
+    description="Run a single or all unit tests: -Dtest.class=[class] | -Dtest.package=[package]">
+    <junit fork="yes">
+      <classpath>
+        <path refid="test.classpath"/>
+      </classpath>
+      <formatter type="plain" usefile="false"/>
+
+      <test name="${test.class}" if="test.class"/>
+
+      <batchtest unless="test.class">
+        <fileset dir="${src.test}">
+          <include name="${test.package}/*Test.java"/>
+        </fileset>
+      </batchtest>
+    </junit>
+  </target>
+
+  <target name="-compile-demo" depends="-compile" if="src.demo">
+    <antcall target="--compile">
+      <param name="sources.input" value="${src.demo}"/>
+      <param name="classes.output" value="${build.demo.classes}"/>
+      <param name="classpath.compile" value="demo.classpath"/>
+    </antcall>
+    <antcall target="--post-compile"/>
+  </target>
+  
+  <target name="--post-compile" depends="" if="">
+  </target>  
+
+  <target name="demo" depends="-compile-demo" if="src.demo"
+    description="Run a demo class: -Ddemo.class=[class] {-Ddemo.args=&quot;demo command line args&quot;">
+    <java classname="${demo.class}" fork="true" args="${demo.args}">
+      <classpath>
+        <path refid="demo.classpath"/>
+      </classpath>
+    </java>
+  </target>
+
+  <target name="debug-demo" depends="-compile-demo" description="Debug Demo in NetBeans 4.0">
+    <ant antfile="build-nb-impl.xml" inheritRefs="true">
+      <property name="main.class" value="${demo.class}"/>
+      <property name="main.classpath" value="demo.classpath"/>
+    </ant>
+  </target>
+
+  <target name="javadoc" depends="-compile"
+    description="Generates the javadoc for the project">
+    <mkdir dir="${dist.dir}/javadoc"/>
+    <javadoc source="1.5" sourcepath="${src.java}" destdir="${dist.dir}/javadoc"
+      packagenames="*">
+      <link offline="true"
+        packageListLoc="${basedir}/lib"
+        href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+      <classpath refid="run.classpath"/>
+    </javadoc>
+  </target>
+
+  <target name="dist" depends="clean" description="Creates the user's jar file">
+    <antcall target="-compile">
+      <param name="build.debug" value="false"/>
+      <param name="build.optimize" value="true"/>
+    </antcall>
+    <jar destfile="${dist.dir}/jdnc-${java.net.id}.jar"
+      basedir="${build.classes}" compress="true"
+      includes="${search.path}"/>
+  </target>
+
+</project>

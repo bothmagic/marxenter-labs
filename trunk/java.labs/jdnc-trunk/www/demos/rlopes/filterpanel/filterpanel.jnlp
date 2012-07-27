@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/rlopes/filterpanel" href="filterpanel.jnlp">
+
+    <information>
+        <title>JDNC - Quicksearcher with Filter Panel</title>
+        <vendor>Ricardo Lopes</vendor>
+        <homepage href="https://jdnc-incubator.dev.java.net" />
+        <description/>
+        <offline-allowed/>
+    </information>
+
+    <resources>
+      <j2se version="1.5+" />
+      <jar href="filterpanel.jar"/>
+      <jar href="jdnc-0_7-all.jar"/>      
+    </resources>
+
+    <application-desc main-class="org.jdesktop.jdnc.incubator.rlopes.jdncutils.demo.DemoFrame" />
+
+</jnlp>
+

@@ -1,0 +1,30 @@
+----------------------------------------------------------------
+2012-02-16 08:39:57.364 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-0135-8551-5fd9-000000058600
+on database directory D:\tmp-repo\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-16 08:39:58.380 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 888c4022-0135-8551-5fd9-000000058600
+on database directory D:\tmp-repo\workspaces\cream\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-16 08:39:59.505 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance b9810038-0135-8551-5fd9-000000058600
+on database directory D:\tmp-repo\workspaces\security\db  
+
+Database Class Loader started - derby.database.classpath=''
+
+2012-02-16 12:57:17.937 GMT:
+Shutting down instance b9810038-0135-8551-5fd9-000000058600
+----------------------------------------------------------------
+
+2012-02-16 12:57:18.094 GMT:
+Shutting down instance 888c4022-0135-8551-5fd9-000000058600
+----------------------------------------------------------------
+
+2012-02-16 12:57:18.266 GMT:
+Shutting down instance a816c00e-0135-8551-5fd9-000000058600
+----------------------------------------------------------------

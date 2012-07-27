@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jnlp 
+	spec="1.0+" 
+	codebase="http://jdnc-incubator.java.net/demos/kleopatra/ColumnControl" 
+	href="DialogCCExample.jnlp">
+  <information>
+    <title>Custom ColumnControl Popup</title>
+    <vendor>SwingLabs Team</vendor>
+    <homepage href="http://swings.java.net/" />
+    <description>Demo of Custom Implementation of JXTable's ColumnControl</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="../kleopatra-incubator.jar"/>
+    <extension name="extensions" href= "../extension.jnlp" />
+  </resources>
+  <application-desc main-class="org.jdesktop.swingx.table.CustomCCExample" />
+</jnlp>

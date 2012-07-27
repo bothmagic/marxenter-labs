@@ -1,0 +1,42 @@
+#{extends 'appmenumain.html' /}
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="toolbar" class="ui-widget">
+    <div class="ui-widget-content">
+        <input type="button" id="save" value="save" />
+        <input type="button" id="close" value="close" />
+    </div>
+</div>
+
+
+<form id="formID" class="ui-widget-content" method="post" action="/appmenu/organisation/save">
+            <label>
+                <span>Title: </span>
+                <input value="" class="validate[required] text-input" type="text" name="orga.title" id="req" />
+            </label>
+        
+    </form>
+
+<script type="text/javascript">
+    $(function () { 
+        $("input").click(function () {
+            switch(this.id) {
+                case "close":
+                    window.location = "/appmenu/organisation/";
+                    break;
+                case "save":
+                    $('#formID').submit();
+                    break;
+			
+            }
+            
+        });
+        
+        jQuery(document).ready(function(){
+            // binds form submission and fields to the validation engine
+            jQuery("#formID").validationEngine();
+        });
+    });
+</script>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan" href="JXInspectionPaneDemo.jnlp">
+    <information>
+        <title>Inspection Pane</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://jdnc-incubator.dev.java.net/"/>
+        <description>Simple panel for showing details</description>
+        <offline-allowed/>
+    </information>
+    <resources>
+        <j2se version="1.6+"/>
+        <jar href="JXInspectionPaneDemo.jar"/>
+        <extension name="Core" href="modules/Core.jnlp" />
+        <extension name="JXInspectionPane" href="modules/JXInspectionPane.jnlp" />
+        <extension name="Painters" href="modules/Painters.jnlp" />
+        <extension name="Rollover" href="modules/Rollover.jnlp" />
+        <extension name="ScalableIcons" href="modules/ScalableIcons.jnlp" />
+        <extension name="ScalePolicy" href="modules/ScalePolicy.jnlp" />
+        <extension name="TestUtilities" href="modules/TestUtilities.jnlp" />
+    </resources>
+    <application-desc main-class="org.jdesktop.swingx.JXInspectionPaneDemo"/>
+</jnlp>

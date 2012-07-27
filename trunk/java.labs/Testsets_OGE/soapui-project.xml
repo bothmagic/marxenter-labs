@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="Testsets_OGE" resourceRoot="" soapui-version="4.0.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="FCFSBookingServiceBinding" type="wsdl" bindingName="{http://tracx.de/pkp/interfaces/services/FCFSBookingService/1.0}FCFSBookingServiceBinding" soapVersion="1_1" anonymous="optional" definition="https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx?wsdl"><con:part><con:url>https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx?wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tracx.de/pkp/interfaces/services/FCFSBookingService/1.0" xmlns:s0="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tracx.de/pkp/interfaces/services/FCFSBookingService/1.0" xmlns:s1="http://tracx.de/pkp/interfaces/core/1.0" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Service fuer Import von FCFS-Buchungen.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tracx.de/pkp/interfaces/msg/1.0">
+      <s:import namespace="http://tracx.de/pkp/interfaces/core/1.0"/>
+      <s:element name="fcfsBookingRequestMessage" type="s0:FCFSBookingRequestMessageType"/>
+      <s:complexType name="FCFSBookingRequestMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="action">
+                <s:simpleType>
+                  <s:restriction base="s:string">
+                    <s:enumeration value="reservation"/>
+                    <s:enumeration value="cancellation"/>
+                    <s:enumeration value="booking"/>
+                    <s:enumeration value="ok"/>
+                  </s:restriction>
+                </s:simpleType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="shipper" type="s1:IdentificationDataType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="shipperUser" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s1:IdentificationDataType"/>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="capacity" type="s1:CapacityBookingDataType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="capacityTransformation" type="s1:CapacityTransformationType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AcknowledgementMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="processingState" type="s0:processingStateType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="referredMessage" type="s:string"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="processingStateType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ok"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CustomerDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="customerUserData" type="s1:CustomerUserDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MarketAreaSupervisorDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="company" type="s1:MasDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ConnectionPointDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="connectionPointVersions" type="s1:ArrayOfConnectionPointVersionType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AvailabilityRequestMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="location" type="s1:CapacityLocationType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="capacity" type="s1:CapacityDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AvailabilityResponseMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="requestID" type="s:string"/>
+              <s:choice minOccurs="0" maxOccurs="unbounded">
+                <s:element minOccurs="0" maxOccurs="1" name="requestedCapacity" type="s1:CapacityOfferDataType"/>
+                <s:element minOccurs="0" maxOccurs="1" name="alternativeComposition" type="s1:CapacityCompositionType"/>
+              </s:choice>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AuctionBookingRequestMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="auctionID" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="booking">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="shipper" type="s1:IdentificationDataType"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="shipperUser" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s1:IdentificationDataType"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="dealID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="capacity" type="s1:CapacityOfferDataType"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="capacityTransformation" type="s1:CapacityTransformationType"/>
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AssignmentMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="assignment" type="s1:AssignmentDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AuctionBookingResponseMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="requestID" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="auctionID" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="booking">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="shipper" type="s1:IdentificationDataType"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="shipperUser" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s1:IdentificationDataType"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="dealID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="contractID" type="s:string"/>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="bookedCapacity" type="s1:CapacityOfferDataType"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="capacityTransformation" type="s1:CapacityTransformationType"/>
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ProductDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="product" type="s1:CapacityAuctionDataType"/>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="competition" type="s1:CompetitionDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AuctionDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="auction" type="s1:AuctionDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CreditDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="creditData" type="s1:CreditDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ContractDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="initialize" type="s:boolean"/>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="contract" type="s1:ContractDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BookingInformationMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="additionalBookingInformation" type="s1:AdditionalBookingInformation"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AccountingGridDataMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="accountingGridData" type="s1:AccountingGridDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReturnCapacityMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="referredMessage" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="returnedCapacity" type="s1:CapacityReturnDataType"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FCFSBookingResponseMessageType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:MessageType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="shipper" type="s1:IdentificationDataType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="shipperUser" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s1:IdentificationDataType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="requestID" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="1" name="contractID" type="s:string"/>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="bookedCapacity" type="s1:CapacityBookingDataType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="capacityTransformation" type="s1:CapacityTransformationType"/>
+              <s:element minOccurs="0" maxOccurs="1" name="message" type="s1:ArrayOfLocalizedMessageTypeLocalizedMessage"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="fcfsBookingResponseMessage" type="s0:FCFSBookingResponseMessageType"/>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tracx.de/pkp/interfaces/core/1.0">
+      <s:complexType name="MessageType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="messageIdentification" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="creationDateTime" type="s:dateTime"/>
+          <s:element minOccurs="0" maxOccurs="1" name="sender" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="recipient" type="s1:IdentificationDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IdentificationDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="authorityCode">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="DVGW"/>
+                <s:enumeration value="EIC"/>
+                <s:enumeration value="ILN"/>
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="identificationCode" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChangeAnnotatedIdentifier">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:IdentificationDataType">
+            <s:attribute name="changed" type="s:boolean" use="required"/>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CustomerUserDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="customerVersions" type="s1:CustomerVersionListType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="userVersions" type="s1:UserVersionListType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomerVersionListType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="customerVersion" type="s1:CustomerVersionType"/>
+        </s:sequence>
+        <s:attribute name="action" type="s1:CustomerUserActionType"/>
+      </s:complexType>
+      <s:complexType name="CustomerVersionType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="customerData" type="s1:CustomerDataType"/>
+        </s:sequence>
+        <s:attribute name="startDate" type="s:date"/>
+      </s:complexType>
+      <s:complexType name="CustomerDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="accessType" type="s1:AccessTypeType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="companyData" type="s1:CompanyDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="billingAddress">
+            <s:complexType>
+              <s:complexContent mixed="false">
+                <s:extension base="s1:AddressDataType">
+                  <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s1:ChangeAnnotatedString"/>
+                    <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s1:ChangeAnnotatedString"/>
+                  </s:sequence>
+                </s:extension>
+              </s:complexContent>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="bankAccountData" type="s1:BankAccountDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="centralDispatchContact" type="s1:CentralDispatcherContactDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="dispatchContact" type="s1:DispatcherContactDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="billingContact" type="s1:UserDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="communicationContact" type="s1:UserDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="preparationContact" type="s1:UserDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="active" type="s1:ChangeAnnotatedBoolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AccessTypeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Shipper"/>
+          <s:enumeration value="TransmissionSystemOperator"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CompanyDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="identification" type="s1:ChangeAnnotatedIdentifier"/>
+          <s:element minOccurs="0" maxOccurs="1" name="vat" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="taxNumber" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="s1:AddressDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChangeAnnotatedString">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="changed" type="s:boolean" use="required"/>
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="AddressDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="streetName" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="streetNumber" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="town" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postbox" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postboxPostalCode" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postboxTown" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="country" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s1:ChangeAnnotatedString"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankAccountDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="bankName" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="bankCode" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="IBAN" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="BIC" type="s1:ChangeAnnotatedString"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CentralDispatcherContactDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="streetName" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="streetNumber" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="town" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postbox" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postboxPostalCode" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postboxTown" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="country" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="onCallPhone" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="backUpPhone" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="fax" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s1:ChangeAnnotatedString"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DispatcherContactDataType">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:UserDataType">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="onCallPhone" type="s1:ChangeAnnotatedString"/>
+              <s:element minOccurs="0" maxOccurs="1" name="backUpPhone" type="s1:ChangeAnnotatedString"/>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="UserDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accessData" type="s1:AccessDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="salutation" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="phone" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="fax" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s1:ChangeAnnotatedString"/>
+          <s:element minOccurs="0" maxOccurs="1" name="active" type="s1:ChangeAnnotatedBoolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccessDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="language" type="s1:ChangeAnnotatedLanguage"/>
+          <s:element minOccurs="0" maxOccurs="1" name="platformTermsAccepted" type="s1:ChangeAnnotatedBoolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="tsoTermsAccepted" type="s1:ChangeAnnotatedBoolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChangeAnnotatedLanguage">
+        <s:simpleContent>
+          <s:extension base="s:language">
+            <s:attribute name="changed" type="s:boolean" use="required"/>
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ChangeAnnotatedBoolean">
+        <s:simpleContent>
+          <s:extension base="s:boolean">
+            <s:attribute name="changed" type="s:boolean" use="required"/>
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:simpleType name="CustomerUserActionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="none"/>
+          <s:enumeration value="new"/>
+          <s:enumeration value="changed"/>
+          <s:enumeration value="deactivated"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="UserVersionListType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="userVersion" type="s1:UserVersionType"/>
+        </s:sequence>
+        <s:attribute name="action" type="s1:CustomerUserActionType"/>
+      </s:complexType>
+      <s:complexType name="UserVersionType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="userData" type="s1:UserDataType"/>
+        </s:sequence>
+        <s:attribute name="startDate" type="s:date"/>
+      </s:complexType>
+      <s:complexType name="MasDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="dvgwCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="companyName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="streetName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="streetNumber" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="town" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postbox" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postboxPostalCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="postboxTown" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="salutation" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="fax" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="language" type="s:language"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfConnectionPointVersionType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="connectionPointVersion" type="s1:ConnectionPointVersionType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ConnectionPointVersionType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="connectionPoint" type="s1:ConnectionPointDataType"/>
+        </s:sequence>
+        <s:attribute name="startDate" type="s:date"/>
+      </s:complexType>
+      <s:complexType name="ConnectionPointDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s1:CapacityLocationType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="code" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="meterPointCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="holder" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="holderTerms" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="marketerID" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="marketerTerms" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="position" type="s1:GeoCoordinateDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="assignabilityRestrictions" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="tradableCapacity" type="s1:TradableCapacityDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="direction" type="s1:DirectionType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="methane" type="s1:CapacityMethaneType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="biogas" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="charges" type="s1:ChargesDataWithTimeSeriesType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="calorificValue" type="s:decimal"/>
+          <s:element minOccurs="0" maxOccurs="1" name="adjacentNetworkOperator" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="active" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="individualField" type="s1:IndividualFieldsDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="s1:ConnectionPointType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="marketArea" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="nominationResponsibility" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="slotOrder" type="s1:ArrayOfSlotOrderType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="slotOrderBundle" type="s1:ArrayOfSlotOrderType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CapacityLocationType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="identifier" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="type">
+            <s:simpleType>
+              <s:restriction base="s:string">
+                <s:enumeration value="ConnectionPoint"/>
+                <s:enumeration value="Zone"/>
+                <s:enumeration value="Bundle"/>
+                <s:enumeration value="BundledZone"/>
+              </s:restriction>
+            </s:simpleType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GeoCoordinateDataType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="easting" type="s:decimal"/>
+          <s:element minOccurs="1" maxOccurs="1" name="northing" type="s:decimal"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TradableCapacityDataType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="category" type="s1:CapacityCategoryType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="interruptionCategory" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CapacityCategoryType">
+        <s:restriction base="s:string">
+          <s:enumeration value="TVK"/>
+          <s:enumeration value="FZK"/>
+          <s:enumeration value="BZK"/>
+          <s:enumeration value="bFZK"/>
+          <s:enumeration value="DZK"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DirectionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="entry"/>
+          <s:enumeration value="exit"/>
+          <s:enumeration value="bundle"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CapacityMethaneType">
+        <s:restriction base="s:string">
+          <s:enumeration value="H"/>
+          <s:enumeration value="L"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ChargesDataWithTimeSeriesType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="regulatedCapacityCharge" type="s1:ChargesDataElementWithIntervalType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="auctionSurcharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="measurementCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="biogasCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="operatingCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountingCharge" type="s1:ChargesDataElementType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChargesDataElementWithIntervalType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="interval" type="s1:TimeIntervalType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:decimal"/>
+          <s:element minOccurs="1" maxOccurs="1" name="unit" type="s1:ChargesUnitType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TimeIntervalType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime"/>
+          <s:element minOccurs="1" maxOccurs="1" name="end" type="s:dateTime"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ChargesUnitType">
+        <s:restriction base="s:string">
+          <s:enumeration value="ct/kWh/h/d"/>
+          <s:enumeration value="ct/kWh/h/m"/>
+          <s:enumeration value="ct/kWh/h/q"/>
+          <s:enumeration value="ct/kWh/h/y"/>
+          <s:enumeration value="ct/kWh/h/h"/>
+          <s:enumeration value="ct/kWh/h"/>
+          <s:enumeration value="euro/kWh/h/d"/>
+          <s:enumeration value="euro/kWh/h/m"/>
+          <s:enumeration value="euro/kWh/h/q"/>
+          <s:enumeration value="euro/kWh/h/y"/>
+          <s:enumeration value="euro/kWh/h/h"/>
+          <s:enumeration value="euro/kWh/h"/>
+          <s:enumeration value="ct/kWh/h/period"/>
+          <s:enumeration value="euro/kWh/h/period"/>
+          <s:enumeration value="ct/kWh/h/period"/>
+          <s:enumeration value="euro/y"/>
+          <s:enumeration value="euro/m"/>
+          <s:enumeration value="euro/d"/>
+          <s:enumeration value="flat euro/station/month"/>
+          <s:enumeration value="flat euro/station/quarter"/>
+          <s:enumeration value="flat euro/station/year"/>
+          <s:enumeration value="flat euro/station"/>
+          <s:enumeration value="flat ct/station/month"/>
+          <s:enumeration value="flat ct/station/quarter"/>
+          <s:enumeration value="flat ct/station/year"/>
+          <s:enumeration value="flat ct/station"/>
+          <s:enumeration value="flat euro/station/month depending"/>
+          <s:enumeration value="flat euro/station/quarter depending"/>
+          <s:enumeration value="flat euro/station/year depending"/>
+          <s:enumeration value="flat euro/station depending"/>
+          <s:enumeration value="flat ct/station/month depending"/>
+          <s:enumeration value="flat ct/station/quarter depending"/>
+          <s:enumeration value="flat ct/station/year depending"/>
+          <s:enumeration value="flat ct/station depending"/>
+          <s:enumeration value="flat euro/position/month"/>
+          <s:enumeration value="flat euro/position/quarter"/>
+          <s:enumeration value="flat euro/position/year"/>
+          <s:enumeration value="flat euro/position"/>
+          <s:enumeration value="flat ct/position/month"/>
+          <s:enumeration value="flat ct/position/quarter"/>
+          <s:enumeration value="flat ct/position/year"/>
+          <s:enumeration value="flat ct/position"/>
+          <s:enumeration value="flat euro/billing/month"/>
+          <s:enumeration value="flat euro/billing/quarter"/>
+          <s:enumeration value="flat euro/billing/year"/>
+          <s:enumeration value="flat euro/billing"/>
+          <s:enumeration value="flat ct/billing/month"/>
+          <s:enumeration value="flat ct/billing/quarter"/>
+          <s:enumeration value="flat ct/billing/year"/>
+          <s:enumeration value="flat ct/billing"/>
+          <s:enumeration value="euro"/>
+          <s:enumeration value="cent"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ChargesDataElementType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:decimal"/>
+          <s:element minOccurs="1" maxOccurs="1" name="unit" type="s1:ChargesUnitType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IndividualFieldsDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="key">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="language" type="s:language"/>
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ConnectionPointType">
+        <s:restriction base="s:string">
+          <s:enumeration value="marketTransitionPoint"/>
+          <s:enumeration value="borderTransitionPoint"/>
+          <s:enumeration value="reservoir"/>
+          <s:enumeration value="gridAccessPoint"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfSlotOrderType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="slotOrderItem" type="s1:SlotOrderType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SlotOrderType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="slot" type="s:decimal"/>
+          <s:element minOccurs="1" maxOccurs="1" name="category" type="s1:CapacityCategoryType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CapacityDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="interval" type="s1:TimeIntervalType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="direction" type="s1:DirectionType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="category" type="s1:CapacityCategoryType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="quantity" type="s1:CapacityQuantityDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="methane" type="s1:CapacityMethaneType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="assignability" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="biogas" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="interruptionCategory" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="bundled" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CapacityQuantityDataType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="unit" type="s1:CapacityQuantityUnitType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CapacityQuantityUnitType">
+        <s:restriction base="s:string">
+          <s:enumeration value="kWh/h/y"/>
+          <s:enumeration value="kWh/h"/>
+          <s:enumeration value="kWh"/>
+          <s:enumeration value="kW"/>
+          <s:enumeration value="kW/h"/>
+          <s:enumeration value="kW/h/y"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CapacityOfferDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="offerID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s1:CapacityLocationType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="capacity" type="s1:CapacityDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="price" type="s1:ChargesDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChargesDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="regulatedCapacityCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="auctionSurcharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="measurementCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="biogasCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="operatingCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountingCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="totalCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="splitFactorRegulatedCapacityCharge" type="s:decimal"/>
+          <s:element minOccurs="0" maxOccurs="1" name="splitFactorAuctionSurcharge" type="s:decimal"/>
+          <s:element minOccurs="0" maxOccurs="1" name="totalRegulatedCapacityCharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="totalAuctionSurcharge" type="s1:ChargesDataElementType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="totalChargeOfAuction" type="s1:ChargesDataElementType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CapacityCompositionType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="compositionElement" type="s1:CapacityOfferDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CapacityTransformationType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="maxTransformation" type="s1:CapacityQuantityDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="dealID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="contractID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s:string"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssignmentDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="action" type="s1:AssignmentActionType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AssignmentActionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="acceptance"/>
+          <s:enumeration value="rejection"/>
+          <s:enumeration value="deactivation"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CapacityAuctionDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="offer" type="s1:AuctionCapacityOfferDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="bfzkThreshold" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="1" name="splitFactor" type="s:decimal"/>
+          <s:element minOccurs="1" maxOccurs="1" name="slotID" type="s:decimal"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AuctionCapacityOfferDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="offerID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s1:CapacityLocationType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="capacity" type="s1:CapacityDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="price" type="s1:ChargesDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CompetitionDataType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="totalCapacity" type="s:long"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="competingCapacities" type="s1:CompetingCapacityDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CompetingCapacityDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="productID" type="s:string"/>
+          <s:element minOccurs="1" maxOccurs="1" name="noncompetitiveCapacity" type="s:long"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AuctionDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="auctionID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="offerID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="auctionPeriod" type="s1:TimeIntervalType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="equilibriumPrice" type="s:decimal"/>
+          <s:element minOccurs="1" maxOccurs="1" name="cancelled" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="bid" type="s1:AuctionBidDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AuctionBidDataType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="stage" type="s:long"/>
+          <s:element minOccurs="1" maxOccurs="1" name="price" type="s:decimal"/>
+          <s:element minOccurs="0" maxOccurs="1" name="shipper" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="bidComponents" type="s1:AuctionBidRowDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AuctionBidRowDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="minAmount" type="s1:CapacityQuantityDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="maxAmount" type="s1:CapacityQuantityDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="category" type="s1:CapacityCategoryType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="maxTransformation" type="s1:CapacityQuantityDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="biogas" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s1:IdentificationDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="customer" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="totalCredit" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="totalCreditDelta" type="s:int"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="creditYear" type="s1:CreditYearDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditYearDataType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="creditYear" type="s:int"/>
+          <s:element minOccurs="1" maxOccurs="1" name="creditYearDelta" type="s:int"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContractDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="contractID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="tsoID" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="shipperID" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="position" type="s1:ContractualPositionType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ContractualPositionType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="contractPosition" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="dealID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="bookedCapacity" type="s1:CapacityOfferDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AdditionalBookingInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s1:CapacityLocationType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="bookedCapacity" type="s1:CapacityDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="availableCapacity" type="s1:CapacityDataType"/>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="technicalAvailableCapacity" type="s1:CapacityDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="loadflowLink" type="s:anyURI"/>
+          <s:element minOccurs="0" maxOccurs="1" name="interruptionsLink" type="s:anyURI"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountingGridDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="tsoID" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="shipperID" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountingGridAuthorityID" type="s1:IdentificationDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="interval" type="s1:TimeIntervalType"/>
+          <s:element minOccurs="1" maxOccurs="1" name="biogas" type="s:boolean"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CapacityReturnDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s1:CapacityLocationType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="quantity" type="s1:CapacityQuantityDataType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="interval" type="s1:TimeIntervalType"/>
+          <s:element minOccurs="0" maxOccurs="1" name="dealID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="accountingGridID" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="contractPosition" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="plausible" type="s:boolean"/>
+          <s:element minOccurs="1" maxOccurs="1" name="confirmation" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="bundleComitted" type="s:boolean"/>
+          <s:element minOccurs="0" maxOccurs="1" name="dvgwCode" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s1:ChangeAnnotatedString"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CapacityBookingDataType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="dealId" type="s:string"/>
+          <s:element minOccurs="0" maxOccurs="1" name="capacity" type="s1:CapacityOfferDataType"/>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocalizedMessageTypeLocalizedMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="localizedMessage">
+            <s:complexType>
+              <s:simpleContent>
+                <s:extension base="s:string">
+                  <s:attribute name="language" type="s:language"/>
+                </s:extension>
+              </s:simpleContent>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="fcfsBookingSoapIn">
+    <wsdl:part name="fcfsBookingRequestMessage" element="s0:fcfsBookingRequestMessage"/>
+  </wsdl:message>
+  <wsdl:message name="fcfsBookingSoapOut">
+    <wsdl:part name="fcfsBookingResult" element="s0:fcfsBookingResponseMessage"/>
+  </wsdl:message>
+  <wsdl:portType name="FCFSBookingServiceBinding">
+    <wsdl:operation name="fcfsBooking">
+      <wsdl:input message="tns:fcfsBookingSoapIn"/>
+      <wsdl:output message="tns:fcfsBookingSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FCFSBookingServiceBinding" type="tns:FCFSBookingServiceBinding">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="fcfsBooking">
+      <soap:operation soapAction="fcfsBooking" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FCFSBookingService">
+    <wsdl:documentation>Service fuer Import von FCFS-Buchungen.</wsdl:documentation>
+    <wsdl:port name="FCFSBookingServiceBinding" binding="tns:FCFSBookingServiceBinding">
+      <soap:address location="https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx</con:endpoint></con:endpoints><con:operation isOneWay="false" action="fcfsBooking" name="fcfsBooking" bindingOperationName="fcfsBooking" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="fcfsBooking"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:ns1="http://tracx.de/pkp/interfaces/core/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:fcfsBookingRequestMessage>
+         <!--Optional:-->
+         <ns1:messageIdentification>?</ns1:messageIdentification>
+         <ns1:creationDateTime>?</ns1:creationDateTime>
+         <!--Optional:-->
+         <ns1:sender>
+            <!--Optional:-->
+            <ns1:authorityCode>?</ns1:authorityCode>
+            <!--Optional:-->
+            <ns1:identificationCode>?</ns1:identificationCode>
+         </ns1:sender>
+         <!--Optional:-->
+         <ns1:recipient>
+            <!--Optional:-->
+            <ns1:authorityCode>?</ns1:authorityCode>
+            <!--Optional:-->
+            <ns1:identificationCode>?</ns1:identificationCode>
+         </ns1:recipient>
+         <ns:action>?</ns:action>
+         <!--Optional:-->
+         <ns:shipper>
+            <!--Optional:-->
+            <ns1:authorityCode>?</ns1:authorityCode>
+            <!--Optional:-->
+            <ns1:identificationCode>?</ns1:identificationCode>
+         </ns:shipper>
+         <!--Optional:-->
+         <ns:shipperUser>?</ns:shipperUser>
+         <!--Optional:-->
+         <ns:accountingGridID>
+            <!--Optional:-->
+            <ns1:authorityCode>?</ns1:authorityCode>
+            <!--Optional:-->
+            <ns1:identificationCode>?</ns1:identificationCode>
+         </ns:accountingGridID>
+         <!--Zero or more repetitions:-->
+         <ns:capacity>
+            <!--Optional:-->
+            <ns1:dealId>?</ns1:dealId>
+            <!--Optional:-->
+            <ns1:capacity>
+               <!--Optional:-->
+               <ns1:offerID>?</ns1:offerID>
+               <!--Optional:-->
+               <ns1:location>
+                  <!--Optional:-->
+                  <ns1:identifier>
+                     <!--Optional:-->
+                     <ns1:authorityCode>?</ns1:authorityCode>
+                     <!--Optional:-->
+                     <ns1:identificationCode>?</ns1:identificationCode>
+                  </ns1:identifier>
+                  <ns1:type>?</ns1:type>
+               </ns1:location>
+               <!--Optional:-->
+               <ns1:capacity>
+                  <!--Optional:-->
+                  <ns1:interval>
+                     <ns1:start>?</ns1:start>
+                     <ns1:end>?</ns1:end>
+                  </ns1:interval>
+                  <ns1:direction>?</ns1:direction>
+                  <ns1:category>?</ns1:category>
+                  <!--Optional:-->
+                  <ns1:quantity>
+                     <ns1:quantity>?</ns1:quantity>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:quantity>
+                  <ns1:methane>?</ns1:methane>
+                  <!--Zero or more repetitions:-->
+                  <ns1:assignability>?</ns1:assignability>
+                  <ns1:biogas>?</ns1:biogas>
+                  <!--Optional:-->
+                  <ns1:interruptionCategory>?</ns1:interruptionCategory>
+                  <!--Optional:-->
+                  <ns1:bundled>?</ns1:bundled>
+               </ns1:capacity>
+               <!--Optional:-->
+               <ns1:price>
+                  <!--Optional:-->
+                  <ns1:regulatedCapacityCharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:regulatedCapacityCharge>
+                  <!--Optional:-->
+                  <ns1:auctionSurcharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:auctionSurcharge>
+                  <!--Optional:-->
+                  <ns1:measurementCharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:measurementCharge>
+                  <!--Optional:-->
+                  <ns1:biogasCharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:biogasCharge>
+                  <!--Optional:-->
+                  <ns1:operatingCharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:operatingCharge>
+                  <!--Optional:-->
+                  <ns1:accountingCharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:accountingCharge>
+                  <!--Optional:-->
+                  <ns1:totalCharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:totalCharge>
+                  <!--Optional:-->
+                  <ns1:splitFactorRegulatedCapacityCharge>?</ns1:splitFactorRegulatedCapacityCharge>
+                  <!--Optional:-->
+                  <ns1:splitFactorAuctionSurcharge>?</ns1:splitFactorAuctionSurcharge>
+                  <!--Optional:-->
+                  <ns1:totalRegulatedCapacityCharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:totalRegulatedCapacityCharge>
+                  <!--Optional:-->
+                  <ns1:totalAuctionSurcharge>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:totalAuctionSurcharge>
+                  <!--Optional:-->
+                  <ns1:totalChargeOfAuction>
+                     <ns1:amount>?</ns1:amount>
+                     <ns1:unit>?</ns1:unit>
+                  </ns1:totalChargeOfAuction>
+               </ns1:price>
+            </ns1:capacity>
+         </ns:capacity>
+         <!--Optional:-->
+         <ns:capacityTransformation>
+            <!--Optional:-->
+            <ns1:maxTransformation>
+               <ns1:quantity>?</ns1:quantity>
+               <ns1:unit>?</ns1:unit>
+            </ns1:maxTransformation>
+            <!--Optional:-->
+            <ns1:dealID>?</ns1:dealID>
+            <!--Optional:-->
+            <ns1:contractID>?</ns1:contractID>
+            <!--Optional:-->
+            <ns1:accountingGridID>?</ns1:accountingGridID>
+         </ns:capacityTransformation>
+      </ns:fcfsBookingRequestMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="fcfsBooking"/></con:call></con:operation></con:interface><con:testSuite name="FCFS_Anfrage"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FCFS_Anfrage_4_Zeitraum nicht möglch" searchProperties="true" id="8e7547d1-0e2e-4561-bb04-23368ce57186"><con:settings/><con:testStep type="request" name="fcfsBooking - fcfsBooking"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FCFSBookingServiceBinding</con:interface><con:operation>fcfsBooking</con:operation><con:request name="fcfsBooking - fcfsBooking" outgoingWss="" incomingWss="" wssPasswordType=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:ns1="http://tracx.de/pkp/interfaces/core/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+     <fcfsBookingRequestMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tracx.de/pkp/interfaces/msg/1.0">
+         <messageIdentification xmlns="http://tracx.de/pkp/interfaces/core/1.0">d13c9a78-0aa0-3d49-3db9-61f7683cc357</messageIdentification>
+         <creationDateTime xmlns="http://tracx.de/pkp/interfaces/core/1.0">2012-02-14T09:15:49.72+01:00</creationDateTime>
+         <sender xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+            <identificationCode>PKP</identificationCode>
+         </sender>
+         <recipient xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+            <authorityCode>DVGW</authorityCode>
+            <identificationCode>9870047600001</identificationCode>
+         </recipient>
+         <action>booking</action>
+         <shipper>
+            <authorityCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">DVGW</authorityCode>
+            <identificationCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">9800078500003</identificationCode>
+         </shipper>
+         <shipperUser>c@larsnielsen.de</shipperUser>
+         <accountingGridID>
+            <identificationCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">NCHB400110120109</identificationCode>
+         </accountingGridID>
+         <dealID>32772259840</dealID>
+         <capacity>
+            <location xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+               <identifier>
+                  <authorityCode>DVGW</authorityCode>
+                  <identificationCode>8893</identificationCode>
+               </identifier>
+               <type>ConnectionPoint</type>
+            </location>
+            <capacity xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+               <interval>
+                  <start>2012-02-15T06:00:00+01:00</start>
+                  <end>2011-02-16T06:00:00+01:00</end>
+               </interval>
+               <direction>exit</direction>
+               <category>FZK</category>
+               <quantity>
+                  <quantity>8</quantity>
+                  <unit>kWh/h</unit>
+               </quantity>
+               <methane>H</methane>
+               <biogas>false</biogas>
+               <interruptionCategory>inaktiv</interruptionCategory>
+               <bundled>false</bundled>
+            </capacity>
+            <price xmlns="http://tracx.de/pkp/interfaces/core/1.0"/>
+         </capacity>
+      </fcfsBookingRequestMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="fcfsBooking"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FCFS_Anfrage_5_TK-User nicht bekannt" searchProperties="true" id="a10a23e4-a7e6-4b0b-9fa2-bc820fb16125"><con:settings/><con:testStep type="request" name="fcfsBooking - fcfsBooking"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FCFSBookingServiceBinding</con:interface><con:operation>fcfsBooking</con:operation><con:request name="fcfsBooking - fcfsBooking" outgoingWss="" incomingWss="" wssPasswordType=""><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:ns1="http://tracx.de/pkp/interfaces/core/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+     <fcfsBookingRequestMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tracx.de/pkp/interfaces/msg/1.0">
+         <messageIdentification xmlns="http://tracx.de/pkp/interfaces/core/1.0">d13c9a78-0aa0-3d49-3db9-61f7683cc357</messageIdentification>
+         <creationDateTime xmlns="http://tracx.de/pkp/interfaces/core/1.0">2012-02-14T09:15:49.72+01:00</creationDateTime>
+         <sender xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+            <identificationCode>PKP</identificationCode>
+         </sender>
+         <recipient xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+            <authorityCode>DVGW</authorityCode>
+            <identificationCode>9870047600001</identificationCode>
+         </recipient>
+         <action>booking</action>
+         <shipper>
+            <authorityCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">DVGW</authorityCode>
+            <identificationCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">9800078500003</identificationCode>
+         </shipper>
+         <shipperUser>c@larsnielsen.de</shipperUser>
+         <accountingGridID>
+            <identificationCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">NCHB400110120109</identificationCode>
+         </accountingGridID>
+         <dealID>32772259840</dealID>
+         <capacity>
+            <location xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+               <identifier>
+                  <authorityCode>DVGW</authorityCode>
+                  <identificationCode>8893</identificationCode>
+               </identifier>
+               <type>ConnectionPoint</type>
+            </location>
+            <capacity xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+               <interval>
+                  <start>2012-02-15T06:00:00+01:00</start>
+                  <end>2011-02-16T06:00:00+01:00</end>
+               </interval>
+               <direction>exit</direction>
+               <category>FZK</category>
+               <quantity>
+                  <quantity>8</quantity>
+                  <unit>kWh/h</unit>
+               </quantity>
+               <methane>H</methane>
+               <biogas>false</biogas>
+               <interruptionCategory>inaktiv</interruptionCategory>
+               <bundled>false</bundled>
+            </capacity>
+            <price xmlns="http://tracx.de/pkp/interfaces/core/1.0"/>
+         </capacity>
+      </fcfsBookingRequestMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Simple Contains" name="ErrorMsg"><con:configuration><token>Fehler beim Prüfen des Benutzers</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" name="ErrorCode"><con:configuration><token>&lt;faultcode>Error&lt;/faultcode></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="fcfsBooking"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="FCFS_Anfrage_8_Netzpunkt nicht vorhanden" searchProperties="true"><con:settings/><con:testStep type="request" name="fcfsBooking - fcfsBooking"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FCFSBookingServiceBinding</con:interface><con:operation>fcfsBooking</con:operation><con:request name="fcfsBooking - fcfsBooking" outgoingWss="" incomingWss="" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://d-entrixplus.intranet.open-grid-europe.net/mts.services/soa/CapacityManagement/FCFSBookingService/FCFSBookingService.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://tracx.de/pkp/interfaces/msg/1.0" xmlns:ns1="http://tracx.de/pkp/interfaces/core/1.0">
+   <soapenv:Header/>
+   <soapenv:Body>
+     <fcfsBookingRequestMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://tracx.de/pkp/interfaces/msg/1.0">
+         <messageIdentification xmlns="http://tracx.de/pkp/interfaces/core/1.0">d13c9a78-0aa0-3d49-3db9-61f7683cc357</messageIdentification>
+         <creationDateTime xmlns="http://tracx.de/pkp/interfaces/core/1.0">2012-02-14T09:15:49.72+01:00</creationDateTime>
+         <sender xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+            <identificationCode>PKP</identificationCode>
+         </sender>
+         <recipient xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+            <authorityCode>DVGW</authorityCode>
+            <identificationCode>${#Project#recipient}</identificationCode>
+         </recipient>
+         <action>booking</action>
+         <shipper>
+            <authorityCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">DVGW</authorityCode>
+            <identificationCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">${#Project#shipper}</identificationCode>
+         </shipper>
+         <shipperUser>cl@larsnielsen.de</shipperUser>
+         <accountingGridID>
+            <identificationCode xmlns="http://tracx.de/pkp/interfaces/core/1.0">NCHB400110120109</identificationCode>
+         </accountingGridID>
+         <dealID>32772259840</dealID>
+         <capacity>
+            <location xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+               <identifier>
+                  <authorityCode>DVGW</authorityCode>
+                  <identificationCode>${#TestSuite#netpoint}</identificationCode>
+               </identifier>
+               <type>ConnectionPoint</type>
+            </location>
+            <capacity xmlns="http://tracx.de/pkp/interfaces/core/1.0">
+               <interval>
+                  <start>2012-02-15T06:00:00+01:00</start>
+                  <end>2011-02-16T06:00:00+01:00</end>
+               </interval>
+               <direction>exit</direction>
+               <category>FZK</category>
+               <quantity>
+                  <quantity>8</quantity>
+                  <unit>kWh/h</unit>
+               </quantity>
+               <methane>H</methane>
+               <biogas>false</biogas>
+               <interruptionCategory>inaktiv</interruptionCategory>
+               <bundled>false</bundled>
+            </capacity>
+            <price xmlns="http://tracx.de/pkp/interfaces/core/1.0"/>
+         </capacity>
+      </fcfsBookingRequestMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="Simple Contains"><con:configuration><token>&lt;faultcode>Error&lt;/faultcode></token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="fcfsBooking"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties><con:property><con:name>netpoint</con:name><con:value>8893</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>recipient</con:name><con:value>9870047600001</con:value></con:property><con:property><con:name>shipper</con:name><con:value>9800078500003</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>

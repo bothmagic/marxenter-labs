@@ -1,0 +1,137 @@
+<html>
+<head>
+    <title>Project Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000">
+<h1>JXLayer project</h1>
+
+Welcome to the home of the JXLayer, the universal decorator for Swing
+components.
+<p/>
+The JXLayer project is available under
+<a href="http://www.opensource.org/osi3.0/licenses/bsd-license.php">
+    BSD licence</a> and is free for commercial or non-commercial use.
+<p/>
+With help of JXLayer you can easily decorate your compound components
+and catch all Mouse, Keyboard and FocusEvent for all its subcomponents.
+<br/>
+JXLayer is very friendly to your applications, it uses only public Swing API and
+doesn't change any global settings like RepaintManager, EventQueue or frame's
+glassPane.
+<p/>
+JXLayer is extremely compatible with any other components or libraries
+and can be used in restricted environments, like unsigned applets.
+<p/>
+<ul>
+    <li>Don't like verbose AWTEventListeners?</li>
+    <li>Got tired of using frame's glassPane?</li>
+    <li>Going to write another custom RepaintManager,
+        but don't want to break compatibility with one from SwingX?
+    </li>
+</ul>
+
+Wrap your component with JXLayer and you'll have the complete control over it
+and all its subcomponents.
+
+<h4><ul>
+ <li><a href="#hotwo">Getting started</li>
+ <li><a href="#download">Download</li>
+ <li><a href="#forum">Ask a question</li>
+</ul></h4>
+
+<a name="howto"></a>
+<h4>Getting started</h4>
+
+There is a list of blog entries to describe how to use built-in JXLayer
+extentsions and how easy it is to create your own ones.<br/>
+The links will be adding when entry is available.
+
+<ol>
+    <li><a href="http://weblogs.java.net/blog/alexfromsun/archive/2008/06/the_new_jxlayer.html">Getting started</a></li>
+    
+    <li><a href="http://weblogs.java.net/blog/alexfromsun/archive/2008/07/jxlayer_30_lock.html">Lightweight disabling of compound compnents</a>
+        <br/>
+	<a href="https://jxlayer.dev.java.net/webstart/LockableDemo.jnlp">
+        <img border=0
+             src="http://java.sun.com/products/jfc/tsc/sightings/images/webstart.small.jpg"></a>
+    </li>
+    <li><a href="http://weblogs.java.net/blog/alexfromsun/archive/2008/06/jxlayer_30_mous.html">Mouse auto-scrolling</a>
+         <br/>
+	<a href="https://jxlayer.dev.java.net/webstart/MouseScrollableDemo.jnlp">
+        <img border=0
+             src="http://java.sun.com/products/jfc/tsc/sightings/images/webstart.small.jpg"></a>
+        
+    </li>
+    <li>Exploring repaintings of your components<br/>
+        <a href="https://jxlayer.dev.java.net/webstart/DebugRepaintingDemo.jnlp">
+            <img border=0
+                 src="http://java.sun.com/products/jfc/tsc/sightings/images/webstart.small.jpg"></a>
+        
+    </li>
+    <li>Enrich your application with the fancy spotlight effect.<br>
+        <a href="https://jxlayer.dev.java.net/webstart/SpotLightDemo.jnlp">
+            <img border=0
+                 src="http://java.sun.com/products/jfc/tsc/sightings/images/webstart.small.jpg"></a>
+    </li>
+
+   <li>JXLayer implementation: <a href="http://weblogs.java.net/blog/alexfromsun/archive/2008/07/jxlayer_30_how.html">Painting</a>
+      and <a href="http://weblogs.java.net/blog/alexfromsun/archive/2008/07/jxlayer_30_even.html">Event handling</a></li>
+</ol>
+
+See also the <a href="https://rainbow.dev.java.net">Rainbow project</a> for more examples.
+
+<p/>
+I am happy to mention blogs from the respected JXLayer's users:
+
+<ul>
+	<li><a href="http://www.pushing-pixels.org/?p=288">Colorizing Swing components under core look-and-feels</a> Note: old API warning</li>
+	<li><a href="http://polygoncell.blogspot.com/2008/07/update-common-validation-module-for.html">Common Validation Module for Swing Application</a></li>
+	<li><a href="http://www.pbjar.org/blogs/jxlayer/jxlayer40/index.html">JXLayer 4.0 demonstration by Piet Blok</a></li>
+	<li><a href="http://code.google.com/p/jbusycomponent/">Enhance any swing components with a busy state</a></li>
+	<li><a href="http://swing-fx.blogspot.com/2008/09/jgrid-folder-like-view-enhanced-with.html">JGrid: a folder-like view, enhanced with JXLayer</a></li>
+</ul>
+
+
+<a name="download"></a>
+<h4>Download</h4>
+
+The sources can be downloaded from the <a
+        href="https://jxlayer.dev.java.net/source/browse/jxlayer/trunk/">Subversion</a> 
+        repository.
+
+<br/>
+Jar and zip files are available for <a href="http://download.java.net/maven/2/org/swinglabs/jxlayer/">Maven</a>
+and also for direct download:
+<ul>
+    <li><a href="https://jxlayer.dev.java.net/bin/jxlayer.jar">jxlayer.jar</a>
+        - the binaries of JXLayer and its built-in extentions.
+    </li>
+    <li><a href="https://jxlayer.dev.java.net/bin/jxlayer-demo.jar">jxlayer-demo.jar</a>
+        - the binaries of JXLayer's demos
+        (you should also have <a
+            href="https://jxlayer.dev.java.net/bin/filters.jar">filters.jar</a>
+        and <a href="https://jxlayer.dev.java.net/bin/swingx.jar">swingx.jar</a>
+        to run them)
+    </li>
+    <li><a href="https://jxlayer.dev.java.net/bin/jxlayer-src.zip">jxlayer-src.zip</a>
+        - zipped source files of JXLayer and all its demos.
+    </li>
+    <li><a href="https://jxlayer.dev.java.net/bin/jxlayer-doc.zip">jxlayer-doc.zip</a>
+        - complete JXLayer's javadoc
+    <li><a href="https://jxlayer.dev.java.net/bin/jxlayer-all.zip">jxlayer-all.zip</a>
+        - everything mentioned above, zipped in one file.
+    </li>
+</ul>
+
+<a name="forum"></a>
+<h4>Ask a question</h4>
+
+Please send your comments and questions to the <a href="http://forums.java.net/jive/forum.jspa?forumID=140">JXLayer forum</a>.
+<p/>
+See you there!<br/>
+alexp
+</body>
+</html>
+

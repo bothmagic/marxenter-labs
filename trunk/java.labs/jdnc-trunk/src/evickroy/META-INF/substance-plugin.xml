@@ -1,0 +1,7 @@
+<laf-plugin>
+	<plugin-class>org.jdesktop.swingx.plaf.substance.SubstanceSwingxPlugin</plugin-class>
+	<theme-plugin-class>org.jvnet.substance.plugin.BaseThemePlugin</theme-plugin-class>
+	<watermark-plugin-class>org.jvnet.substance.plugin.BaseWatermarkPlugin</watermark-plugin-class>
+	<button-shaper-plugin-class>org.jvnet.substance.plugin.BaseButtonShaperPlugin</button-shaper-plugin-class>
+	<gradient-painter-plugin-class>org.jvnet.substance.plugin.BaseGradientPainterPlugin</gradient-painter-plugin-class>
+</laf-plugin>

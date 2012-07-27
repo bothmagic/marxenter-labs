@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/rah003/Wheel" href="WheelDemo.jnlp">
+  <information>
+    <title>Wheel Demo</title>
+    <vendor>rah003</vendor>
+    <homepage href="https://swinglabs.dev.java.net/" />
+    <description>Demo of simple JXWheel component</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="WheelDemo.jar"/>
+    <jar href="../../lib/share/swingx-head.jar"/>
+    <jar href="../../lib/share/TimingFramework.jar"/>
+  </resources>
+  <application-desc main-class="org.jdesktop.swingx.WheelMachineDemo" />
+</jnlp>

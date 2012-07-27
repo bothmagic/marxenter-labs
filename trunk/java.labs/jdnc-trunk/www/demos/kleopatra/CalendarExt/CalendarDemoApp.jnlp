@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jnlp 
+	spec="1.0+" 
+	codebase="http://jdnc-incubator.java.net/demos/kleopatra/CalendarExt" 
+	href="CalendarDemoApp.jnlp">
+
+  <information>
+    <title>Evolution of Calendar Components</title>
+    <vendor>SwingLabs Team</vendor>
+    <homepage href="http://swings.java.net/" />
+    <description>Demo of future Calendar Components</description>
+    <offline-allowed />
+  </information>
+
+  <resources>
+    <j2se version="1.6+"/>
+    <jar href="CalendarDemoApp.jar" />
+    <extension name="extensions" href="../extension-swingxset.jnlp" />
+  </resources>
+
+  <application-desc main-class="org.jdesktop.swingx.demos.CalendarDemoApp" />
+</jnlp>

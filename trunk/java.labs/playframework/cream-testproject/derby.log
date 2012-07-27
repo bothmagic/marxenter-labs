@@ -1,0 +1,78 @@
+----------------------------------------------------------------
+2012-02-27 20:23:15.494 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance a816c00e-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-27 20:23:16.975 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 888c4022-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\workspaces\cream\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-27 20:23:18.895 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 018f0039-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\workspaces\security\db  
+
+Database Class Loader started - derby.database.classpath=''
+
+2012-02-27 20:28:42.684 GMT:
+Shutting down instance 018f0039-0135-c07b-3821-0000031aae10
+----------------------------------------------------------------
+
+2012-02-27 20:28:42.735 GMT:
+Shutting down instance 888c4022-0135-c07b-3821-0000031aae10
+----------------------------------------------------------------
+
+2012-02-27 20:28:42.809 GMT:
+Shutting down instance a816c00e-0135-c07b-3821-0000031aae10
+----------------------------------------------------------------
+----------------------------------------------------------------
+2012-02-27 20:28:43.311 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance cfc50418-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-27 20:28:43.464 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance c46c842c-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\workspaces\cream\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-27 20:28:43.831 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance b9780440-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\workspaces\security\db  
+
+Database Class Loader started - derby.database.classpath=''
+
+2012-02-27 21:06:34.438 GMT:
+Shutting down instance b9780440-0135-c07b-3821-0000031aae10
+----------------------------------------------------------------
+
+2012-02-27 21:06:34.511 GMT:
+Shutting down instance c46c842c-0135-c07b-3821-0000031aae10
+----------------------------------------------------------------
+
+2012-02-27 21:06:34.578 GMT:
+Shutting down instance cfc50418-0135-c07b-3821-0000031aae10
+----------------------------------------------------------------
+----------------------------------------------------------------
+2012-02-27 21:06:34.708 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 5d84996c-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\version\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-27 21:06:34.807 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance bcd01980-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\workspaces\cream\db  
+
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+2012-02-27 21:06:35.050 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.5.3.0 - (802917): instance 1c7f9994-0135-c07b-3821-0000031aae10
+on database directory C:\Temp\tmp-repo\workspaces\security\db  
+
+Database Class Loader started - derby.database.classpath=''

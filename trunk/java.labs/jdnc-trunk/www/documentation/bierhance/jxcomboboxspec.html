@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <title>JXComboBox Motivation</title>
+  </head>
+  <body>
+  <h2>JXComboBox - What can we expect? What should we address?</h3>
+  <p><i>You have CVS access? Feel free to modify this document, add comments, etc.<br>
+        Other option: Leave a comment in the <a href="http://www.javadesktop.org/forums/forum.jspa?forumID=53">forum</a>.
+  </i></p>
+  <h3>Introduction</h4>
+  <p>
+  There has been some discussion going on about a new, extended version of JComboBox.
+  Originating in a request for supporting multiple columns in a JComboBox other possible
+  useful features were identified.
+  </p>
+  <p>
+  The mentioned discussions are in particular so far:
+  </p>
+  <p>
+  <a href="http://www.javadesktop.org/forums/thread.jspa?threadID=8583">JXComboBox - Small table demo and questions</a><br>
+  <a href="http://www.javadesktop.org/forums/thread.jspa?threadID=8063">JXComboBox - What would you like to have built-in?</a><br>  
+  <a href="http://www.javadesktop.org/forums/thread.jspa?threadID=7872">ComboBoxBinding</a><br>
+  </p>
+  <p>
+  Also have a look at our <a href="https://jdnc-incubator.dev.java.net/documentation/bierhance/jxcomboboxdemo.html">little demonstration</a>.
+  </p>
+  <p>This document will list some common feature requests for JComboBox and then propose some features that could
+  be provided by the JDNC project.
+  </p>
+  <h3>Frequently requested features</h4>
+  <p>
+  The net is full of questions about how to add a certain feature to JComboBox. Some popular ones
+  are described in the following sections.
+  </p>
+  <h4>Multiple columns</h4>
+  <p>
+  When choosing an item from a list with a combobox it is sometimes desirable to supply more information about the
+  items in question. An example: A user needs to choose a room for a meeting in a data entry form.
+  It might be desirable for him to know more about the room than just its number. In which building is it located?
+  What is its capacity? Are there any special facilities like video projectors, internet connection?
+  </p>
+  <p align="center"><img src="grafiken/multipleColumns.gif"></p>
+  <h4>Filtering</h4>
+  <p>
+  In the described situation it might also be of interest to filter the available list based on other user input.
+  Assume that the form also contains fields for the location of the meeting (meaning city/building), the number
+  of participants and date/duration. The could contain only those rooms that actually fit the user's needs. Rooms
+  without sufficient capacity, rooms in another city/building or rooms that are already occupied for the chosen
+  date could be omitted.
+  </p>
+  <p align="center"><img src="grafiken/filter.gif"></p>
+  <h4>Deactivated/Nonselectable items</h4>  
+  <p>Sometimes it is not desirable to completely ommit items. Users might be confused that their preferred item is
+  not in the list (&quot;I always book the green room. Where is it?&quot; User calls the support line...). Disabling
+  an item indicates to the user, that the system knows about the item, but it is not possible to select it right now.
+  </p>
+  <p align="center"><img src="grafiken/disabledrows.gif"></p>
+  <h4>Tooltips per listitem</h4>
+  <p>
+  Another way to provide extra information (apart from the multiple columns) are tooltips that popup when the user moves
+  the mouse over an item in the list. This would be a nice way to indicate that a room is already occupied for the given
+  time (to prevent: (&quot;I always book the green room. Why can't I select it?&quot; User calls the support line...).
+  </p>
+  <p align="center"><img src="grafiken/tooltips.gif"></p>
+  <h4>Additional icon per item</h4>
+  <p>
+  This is another way to provide extra information. On the left or right hand side of the actual list item (text description)
+  is an icon that either is a visual representation of the item or gives some extra information. E.g. a red box for an
+  occupied room, a green box for a room that is available.
+  </p>
+  <h4>Automatically add a new item to the list</h4>
+  <p>
+  This is a mechanism to let the user edit the list without the need to open another dialog. This is sometimes preceded
+  by a dialog to make sure the user does not add an item by accident. A prominent example is the addressbar of a browser, that
+  contains all URLs that have been entered previously (including those with spelling errors...).
+  </p>
+  <h4>HistoryComboBox</h4>
+  <p>
+  This is a mechanism to help the user select an item faster. The first items in the list are normally items that either
+  have been <i>frequently chosen</i> in the past or that have been <i>chosen most recently</i>. An example for the frequency based approach
+  is a font selector that keeps the most used fonts at the top of the list. An addressbar for a browser could be used with both
+  approaches.
+  </p>
+  <h4>Seperators inside the popup</h4>
+  <p>
+  This is a way to seperate semantically different items. In case of the HistoryComboBox one might want to keep the most frequently chosen
+  items in the top followed by a seperator and the regular items.
+  </p>
+  <h4>Autocompletion</h4>
+  <p>
+  Searching for an item in a combo box can be cumbersome if the box contains a lot of items.
+  If the user knows what he is looking for, it should be sufficient to enter a few starting characters of
+  the desired item and let the computer look for matching entries.
+  </p>
+  <h4>Nonselectable indicator that the user has to choose an item</h4>
+  <p>
+  This is a prominent option to make sure that the user actually selects something. A intial form might contain
+  a combobox that says "Choose a room...", however the currently selected item is not "Choose a room..." but
+  <code>null</code>.
+  </p>
+  <h4>Replace the popup component completely</h4>
+  <p>
+  While many of the above features can be realized with minor changes to listeners, renderers, etc. there
+  are special cases when the only option is to provide a completely custom component for the popup. One of the
+  most famous ones is probably a datepicker.
+  </p>
+  <h3>How can the JDNC project help?</h3>
+  <p>
+  All of the items above could be addressed, but how and in which order? I think that some of the items
+  don't need an implementation but just a hint on how to do it: good documentation with examples on how to achieve
+  common issues. Other items can't be resolved with a few lines of code and JDNC should provide code for these.
+  Following are those features that I think should come first.
+  </p>
+  <p>
+  <h4>Custom popup components</h4>
+  <p>
+  A straight forward extension to JComboBox that let developers set a custom component for the popup:
+  <code>void setPopupComponent(JComponent)</code> and <code>JComponent getPopupComponent()</code>.
+  Here is a
+  <a href="https://jdnc-incubator.dev.java.net/source/browse/*checkout*/jdnc-incubator/src/java/org/jdesktop/jdnc/incubator/bierhance/JComponentComboBox.java">proposal (sourcecode)</a>
+  for it. Although the trick is a bit of a hack it seems to work and supplies a quick solution.
+  There is some extra code in here to deal with changing look&amp;feels. As the popup component now can become wider than
+  the combobox itself, we need to think about some placement strategy.
+  </p>
+  <h4>Multiple columns</h4>
+  <p>
+  A combobox that displays a table inside its popup. Navigation and selection should be as close
+  as possible to the original JComboBox:
+  <ul>
+  <li>only rows are selectable</li>
+  <li>single selection only</li>
+  <li>no support for drag&amp;drop</li>
+  <li>no reordering of the columns</li>
+  <li>no sorting via click on header (not sure about this one)</li>
+  <li>not editable (no other option here: we can't pass the keyboard focus to the popup component)</li>
+  <li>Mouse-over effect for the rows, but differently from JComboBox the selected item should keep its
+  visual mark.</li>
+  </ul>
+  </p>
+  <p>Comment by Ann Sunhachawee (<a href="http://www.javadesktop.org/forums/thread.jspa?messageID=61382#61382">original message</a>):
+  <i>
+  <ul>
+  <li>I think that the checkbox that appears in some of the examples make it feel editable though,
+  so I think the graphic should change, perhaps to just a checkmark.</li>
+  <li>What about being able to introduce a table that doesn't have column headers? I think some
+  places might be self explanatory (e.g. showing first name, last name in a "Name:" combobox)</li>
+  <li>A table that has the option to turn off the lines might be nice too for readability.</li>
+  </ul>
+  </i>
+  </p>
+  <p>
+  One of the columns is the bounded value and is returned on <code>JComboBox.getSelectedItem()</code>.
+  A big issue is a sizing policy for the columns (see the discussions from above). I cite Patrick here (<a href="http://www.javadesktop.org/forums/thread.jspa?messageID=53953#53953">original message</a>):
+  </p>
+  <p>
+  <cite>
+  What I'm not sure of it how to specify the width. Some options off the top<br>of my head: <br><br>1) auto-adjust/full: display all columns available in the combo, adjusting<br>col size automatically based on contents<br><br>2) auto-adjust/max pix: display all columns, but limit the total<br>displayable drop down by pixel size<br><br>3) % of combo: display drop-down at max % of combo preferred width<br><br><br>All of these have limitations. One would like to avoid horizontal<br>scrolling on a drop down at all costs. On the other hand, doing that will<br>depend on where the combo is positioned on the form, and the screen<br>resolution.<br><br>I haven't had to do this in awhile, but seem to remember that % width<br>worked pretty well. Auto-adjust/full works for small combos (e.g. where<br>total width is never that large), but not good if you have too many cols<br>on your drop-down. Limiting by pixels is not portable across resolutions.<br><br>
+  </cite>
+  </p>
+  <p>
+  Note that in the recent <a href="http://java.sun.com/developer/community/chat/JavaLive/2005/jl0215.html">chat on java.net</a> there
+  has been a general request for a feature like this one:
+  </p>
+  <p>
+  <cite>
+  <b><i>Dan</i></b>: For <code>JTable</code>, please, please, please, also give us a <i>simple</i> way to size a column to best fit the contents (that is, without us writing the explicit code).
+  </cite>
+  </p>
+  <p>
+  There is a first implementation (far from being perfect) for this in the current CVS (<code>JTableComboBox.resize()</code>).
+  Maybe this should be considered for JXTable in general. The mouse-over effect might also be a candidate that could
+  be of use not in JXComboBox only.
+  </p>
+  <h4>Automatic Completion</h4>
+  <p>
+  I wrote a <a href="http://www.orbital-computer.de/JComboBox">lengthy article</a> about this, so I won't go into the
+  details. JXComboBox should have some simple form of autocompletion integrated. Easy to use: a method to enable or disable
+  autocompletion. Depending on whether the combobox is editable in this moment the autocompletion would be strict
+  or non-strict. Autocompletion is also a feature that could be generalized and used with a JTextField only or together with
+  a JTextField and JList/JTable (but this is certainly not on the agenda now).
+  </p>
+  <h4>Grid like structures</h4>
+  <p>
+  Ricardo Lopes has recently shown his versions of a color- and a smiliechooser. It could well be that some
+  standard behaviour for grid-like components could be extracted (mouse-over effect, keyboard navigation).
+  </p>
+  </body>
+</html>

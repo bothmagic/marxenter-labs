@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><!-- InstanceBegin template="/Templates/Main.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>What's next for JTaskPaneGroup&amp;JXScrollUp</title>
+<!-- InstanceEndEditable --><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style type="text/css">
+<!--
+h2 {
+	font-size: 14px;
+	color: #999999;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+h1 {
+	font-size: 16px;
+}
+h3 {
+	font-size: 12px;
+	font-weight: bold;
+}
+.imageWithBorder {
+	margin: 10px;
+}
+.note {
+	background-color: #FFFFCC;
+	padding: 10px;
+	border: 1px solid #000000;
+	margin: 10px;
+	font-style: italic;
+}
+.style1 {
+	font-size: x-small;
+	font-style: italic;
+}
+li {
+	border-bottom-width: 5px;
+	margin-bottom: 5px;
+}
+.code {
+	background-color: #FFFFCC;
+	padding: 10px;
+	border: 1px solid #000000;
+	margin: 10px;
+	font-family: "Courier New", Courier, mono;
+}
+-->
+</style>
+<!-- InstanceBeginEditable name="head" --><!-- InstanceEndEditable -->
+</head>
+<body>
+<h1><!-- InstanceBeginEditable name="ARTICLE_TITLE" -->Introduction to JTaskPaneGroup &amp; JXScrollUp<!-- InstanceEndEditable --><br>
+Fr&eacute;d&eacute;ric Lavigne (l2fprod)</h1>
+<table width="100%"  border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td><!-- InstanceBeginEditable name="INTRO" -->
+      <p>Swing has lot of components but there are some components found in everyday application that are missing in Swing. One year ago, I started working on a small project to implement some of these missing components. The project is named <a href="http://common.L2FProd.com">&quot;L2FProd.com Common Components&quot;</a> and its source code is hosted <a href="https://l2fprod-common.dev.java.net">here</a> at java.net.</p>
+      <p>Among the components provided by this project, you find a JButtonBar, a JOutlookBar, a JDirectoryChooser, a JFontChooser, a PropertySheet and the component which interests us today, a JTaskPaneGroup. The JTaskPaneGroup is named after the <em>new</em> user interface components brought by Microsoft Windows XP: XP Task Panes a.k.a. Explorer Bars (<a href="http://www.winsupersite.com/images/reviews/wxp_rtm_home_011.gif" target="_blank">see it</a>).</p>
+    <!-- InstanceEndEditable --></td>
+  </tr>
+</table>
+<!-- InstanceBeginEditable name="BODY" -->
+<h1>&nbsp;</h1>
+<table width="100%"  border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td colspan="2"><h2>Features</h2>    </td>
+  </tr>
+  <tr>
+    <td valign="top"><p><img src="images/taskpane-description.png" alt="JTaskPane" width="336" height="150" border="0" align="right" class="imageWithBorder">Typically, the JTaskPaneGroup is a container for actions represented by hyperlinks. But more generally, any component can be added in the JTaskPaneGroup. Components are directly added on the JTaskPaneGroup (<em>group.add(myComponent)</em>).</p>
+      <h3>Properties</h3>
+      <p>A JTaskPaneGroup is given a title, an icon, an &quot;expanded&quot; state. To match the Microsoft Windows API, a JTaskPaneGroup can be marked as <em>special</em> - usually it means the header will be painted differently.</p>
+      <h3>Expand and Collapse Behavior</h3>
+      <p>When the end-user clicks on the JTaskPaneGroup header, the pane toggles its state and hides or shows its content. When collapsed, only the header is visible. The developer can programmatically expand or collapse the component. If the JTaskPaneGroup is contained in a JScrollPane, there is an option (<em>scrollOnExpand</em>) to ensure the JScrollPane will automatically scroll if the JTaskPaneGroup is not completely visible. </p>
+      <h3>Animation</h3>
+      <p>During collapse, the JTaskPaneGroup shrinks its content until it is no longer visible. The animation can be turned off with UIManager property. When the JTaskPaneGroup is used in an IDE as a JavaBean, the animation is disabled. </p>
+      <h3>Actions</h3>
+      <p>In addition to supporting any components, the JTaskPaneGroup can use add <em>Action</em>s. When an Action (javax.swing) is added to the JTaskPaneGroup, it will automatically create a button looking like an hyperlink. The hyperlink icon, tooltip, text are taken from the Action as a JToolBar does. </p></td>
+    <td align="center" valign="middle">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2"><h2>Available UIs</h2></td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>The JTaskPaneGroup has 4 available look and feel implementations: Basic, Windows XP, Windows Classic and Metal.</p>
+    <p>The UI takes in charge the painting of the header and the content border. It implements rollover effect when the mouse goes over the header.</p>
+    <p>The JTaskPaneGroup can receive focus. When it has focus, the header is painted with a dotted rectangle (like a focused JButton), the user can expand/collapse the JTaskPaneGroup by pressing the &lt;SPACE&gt; key.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2"><h2>Class Diagram</h2></td>
+  </tr>
+  <tr align="center" valign="middle">
+    <td colspan="2"><img src="images/taskpane-model.png" width="701" height="394"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><h2>Things I do not like in JTaskPaneGroup</h2></td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>Windows XP plaf does not use the native Microsoft Visual Style (as other Swing components do when using the WindowsLookAndFeel under XP). Thus the look and the color used by Windows XP look are hardcoded in the plaf. I guess I should look into com.sun.java.swing.plaf.windows.XPStyle but this class is package private.</p>
+      <p>To add a component to the JTaskPaneGroup, the developer has to call group.add(component). I wanted to avoid the &quot;contentPane&quot; scheme - <em>group.getContentPane().add(component)</em> - although it is quite simple to workaround the need for getContentPane() as recently implemented in JFrame/JDialog in J2SE 1.5. But not using the contentPane prevents from implementing a better animation on expand/collapse.</p></td>
+  </tr>
+  <tr>
+    <td colspan="2"><h2>JXScrollUp</h2></td>
+  </tr>
+  <tr>
+    <td colspan="2"><p>Part of <a href="https://swingx.dev.java.net/">SwingX</a>, JXScrollUp 
+
+
+    <em>Extends JXTitledPanel and adds collapsing functionality</em>. It is similar to JTaskPaneGroup. Components are not added directly to the JXScrollUp component but to a contentPane. It makes possible to implement fade in/fade out when the component is expanded/collapsed.</p>
+    <p>The component is in its early stage and does not yet use pluggable look and feel. </p></td>
+  </tr>
+  <tr>
+    <td colspan="2"><h2>What's next? </h2></td>
+  </tr>
+  <tr>
+    <td colspan="2">Next plan is currently being <a href="JTaskPaneGroup-plans.html">discussed</a>.</td>
+  </tr>
+</table>
+<!-- InstanceEndEditable -->
+<p class="style1">Last update:
+  <!-- #BeginDate format:Am1 -->June 6, 2005<!-- #EndDate -->
+</p>
+</body>
+<!-- InstanceEnd --></html>

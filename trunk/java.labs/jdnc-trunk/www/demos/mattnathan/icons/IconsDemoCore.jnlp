@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan/icons" href="IconsDemoCore.jnlp">
+    <information>
+        <title>IconsDemoCore</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://jdnc-incubator.dev.java.net/" />
+        <description>IconsDemoCore API extension.</description>
+        <offline-allowed />
+    </information>
+    <resources>
+        <j2se version="1.6+" />
+        <jar href="IconsDemoCore.jar" />
+        <extension name="Core" href="../modules/Core.jnlp" />
+        <extension name="ScalableIcons" href="../modules/ScalableIcons.jnlp" />
+        <extension name="ScalePolicy" href="../modules/ScalePolicy.jnlp" />
+        <extension name="TestUtilities" href="../modules/TestUtilities.jnlp" />
+        <extension name="SwingX-head" href="../../lib/share/ext-head.jnlp" />
+    </resources>
+    <component-desc />
+</jnlp>

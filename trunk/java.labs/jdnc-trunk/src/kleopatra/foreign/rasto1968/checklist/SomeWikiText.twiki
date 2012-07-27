@@ -1,0 +1,23 @@
+%TOC%
+
+A collection of <nop>CheckList status, design decisions, past and future goals.
+
+---++ Use-cases
+
+collect! what do we really need and what for?
+
+---++ Design Considerations 
+
+   * minimal number of additional classes, minimal api, maximal flexibility 
+   * consistency with <nop>SwingX (rendering, rollover, expose model properties in component)
+
+---++ Forum Links
+
+   * [[http://forums.java.net/jive/thread.jspa?threadID=37890][Design discussion]] starting at Santhosh's (and same time JIDE's, as it was contributed by him) approach (Mar. 2008), revived Jun. 2009
+
+---++ Code/Alternatives
+
+   * TODO: add link to Santhosh
+   * TODO: add link to Thierry
+   * TODO: add link to incubator (Rob's original, Jeanette's/Karl's modifications)
+   * TODO: add link to JIDE commons

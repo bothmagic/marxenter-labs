@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<jnlp 
+	spec="1.0+" 
+	codebase="http://jdnc-incubator.java.net/demos/kleopatra/Renderer" 
+	href="XtremeApplication.jnlp">
+  <information>
+    <title>SwingXtreme Renderer</title>
+    <vendor>SwingLabs Team</vendor>
+    <homepage href="http://swingx.java.net/" />
+    <description>Demo of Reusing Xtreme Renderers across Collection Components</description>
+    <icon href="http://jdnc-incubator.java.net/demos/kleopatra/kleopatra.jpg" kind="default" />
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="../kleopatra-incubator.jar"/>
+    <extension name="extensions" href= "../extension.jnlp" />
+  </resources>
+  <application-desc main-class="org.jdesktop.swingx.renderer.scott.extreme.XtremeRendererApplication" />
+</jnlp>

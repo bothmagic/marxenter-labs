@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/lib/share" href="ext-head.jnlp">
+  <information>
+    <title>Standard Demo Extensions</title>
+    <vendor>SwingLabs Team</vendor>
+    <homepage href="https://swinglabs.dev.java.net/"" />
+    <description>3rd party jars</description>
+    <description kind="short">3rd party jars</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="swingx-head.jar"/>
+  </resources>
+  <component-desc/>
+</jnlp>

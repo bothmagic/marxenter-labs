@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/rah003/JXLabel" href="JXLabelDemo.jnlp">
+  <information>
+    <title>JXLabel Demo</title>
+    <vendor>SwingLabs Team</vendor>
+    <homepage href="https://swinglabs.dev.java.net/" />
+    <description>Demo of Painters, line wrapping and text rotation</description>
+    <offline-allowed />
+  </information>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="JXLabelDemo.jar"/>
+    <extension name="extensions" href= "../extension.jnlp" />
+  </resources>
+  <application-desc main-class="org.jdesktop.swingx.JXLabelDemo" />
+</jnlp>

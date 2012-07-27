@@ -1,0 +1,1099 @@
+16 Feb 2012 09:02:17,556 INFO  ~ Starting D:\development_marx\java.labs\playframework\cream-simple-test
+16 Feb 2012 09:02:17,556 INFO  ~ Module cream is available (D:\seu\play-1.2.4\modules\cream-0.1)
+16 Feb 2012 09:02:17,556 INFO  ~ Module crud is available (d:\seu\play-1.2.3\modules\crud)
+16 Feb 2012 09:02:18,134 WARN  ~ You're running Play! in DEV mode
+16 Feb 2012 09:02:18,259 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+16 Feb 2012 09:02:26,726 INFO  ~ Application 'Cream Simple Tests' is now started !
+16 Feb 2012 09:02:26,773 INFO  ~ Creating repository directory repository
+16 Feb 2012 09:02:26,773 INFO  ~ Copying configuration from jar:file:/D:/seu/play-1.2.4/modules/cream-0.1/lib/jackrabbit-core-2.2.7.jar!/org/apache/jackrabbit/core/repository.xml to repository.xml
+16 Feb 2012 09:02:27,022 INFO  ~ Starting repository...
+16 Feb 2012 09:02:27,022 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:02:27,210 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:02:27,226 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:02:30,381 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:02:30,381 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:02:32,240 INFO  ~ indexing... /jcr:system/jcr:nodeTypes/rep:Activities/jcr:childNodeDefinition (100)
+16 Feb 2012 09:02:32,490 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:02:32,600 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:02:32,600 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:02:32,615 INFO  ~ created system workspace: security
+16 Feb 2012 09:02:32,646 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:02:32,646 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:02:32,646 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:02:33,365 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:02:33,365 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:02:33,365 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:02:33,381 INFO  ~ Repository started (6359ms)
+16 Feb 2012 09:02:33,381 INFO  ~ Transient repository initialized
+16 Feb 2012 09:02:33,443 INFO  ~ Session opened
+16 Feb 2012 09:02:33,459 INFO  ~ Session opened
+16 Feb 2012 09:02:33,459 WARN  ~ Fixtures : unable to disable constraints, unsupported database : 
+16 Feb 2012 09:02:33,474 WARN  ~ Fixtures : unable to enable constraints, unsupported database : 
+16 Feb 2012 09:02:33,974 INFO  ~ JcrEvent received: { Event: Path: /chef/petit, NodeAdded: , UserId: scott, Timestamp: 1329379353896, UserData: null, Info: {} }
+16 Feb 2012 09:02:33,974 INFO  ~ JcrEvent received: { Event: Path: /chef, NodeAdded: , UserId: scott, Timestamp: 1329379353896, UserData: null, Info: {} }
+16 Feb 2012 09:02:34,037 INFO  ~ JcrEvent received: { Event: Path: /restaurant/celler, NodeAdded: , UserId: scott, Timestamp: 1329379354021, UserData: null, Info: {} }
+16 Feb 2012 09:02:34,037 INFO  ~ JcrEvent received: { Event: Path: /restaurant, NodeAdded: , UserId: scott, Timestamp: 1329379354021, UserData: null, Info: {} }
+16 Feb 2012 09:02:34,099 INFO  ~ JcrEvent received: { Event: Path: /restaurant/mussol, NodeAdded: , UserId: scott, Timestamp: 1329379354052, UserData: null, Info: {} }
+16 Feb 2012 09:02:34,115 INFO  ~ JcrEvent received: { Event: Path: /company/flashlight, NodeAdded: , UserId: scott, Timestamp: 1329379354115, UserData: null, Info: {} }
+16 Feb 2012 09:02:34,115 INFO  ~ JcrEvent received: { Event: Path: /company, NodeAdded: , UserId: scott, Timestamp: 1329379354115, UserData: null, Info: {} }
+16 Feb 2012 09:02:34,130 INFO  ~ Session closed
+16 Feb 2012 09:02:34,130 INFO  ~ Session closed
+16 Feb 2012 09:02:34,130 INFO  ~ Shutting down repository...
+16 Feb 2012 09:02:34,209 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:02:34,209 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:02:34,209 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:02:34,240 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:02:34,427 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:02:34,443 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:02:34,443 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:02:34,443 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:02:34,459 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:02:34,599 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:02:34,599 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:02:34,755 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:02:34,755 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:02:34,755 INFO  ~ Transient repository shut down
+16 Feb 2012 09:02:55,158 INFO  ~ Starting repository...
+16 Feb 2012 09:02:55,158 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:02:55,173 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:02:55,189 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:02:55,267 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:02:55,267 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:02:55,689 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:02:55,767 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:02:55,767 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:02:55,767 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:02:55,767 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:02:55,767 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:02:55,908 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:02:55,908 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:02:55,908 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:02:55,908 INFO  ~ Repository started (750ms)
+16 Feb 2012 09:02:55,908 INFO  ~ Transient repository initialized
+16 Feb 2012 09:02:55,908 INFO  ~ Session opened
+16 Feb 2012 09:02:56,720 INFO  ~ Session closed
+16 Feb 2012 09:02:56,720 INFO  ~ Shutting down repository...
+16 Feb 2012 09:02:56,720 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:02:56,720 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:02:56,720 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:02:56,720 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:02:56,736 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:02:56,751 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:02:56,751 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:02:56,751 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:02:56,751 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:02:56,751 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:02:56,751 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:02:56,767 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:02:56,767 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:02:56,767 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:01,391 INFO  ~ Starting repository...
+16 Feb 2012 09:03:01,391 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:01,406 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:01,406 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:01,516 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:01,516 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:01,656 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:01,719 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:01,719 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:01,735 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:01,735 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:01,735 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:02,000 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:02,000 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:02,000 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:02,000 INFO  ~ Repository started (609ms)
+16 Feb 2012 09:03:02,000 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:02,000 INFO  ~ Session opened
+16 Feb 2012 09:03:02,016 INFO  ~ Session closed
+16 Feb 2012 09:03:02,016 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:02,016 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:02,016 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:02,016 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:02,016 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:02,031 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:02,031 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:02,031 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:02,031 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:02,031 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:02,047 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:02,047 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:02,063 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:02,063 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:02,063 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:02,094 INFO  ~ Starting repository...
+16 Feb 2012 09:03:02,094 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:02,094 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:02,109 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:02,172 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:02,172 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:02,313 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:02,391 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:02,391 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:02,391 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:02,391 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:02,391 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:02,656 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:02,656 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:02,656 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:02,656 INFO  ~ Repository started (562ms)
+16 Feb 2012 09:03:02,656 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:02,672 INFO  ~ Session opened
+16 Feb 2012 09:03:03,515 INFO  ~ Session closed
+16 Feb 2012 09:03:03,515 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:03,515 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:03,515 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:03,515 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:03,515 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:03,531 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:03,531 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:03,531 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:03,531 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:03,531 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:03,547 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:03,547 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:03,562 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:03,562 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:03,562 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:03,594 INFO  ~ Starting repository...
+16 Feb 2012 09:03:03,594 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:03,609 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:03,609 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:03,672 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:03,672 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:03,797 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:03,859 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:03,859 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:03,859 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:03,859 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:03,859 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:03,984 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:03,984 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:03,984 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:03,984 INFO  ~ Repository started (390ms)
+16 Feb 2012 09:03:03,984 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:03,984 INFO  ~ Session opened
+16 Feb 2012 09:03:04,234 INFO  ~ Session opened
+16 Feb 2012 09:03:04,234 INFO  ~ Session closed
+16 Feb 2012 09:03:04,250 INFO  ~ Session closed
+16 Feb 2012 09:03:04,250 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:04,250 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:04,250 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:04,250 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:04,250 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:04,265 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:04,265 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:04,265 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:04,265 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:04,265 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:04,281 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:04,281 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:04,453 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:04,468 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:04,468 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:04,500 INFO  ~ Starting repository...
+16 Feb 2012 09:03:04,500 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:04,500 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:04,500 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:04,593 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:04,593 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:04,734 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:04,781 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:04,781 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:04,781 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:04,781 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:04,781 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:04,921 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:04,921 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:04,921 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:04,921 INFO  ~ Repository started (421ms)
+16 Feb 2012 09:03:04,921 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:04,921 INFO  ~ Session opened
+16 Feb 2012 09:03:05,171 WARN  ~ Fixtures : unable to disable constraints, unsupported database : 
+16 Feb 2012 09:03:05,187 WARN  ~ Fixtures : unable to enable constraints, unsupported database : 
+16 Feb 2012 09:03:05,203 WARN  ~ overwriting PathMap.Element
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /chef/petit, NodeRemoved: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /restaurant/mussol, NodeRemoved: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /company/flashlight, NodeRemoved: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /restaurant/celler, NodeRemoved: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /company, NodeRemoved: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /chef, NodeRemoved: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /restaurant, NodeRemoved: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /chef/petit, NodeAdded: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,312 INFO  ~ JcrEvent received: { Event: Path: /chef, NodeAdded: , UserId: scott, Timestamp: 1329379385234, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,328 INFO  ~ JcrEvent received: { Event: Path: /restaurant/celler, NodeAdded: , UserId: scott, Timestamp: 1329379385328, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,328 INFO  ~ JcrEvent received: { Event: Path: /restaurant, NodeAdded: , UserId: scott, Timestamp: 1329379385328, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,359 INFO  ~ JcrEvent received: { Event: Path: /restaurant/mussol, NodeAdded: , UserId: scott, Timestamp: 1329379385359, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,374 INFO  ~ JcrEvent received: { Event: Path: /company/flashlight, NodeAdded: , UserId: scott, Timestamp: 1329379385374, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,374 INFO  ~ JcrEvent received: { Event: Path: /company, NodeAdded: , UserId: scott, Timestamp: 1329379385374, UserData: null, Info: {} }
+16 Feb 2012 09:03:05,406 INFO  ~ Session closed
+16 Feb 2012 09:03:05,406 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:05,406 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:05,406 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:05,406 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:05,437 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:05,453 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:05,453 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:05,453 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:05,453 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:05,453 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:05,468 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:05,468 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:05,484 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:05,484 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:05,484 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:05,531 INFO  ~ Starting repository...
+16 Feb 2012 09:03:05,531 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:05,531 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:05,531 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:05,624 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:05,624 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:05,937 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:05,999 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:05,999 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:05,999 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:05,999 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:05,999 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:06,124 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:06,124 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:06,124 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:06,124 INFO  ~ Repository started (593ms)
+16 Feb 2012 09:03:06,124 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:06,124 INFO  ~ Session opened
+16 Feb 2012 09:03:06,390 INFO  ~ Session opened
+16 Feb 2012 09:03:07,249 INFO  ~ Session closed
+16 Feb 2012 09:03:07,249 INFO  ~ Session closed
+16 Feb 2012 09:03:07,249 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:07,249 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:07,249 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:07,249 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:07,249 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:07,265 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:07,265 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:07,265 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:07,265 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:07,265 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:07,280 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:07,280 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:07,296 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:07,296 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:07,296 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:08,265 INFO  ~ Starting repository...
+16 Feb 2012 09:03:08,265 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:08,265 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:08,265 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:08,358 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:08,358 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:08,671 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:08,733 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:08,733 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:08,733 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:08,733 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:08,733 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:08,874 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:08,874 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:08,874 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:08,874 INFO  ~ Repository started (609ms)
+16 Feb 2012 09:03:08,874 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:08,874 INFO  ~ Session opened
+16 Feb 2012 09:03:08,936 INFO  ~ Session closed
+16 Feb 2012 09:03:08,936 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:08,936 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:08,936 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:08,936 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:08,936 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:08,952 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:08,952 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:08,952 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:08,952 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:08,952 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:08,968 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:08,968 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:08,983 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:08,983 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:08,983 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:09,061 INFO  ~ Starting repository...
+16 Feb 2012 09:03:09,061 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:09,077 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:09,077 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:09,155 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:09,155 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:09,296 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:09,358 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:09,358 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:09,358 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:09,358 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:09,358 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:09,655 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:09,655 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:09,655 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:09,655 INFO  ~ Repository started (594ms)
+16 Feb 2012 09:03:09,655 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:09,655 INFO  ~ Session opened
+16 Feb 2012 09:03:09,983 INFO  ~ Session closed
+16 Feb 2012 09:03:09,983 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:09,983 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:09,983 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:09,983 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:09,983 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:10,014 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:10,014 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:10,014 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:10,014 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:10,014 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:10,030 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:10,030 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:10,030 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:10,045 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:10,045 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:10,061 INFO  ~ Starting repository...
+16 Feb 2012 09:03:10,061 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:10,061 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:10,077 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:10,155 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:10,155 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:10,295 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:10,358 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:10,358 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:10,358 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:10,358 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:10,358 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:10,498 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:10,498 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:10,498 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:10,498 INFO  ~ Repository started (437ms)
+16 Feb 2012 09:03:10,498 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:10,498 INFO  ~ Session opened
+16 Feb 2012 09:03:10,514 INFO  ~ Session closed
+16 Feb 2012 09:03:10,514 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:10,514 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:10,514 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:10,514 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:10,514 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:10,530 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:10,530 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:10,530 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:10,530 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:10,530 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:10,545 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:10,545 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:10,561 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:10,561 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:10,561 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:10,639 INFO  ~ Starting repository...
+16 Feb 2012 09:03:10,639 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:10,655 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:10,655 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:10,733 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:10,733 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:11,045 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:11,123 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:11,123 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:11,123 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:11,123 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:11,123 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:11,264 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:11,264 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:11,264 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:11,264 INFO  ~ Repository started (625ms)
+16 Feb 2012 09:03:11,264 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:11,264 INFO  ~ Session opened
+16 Feb 2012 09:03:11,280 INFO  ~ Session closed
+16 Feb 2012 09:03:11,280 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:11,280 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:11,280 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:11,280 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:11,280 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:11,295 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:11,295 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:11,295 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:11,295 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:11,295 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:11,311 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:11,311 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:11,326 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:11,326 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:11,326 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:11,358 INFO  ~ Starting repository...
+16 Feb 2012 09:03:11,358 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:11,373 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:11,373 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:11,451 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:11,451 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:11,592 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:11,655 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:11,655 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:11,655 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:11,655 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:11,655 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:11,951 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:11,951 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:11,951 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:11,951 INFO  ~ Repository started (593ms)
+16 Feb 2012 09:03:11,951 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:11,951 INFO  ~ Session opened
+16 Feb 2012 09:03:11,951 INFO  ~ Session closed
+16 Feb 2012 09:03:11,951 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:11,951 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:11,951 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:11,967 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:11,967 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:11,983 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:11,983 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:11,983 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:11,983 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:11,983 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:11,998 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:11,998 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:12,014 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:12,014 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:12,014 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:12,154 INFO  ~ Starting repository...
+16 Feb 2012 09:03:12,154 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:12,170 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:12,170 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:12,248 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:12,248 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:12,389 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:12,451 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:12,451 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:12,451 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:12,451 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:12,451 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:12,592 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:12,592 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:12,592 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:12,592 INFO  ~ Repository started (438ms)
+16 Feb 2012 09:03:12,592 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:12,607 INFO  ~ Session opened
+16 Feb 2012 09:03:12,717 INFO  ~ Session closed
+16 Feb 2012 09:03:12,717 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:12,717 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:12,717 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:12,717 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:12,717 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:12,732 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:12,732 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:12,732 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:12,732 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:12,732 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:12,748 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:12,748 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:12,764 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:12,764 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:12,764 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:13,342 INFO  ~ Starting repository...
+16 Feb 2012 09:03:13,342 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:13,342 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:13,342 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:13,435 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:13,435 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:13,732 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:13,795 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:13,795 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:13,795 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:13,795 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:13,795 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:13,935 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:13,935 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:13,935 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:13,935 INFO  ~ Repository started (593ms)
+16 Feb 2012 09:03:13,935 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:13,935 INFO  ~ Session opened
+16 Feb 2012 09:03:13,935 INFO  ~ Session closed
+16 Feb 2012 09:03:13,935 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:13,935 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:13,935 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:13,935 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:13,935 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:13,951 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:13,951 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:13,951 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:13,951 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:13,951 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:13,967 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:13,967 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:13,982 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:13,982 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:13,982 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:14,013 INFO  ~ Starting repository...
+16 Feb 2012 09:03:14,013 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:14,029 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:14,029 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:14,123 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:14,123 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:14,263 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:14,310 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:14,310 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:14,310 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:14,310 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:14,310 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:14,607 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:14,607 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:14,607 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:14,607 INFO  ~ Repository started (594ms)
+16 Feb 2012 09:03:14,607 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:14,623 INFO  ~ Session opened
+16 Feb 2012 09:03:14,623 INFO  ~ Session closed
+16 Feb 2012 09:03:14,623 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:14,623 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:14,623 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:14,623 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:14,623 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:14,638 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:14,638 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:14,638 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:14,638 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:14,638 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:14,654 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:14,654 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:14,670 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:14,670 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:14,670 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:19,794 INFO  ~ Starting repository...
+16 Feb 2012 09:03:19,794 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:19,809 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:19,825 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:19,919 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:19,919 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:20,059 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:20,122 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:20,122 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:20,137 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:20,137 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:20,137 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:20,262 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:20,262 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:20,262 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:20,262 INFO  ~ Repository started (468ms)
+16 Feb 2012 09:03:20,262 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:20,278 INFO  ~ Session opened
+16 Feb 2012 09:03:20,278 INFO  ~ Session closed
+16 Feb 2012 09:03:20,278 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:20,278 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:20,278 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:20,278 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:20,293 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:20,293 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:20,293 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:20,293 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:20,293 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:20,309 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:20,309 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:20,309 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:20,325 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:20,325 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:20,325 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:28,698 INFO  ~ Starting repository...
+16 Feb 2012 09:03:28,698 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:28,714 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:28,714 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:28,807 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:28,807 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:29,120 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:29,182 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:29,182 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:29,182 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:29,182 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:29,182 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:29,307 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:29,307 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:29,307 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:29,307 INFO  ~ Repository started (609ms)
+16 Feb 2012 09:03:29,307 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:29,323 INFO  ~ Session opened
+16 Feb 2012 09:03:30,401 INFO  ~ Session closed
+16 Feb 2012 09:03:30,401 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:30,401 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:30,401 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:30,401 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:30,401 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:30,417 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:30,417 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:30,417 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:30,417 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:30,417 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:30,432 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:30,432 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:30,448 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:30,448 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:30,448 INFO  ~ Transient repository shut down
+16 Feb 2012 09:03:33,385 INFO  ~ Starting repository...
+16 Feb 2012 09:03:33,385 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:03:33,400 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:03:33,400 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:03:33,494 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:03:33,494 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:03:33,635 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:03:33,697 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:03:33,697 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:03:33,697 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:03:33,697 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:03:33,697 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:03:33,994 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:03:33,994 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:03:33,994 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:03:33,994 INFO  ~ Repository started (609ms)
+16 Feb 2012 09:03:33,994 INFO  ~ Transient repository initialized
+16 Feb 2012 09:03:33,994 INFO  ~ Session opened
+16 Feb 2012 09:03:35,681 INFO  ~ Session closed
+16 Feb 2012 09:03:35,681 INFO  ~ Shutting down repository...
+16 Feb 2012 09:03:35,681 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:03:35,681 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:03:35,681 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:35,681 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:03:35,697 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:03:35,697 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:03:35,697 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:03:35,697 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:03:35,697 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:03:35,712 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:03:35,712 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:03:35,728 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:03:35,728 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:03:35,728 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:18,673 INFO  ~ Starting repository...
+16 Feb 2012 09:04:18,673 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:18,689 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:18,689 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:18,782 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:18,782 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:18,923 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:18,985 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:18,985 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:18,985 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:18,985 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:18,985 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:19,313 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:19,313 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:19,313 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:19,313 INFO  ~ Repository started (640ms)
+16 Feb 2012 09:04:19,313 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:19,313 INFO  ~ Session opened
+16 Feb 2012 09:04:19,454 INFO  ~ JcrEvent received: { Event: Path: /chef/petit, NodeRemoved: , UserId: scott, Timestamp: 1329379459438, UserData: null, Info: {} }
+16 Feb 2012 09:04:19,454 INFO  ~ JcrEvent received: { Event: Path: /chef/my_petit, NodeAdded: , UserId: scott, Timestamp: 1329379459438, UserData: null, Info: {} }
+16 Feb 2012 09:04:19,454 INFO  ~ Session closed
+16 Feb 2012 09:04:19,454 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:19,454 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:19,454 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:19,454 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:19,485 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:19,516 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:19,516 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:19,516 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:19,516 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:19,516 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:19,532 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:19,532 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:19,532 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:19,548 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:19,548 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:19,563 INFO  ~ Starting repository...
+16 Feb 2012 09:04:19,563 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:19,579 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:19,579 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:19,657 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:19,657 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:19,798 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:19,860 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:19,860 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:19,860 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:19,860 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:19,860 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:19,985 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:19,985 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:19,985 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:19,985 INFO  ~ Repository started (422ms)
+16 Feb 2012 09:04:19,985 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:19,985 INFO  ~ Session opened
+16 Feb 2012 09:04:20,173 INFO  ~ Session closed
+16 Feb 2012 09:04:20,173 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:20,173 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:20,173 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:20,173 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:20,173 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:20,188 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:20,188 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:20,188 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:20,188 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:20,188 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:20,204 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:20,204 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:20,219 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:20,219 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:20,219 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:22,235 INFO  ~ Starting repository...
+16 Feb 2012 09:04:22,235 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:22,250 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:22,250 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:22,344 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:22,344 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:22,672 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:22,750 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:22,750 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:22,750 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:22,750 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:22,750 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:22,891 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:22,891 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:22,891 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:22,891 INFO  ~ Repository started (656ms)
+16 Feb 2012 09:04:22,891 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:22,891 INFO  ~ Session opened
+16 Feb 2012 09:04:23,125 INFO  ~ Session closed
+16 Feb 2012 09:04:23,125 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:23,125 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:23,125 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:23,125 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:23,125 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:23,141 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:23,141 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:23,141 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:23,141 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:23,141 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:23,156 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:23,156 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:23,172 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:23,172 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:23,172 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:28,937 INFO  ~ Starting repository...
+16 Feb 2012 09:04:28,937 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:28,952 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:28,952 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:29,030 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:29,030 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:29,187 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:29,249 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:29,249 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:29,249 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:29,249 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:29,249 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:29,577 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:29,577 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:29,577 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:29,577 INFO  ~ Repository started (640ms)
+16 Feb 2012 09:04:29,577 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:29,593 INFO  ~ Session opened
+16 Feb 2012 09:04:29,624 INFO  ~ JcrEvent received: { Event: Path: /chef/my_petit2, NodeAdded: , UserId: scott, Timestamp: 1329379469593, UserData: null, Info: {} }
+16 Feb 2012 09:04:29,624 INFO  ~ Session closed
+16 Feb 2012 09:04:29,624 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:29,624 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:29,624 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:29,624 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:29,640 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:29,655 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:29,655 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:29,655 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:29,655 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:29,655 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:29,671 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:29,671 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:29,686 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:29,686 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:29,686 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:29,718 INFO  ~ Starting repository...
+16 Feb 2012 09:04:29,718 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:29,718 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:29,718 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:29,796 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:29,796 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:29,936 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:29,999 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:29,999 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:29,999 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:29,999 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:29,999 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:30,155 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:30,155 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:30,155 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:30,155 INFO  ~ Repository started (437ms)
+16 Feb 2012 09:04:30,155 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:30,155 INFO  ~ Session opened
+16 Feb 2012 09:04:30,186 INFO  ~ Session closed
+16 Feb 2012 09:04:30,186 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:30,186 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:30,186 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:30,186 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:30,186 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:30,186 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:30,186 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:30,186 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:30,186 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:30,202 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:30,202 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:30,202 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:30,218 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:30,233 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:30,233 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:33,826 INFO  ~ Starting repository...
+16 Feb 2012 09:04:33,826 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:33,826 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:33,842 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:33,936 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:33,936 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:34,092 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:34,326 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:34,326 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:34,326 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:34,326 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:34,326 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:34,467 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:34,467 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:34,467 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:34,467 INFO  ~ Repository started (641ms)
+16 Feb 2012 09:04:34,467 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:34,482 INFO  ~ Session opened
+16 Feb 2012 09:04:34,545 INFO  ~ Session closed
+16 Feb 2012 09:04:34,545 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:34,545 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:34,545 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:34,545 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:34,545 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:34,560 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:34,560 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:34,560 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:34,560 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:34,560 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:34,576 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:34,576 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:34,592 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:34,607 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:34,607 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:36,794 INFO  ~ Starting repository...
+16 Feb 2012 09:04:36,794 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:36,810 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:36,810 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:36,919 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:36,919 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:37,060 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:37,122 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:37,122 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:37,122 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:37,122 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:37,122 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:37,435 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:37,435 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:37,435 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:37,435 INFO  ~ Repository started (641ms)
+16 Feb 2012 09:04:37,435 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:37,435 INFO  ~ Session opened
+16 Feb 2012 09:04:37,497 INFO  ~ Session closed
+16 Feb 2012 09:04:37,497 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:37,497 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:37,497 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:37,497 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:37,497 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:37,513 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:37,513 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:37,513 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:37,513 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:37,513 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:37,529 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:37,529 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:37,544 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:37,544 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:37,544 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:40,278 INFO  ~ Starting repository...
+16 Feb 2012 09:04:40,278 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:40,294 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:40,294 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:40,387 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:40,387 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:40,544 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:40,622 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:40,622 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:40,622 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:40,622 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:40,622 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:40,747 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:40,762 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:40,762 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:40,762 INFO  ~ Repository started (484ms)
+16 Feb 2012 09:04:40,762 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:40,762 INFO  ~ Session opened
+16 Feb 2012 09:04:41,325 INFO  ~ Session closed
+16 Feb 2012 09:04:41,325 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:41,325 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:41,325 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:41,325 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:41,325 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:41,340 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:41,340 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:41,340 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:41,340 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:41,340 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:41,356 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:41,356 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:41,372 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:41,372 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:41,372 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:47,480 INFO  ~ Starting repository...
+16 Feb 2012 09:04:47,480 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:47,480 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:47,480 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:47,574 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:47,574 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:47,902 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:47,964 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:47,964 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:47,964 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:47,964 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:47,964 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:48,105 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:48,105 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:48,105 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:48,105 INFO  ~ Repository started (625ms)
+16 Feb 2012 09:04:48,105 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:48,105 INFO  ~ Session opened
+16 Feb 2012 09:04:48,152 INFO  ~ Session closed
+16 Feb 2012 09:04:48,152 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:48,152 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:48,152 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:48,152 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:48,152 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:48,167 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:48,167 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:48,167 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:48,167 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:48,167 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:48,183 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:48,183 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:48,198 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:48,198 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:48,198 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:49,073 INFO  ~ Starting repository...
+16 Feb 2012 09:04:49,073 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:49,089 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:49,089 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:49,198 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:49,198 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:49,339 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:49,401 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:49,401 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:49,401 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:49,401 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:49,401 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:49,761 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:49,761 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:49,761 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:49,761 INFO  ~ Repository started (688ms)
+16 Feb 2012 09:04:49,761 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:49,761 INFO  ~ Session opened
+16 Feb 2012 09:04:49,792 INFO  ~ Session closed
+16 Feb 2012 09:04:49,792 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:49,792 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:49,792 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:49,792 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:49,792 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:49,808 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:49,808 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:49,808 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:49,808 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:49,808 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:49,823 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:49,823 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:49,839 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:49,839 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:49,839 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:51,089 INFO  ~ Starting repository...
+16 Feb 2012 09:04:51,089 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:51,089 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:51,089 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:51,182 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:51,182 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:51,323 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:51,401 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:51,401 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:51,401 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:51,401 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:51,401 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:51,542 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:51,542 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:51,542 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:51,542 INFO  ~ Repository started (453ms)
+16 Feb 2012 09:04:51,542 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:51,542 INFO  ~ Session opened
+16 Feb 2012 09:04:51,573 INFO  ~ Session closed
+16 Feb 2012 09:04:51,573 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:51,573 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:51,573 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:51,588 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:51,588 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:51,604 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:51,604 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:51,604 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:51,604 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:51,604 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:51,620 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:51,620 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:51,635 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:51,635 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:51,635 INFO  ~ Transient repository shut down
+16 Feb 2012 09:04:52,932 INFO  ~ Starting repository...
+16 Feb 2012 09:04:52,932 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:04:52,948 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:04:52,948 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:04:53,041 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:04:53,041 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:04:53,385 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:04:53,447 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:04:53,447 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:04:53,447 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:04:53,447 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:04:53,447 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:04:53,588 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:04:53,588 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:04:53,588 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:04:53,588 INFO  ~ Repository started (656ms)
+16 Feb 2012 09:04:53,588 INFO  ~ Transient repository initialized
+16 Feb 2012 09:04:53,588 INFO  ~ Session opened
+16 Feb 2012 09:04:53,682 INFO  ~ Session closed
+16 Feb 2012 09:04:53,682 INFO  ~ Shutting down repository...
+16 Feb 2012 09:04:53,682 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:04:53,682 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:04:53,682 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:53,682 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:04:53,697 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:04:53,697 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:04:53,697 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:04:53,697 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:04:53,697 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:04:53,713 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:04:53,713 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:04:53,729 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:04:53,729 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:04:53,729 INFO  ~ Transient repository shut down
+16 Feb 2012 09:05:02,914 INFO  ~ Starting repository...
+16 Feb 2012 09:05:02,914 INFO  ~ LocalFileSystem initialized at path repository\repository
+16 Feb 2012 09:05:02,930 INFO  ~ no custom node type definitions found
+16 Feb 2012 09:05:02,930 INFO  ~ LocalFileSystem initialized at path repository\version
+16 Feb 2012 09:05:03,024 INFO  ~ initializing workspace 'default'...
+16 Feb 2012 09:05:03,024 INFO  ~ LocalFileSystem initialized at path repository\workspaces\default
+16 Feb 2012 09:05:03,164 INFO  ~ Index initialized: repository/repository/index Version: 3
+16 Feb 2012 09:05:03,227 INFO  ~ Index initialized: repository\workspaces\default/index Version: 3
+16 Feb 2012 09:05:03,227 INFO  ~ workspace 'default' initialized
+16 Feb 2012 09:05:03,227 INFO  ~ SecurityManager = class org.apache.jackrabbit.core.security.simple.SimpleSecurityManager
+16 Feb 2012 09:05:03,227 INFO  ~ initializing workspace 'security'...
+16 Feb 2012 09:05:03,227 INFO  ~ LocalFileSystem initialized at path repository\workspaces\security
+16 Feb 2012 09:05:03,555 INFO  ~ Index initialized: repository\workspaces\security/index Version: 3
+16 Feb 2012 09:05:03,555 INFO  ~ workspace 'security' initialized
+16 Feb 2012 09:05:03,555 INFO  ~ init: using Repository LoginModule configuration for Jackrabbit
+16 Feb 2012 09:05:03,555 INFO  ~ Repository started (641ms)
+16 Feb 2012 09:05:03,555 INFO  ~ Transient repository initialized
+16 Feb 2012 09:05:03,555 INFO  ~ Session opened
+16 Feb 2012 09:05:03,571 INFO  ~ Session closed
+16 Feb 2012 09:05:03,571 INFO  ~ Shutting down repository...
+16 Feb 2012 09:05:03,571 INFO  ~ Index closed: repository/repository/index
+16 Feb 2012 09:05:03,571 INFO  ~ shutting down workspace 'default'...
+16 Feb 2012 09:05:03,571 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:05:03,571 INFO  ~ Index closed: repository\workspaces\default/index
+16 Feb 2012 09:05:03,586 INFO  ~ Database 'repository\workspaces\default/db' shutdown.
+16 Feb 2012 09:05:03,586 INFO  ~ workspace 'default' has been shutdown
+16 Feb 2012 09:05:03,586 INFO  ~ shutting down workspace 'security'...
+16 Feb 2012 09:05:03,586 INFO  ~ Notification of EventListeners stopped.
+16 Feb 2012 09:05:03,586 INFO  ~ Index closed: repository\workspaces\security/index
+16 Feb 2012 09:05:03,602 INFO  ~ Database 'repository\workspaces\security/db' shutdown.
+16 Feb 2012 09:05:03,602 INFO  ~ workspace 'security' has been shutdown
+16 Feb 2012 09:05:03,617 INFO  ~ Database 'repository/version/db' shutdown.
+16 Feb 2012 09:05:03,617 INFO  ~ Repository has been shutdown
+16 Feb 2012 09:05:03,617 INFO  ~ Transient repository shut down

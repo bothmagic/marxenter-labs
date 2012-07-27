@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan/effects"
+      href="MouseShadowEffectDemo.jnlp">
+    <information>
+        <title>MouseShadowEffectDemo</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://jdnc-incubator.dev.java.net/" />
+        <description>Apply a shadow as if the mouse was a light</description>
+        <offline-allowed />
+    </information>
+    <resources>
+        <j2se version="1.6+" />
+        <jar href="MouseShadowEffectDemo.jar" />
+        <extension name="EffectsDemoCore" href="EffectsDemoCore.jnlp" />
+    </resources>
+    <application-desc main-class="org.jdesktop.swingx.effect.MouseShadowEffectDemo" />
+</jnlp>

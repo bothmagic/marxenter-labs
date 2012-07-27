@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/mattnathan/modules" href="ScalePolicy.jnlp">
+    <information>
+        <title>ScalePolicy Jar Extensions</title>
+        <vendor>Matt Nathan</vendor>
+        <homepage href="https://swinglabs.dev.java.net/" />
+        <description>ScalePolicy Jar</description>
+        <description kind="short">ScalePolicy Jar</description>
+        <offline-allowed />
+    </information>
+    <resources>
+        <j2se version="1.6+" />
+        <jar href="ScalePolicy.jar" />
+    </resources>
+    <component-desc />
+</jnlp>

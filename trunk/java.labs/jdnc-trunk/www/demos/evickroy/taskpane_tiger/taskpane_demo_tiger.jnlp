@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/evickroy/taskpane_tiger" href="taskpane_demo_tiger.jnlp">
+  <information>
+    <title>TaskPane Demo Tiger</title>
+    <vendor>Erik Vickroy</vendor>
+    <homepage href="https://jdnc-incubator.dev.java.net"/>
+    <offline-allowed/>
+  </information>
+<!--security>
+  <all-permissions/>
+</security-->
+  <resources> 
+    <j2se version="1.5"/> 
+    <jar href="evickroy.jar"/>
+    <jar href="swingx.jar"/>
+  </resources> 
+  <application-desc main-class="org.jdesktop.swingx.TaskPaneOpaqueDemo">
+  </application-desc>
+</jnlp>

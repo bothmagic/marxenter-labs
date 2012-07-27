@@ -1,0 +1,17 @@
+# Test data
+
+# User(bob):
+#   name: bob
+#   email: bob@gmail.com
+#   password: secret
+#   path: /users
+
+TestProject(tstp1):
+    name: "mein Testprojekt"
+    title: "Mein Testprojekt"
+    description: "beschreibung"
+
+TestProject(tstp2):
+    name: "mein Testprojekt2"
+    title: "Mein Testprojekt2"
+    description: "beschreibung2"

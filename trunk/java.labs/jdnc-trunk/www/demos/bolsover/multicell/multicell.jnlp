@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/bolsover/multicell" href="multicell.jnlp">
+  <information>
+    <title>MultiCell</title>
+    <vendor>David Bolsover</vendor>
+    <homepage href="https://jdnc-incubator.dev.java.net"/>
+    <offline-allowed/>
+  </information>
+<security>
+  
+</security>
+  <resources> 
+    <j2se version="1.6+"/>
+    <jar href="https://jdnc-incubator.dev.java.net/demos/bolsover/multicell/MultiCell.jar"/>
+    <jar href="https://jdnc-incubator.dev.java.net/demos/bolsover/multicell/lib/swingx-2006_11_01.jar"/>
+  </resources> 
+  <application-desc main-class="org.jdesktop.swingx.treetable.multicell.MultiCellDemo">
+  </application-desc>
+</jnlp>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0+" codebase="https://jdnc-incubator.dev.java.net/demos/evickroy/columngroup" href="columngroup.jnlp">
+  <information>
+    <title>JDNC - Column Group Headings</title>
+    <vendor>Erik Vickroy</vendor>
+    <homepage href="https://jdnc-incubator.dev.java.net"/>
+    <offline-allowed/>
+  </information>
+<!--security>
+  <all-permissions/>
+</security-->
+  <resources> 
+    <j2se version="1.5+"/> 
+    <jar href="evickroy.jar"/>
+    <extension name="extensions" href= "extension.jnlp" />
+  </resources> 
+  <application-desc main-class="org.jdesktop.swingx.table.ColumnGroupDemo">
+  </application-desc>
+</jnlp>

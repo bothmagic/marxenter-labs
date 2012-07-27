@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!-- ====================================================================== -->
+<!-- ====================================================================== -->
+<!-- $Id: build.xml 620 2005-08-19 22:38:33Z david_hall $
+     Copyright (c) 2002  David A. Hall                                      -->
+<!-- ====================================================================== -->
+<!-- ====================================================================== -->
+
+<project name="swingel" default="test" basedir=".">
+
+<!-- ====================================================================== -->
+<!-- Overridable Properties                                                 -->
+<!-- ====================================================================== -->
+
+<!-- You might very well need to override this, if you haven't set up a     -->
+<!-- JAVACC_HOME environment variable                                       -->
+ 
+<property name="javacc.home" value="/opt/javacc"/>
+
+<!-- ====================================================================== -->
+<!-- Standard Properties                                                    -->
+<!-- ====================================================================== -->
+
+<dirname property="swingel.basedir" file="${ant.file.swingel}"/>
+
+<property name="builddir"           value="${swingel.basedir}/build"/>
+<property name="libdir"             value="${swingel.basedir}/lib"/>
+<property name="classdir"           value="${builddir}/classes"/>
+
+<property name="parserpath"         value="org/jdesktop/jdnc/swingel"/>
+<property name="parsergen"          value="${builddir}/src"/>
+<property name="parsersrc"          value="${swingel.basedir}/src"/>
+<property name="parser"             value="SwingEL.jj"/>
+<property name="testdir"            value="${swingel.basedir}/test"/>
+
+<property name="build.sysclasspath" value="last"/>
+
+<!-- ====================================================================== -->
+<!-- Project Paths                                                          -->
+<!-- ====================================================================== -->
+
+<path id="swingel.classpath">
+  <pathelement location="${classdir}"/>
+  <fileset dir="${libdir}" includes="*.jar"/>
+  <pathelement path="${java.class.path}"/>  
+</path>
+
+<path id="swingel.sourcepath">
+  <pathelement location="${srcdir}"/>
+  <pathelement location="${builddir}/src"/>  
+</path>
+
+<!-- ====================================================================== -->
+<!-- Standard Tasks                                                         -->
+<!-- ====================================================================== -->
+
+<target name="init">
+  <tstamp/>
+  <available file="${builddir}" property="builddir.present"/>
+  <available file="${classdir}" property="classdir.present"/>
+  <available file="${parsergen}/${parserpath}" property="parserdir.present"/>
+</target>
+
+<target name="clean"
+        description="Deletes the swingel jar, build remnants, and backups">
+  <echo>Cleaning up swingel</echo>
+  <delete>
+     <fileset dir="${swingel.basedir}" includes="**/*.*~" defaultexcludes="no"/>
+  </delete>
+  <delete dir="S{classdir}"/>
+  <delete dir="${builddir}"/>
+</target>
+
+<!-- ===================================================================== -->
+<!-- Build FunctorParser using javacc.                                     -->
+<!-- ===================================================================== -->
+
+<!-- The javacc tasks require the location of the javacc installation.     -->
+
+<target name="_prepare_parser_" depends="init" unless="parserdir.present">
+  <mkdir dir="${classdir}"/>
+  <mkdir dir="${parsergen}/${parserpath}"/>
+  <copy todir="${parsergen}/${parserpath}">
+    <fileset dir="${parsersrc}/${parserpath}" includes="**/*.java"/>
+    <fileset dir="${parsersrc}/${parserpath}" includes="**/*.html"/>
+  </copy>
+</target>
+
+<target name="_generate_parser_" depends="_prepare_parser_">
+  <javacc target="${parsersrc}/${parserpath}/${parser}"
+          outputdirectory="${parsergen}/${parserpath}"
+          javacchome="${javacc.home}"
+          static="false"/>
+</target>
+
+<target name="_compile_parser_" depends="_generate_parser_">
+  <run-javac srcdir="${parsergen}">
+    <classpath>
+      <path refid="swingel.classpath"/>
+    </classpath>
+  </run-javac>
+</target>
+
+<target name="parser" depends="_compile_parser_" 
+        description="Builds the SwingEL parser"/>
+
+<target name="parserdoc" depends="parser" 
+        description="Builds the SwingEL parser documentation">
+  <jjdoc target="${parsersrc}/${parserpath}/${parser}"
+         outputfile="${parsergen}/${parserpath}/parserdoc.html"
+         javacchome="${javacc.home}"
+         text="no"
+         onetable="yes"/>
+</target>
+
+<!-- ===================================================================== -->
+<!-- tests jga.jar using generic java runtime and compiler                 -->
+<!-- ===================================================================== -->
+
+<!-- Builds the test framework using generic compiler -->
+
+<target name="_compile_test_" depends="parser">
+  <mkdir dir="${classdir}"/>
+  <run-javac srcdir="${testdir}">
+    <classpath refid="swingel.classpath"/>
+  </run-javac>
+</target>
+
+<!-- Runs the test framework using generic runtime jars --> 
+
+<target name="_run_test_" depends="_compile_test_">
+  <junit printsummary="withOutAndErr" failureProperty="tests.failed" 
+         errorProperty="tests.failed" fork="yes">
+    <classpath refid="swingel.classpath"/>
+    <formatter type="brief" usefile="no"/>
+    <batchtest>
+      <fileset dir="${classdir}">
+        <exclude name="**/*$$*.class"/>
+        <exclude name="**/*+*.class"/>
+        <include name="**/Test*.class"/>
+      </fileset>
+    </batchtest>
+  </junit>
+</target>
+
+
+<!-- abort the build if the test run failed -->
+
+<target name="test" depends="_run_test_" if="tests.failed"
+        description="Runs the SwingEL tests">
+  <fail/>
+</target>
+
+<!-- ===================================================================== -->
+<!-- macros                                                                -->
+<!-- ===================================================================== -->
+
+<macrodef name="run-javac">
+  <attribute name="srcdir"/>
+  <attribute name="excludes" default="CVS/**"/>
+  <attribute name="srclevel" default="1.5"/>
+  <attribute name="target" default="1.5"/>
+  <attribute name="destdir" default="${classdir}"/>
+  <attribute name="includes" default="**/*.java"/>
+  <element name="cp" implicit="yes"/>
+  <sequential>
+    <javac fork="yes" debug="yes" source="@{srclevel}" target="@{target}" destdir="@{destdir}">
+<!--      <compilerarg line="-Xlint:unchecked,serial"/> 
+      <compilerarg line="-deprecation"/>       -->
+      <cp/>
+      <src path="@{srcdir}"/>
+      <exclude name="@{excludes}"/>
+      <include name="@{includes}"/>
+    </javac>
+  </sequential>
+</macrodef>
+
+</project>

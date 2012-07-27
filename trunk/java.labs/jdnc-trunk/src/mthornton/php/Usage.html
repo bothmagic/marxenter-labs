@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--  * $Id: Usage.html 945 2006-12-12 21:06:32Z mthornton $
+ *
+ * Copyright 2004 Sun Microsystems, Inc., 4150 Network Circle,
+ * Santa Clara, California 95054, U.S.A. All rights reserved.
+ 
+ * Author: Mark Thornton
+ * Date: 12 December 2006
+-->
+<html>
+  <head>
+    <title>PHP implementation of JNLP</title>
+  </head>
+  <body>
+  <h1>PHP implementation of JNLP</h1>
+  This implementation is intended to support a substantial subset of the 
+  JNLP protocol on the readily available PHP platform. It requires no changes to
+  Apache .htaccess as many servers restrict such access. It has been tested on a 
+  Synology DS-101j NAS appliance with the latest software release.
+  
+  <h2>jnlp.php</h2>
+  <blockquote>&lt;a href="jnlp.php?file=MyApplication.jnlp"&gt; ... &lt;/a&gt;</blockquote>
+  This is the main download script. It requires a <i>file</i> argument, also 
+  recognises <i>version-id</i> and other arguments normally supplied by the JNLP 
+  client. If the requested file is a JNLP file, in addition to the replacement 
+  of special variables ($$codebase, $$name), it also modifies any <i>href</i> that 
+  does not begin with <i>http:</i> by prepending <i>jnlp.php?file=</i>. This 
+  ensures that all local resources are directed via this PHP script, but remote 
+  references are left unchanged.
+  
+  <h2>Logging</h2>
+  By using <i>loggedjnlp.php</i> instead of <i>jnlp.php</i> all requests are 
+  logged to a file <i>jnlp.log</i> in the same directory. The log can be 
+  examined remotely by pointing your browser at <i>getlog.php</i>. This script 
+  returns recent log entries relating to the same IP address with the MIME type 
+    text/plain. For example:
+<blockquote>
+<pre>192.168.0.4,0.73234300 1165953590,GET,file=TestWebStart.jnlp written 575 bytes, 0.74010700 1165953590
+192.168.0.4,0.76782700 1165953591,GET,file=TestWebStart.jnlp written 575 bytes, 0.78836600 1165953591
+192.168.0.4,0.01354600 1165953594,HEAD,file=TestWebStart.jnlp Mon, 11 Dec 2006 22:23:30 +0000
+192.168.0.4,0.07019600 1165953594,HEAD,file=WebStartTest.jar Sun, 10 Dec 2006 22:08:25 +0000
+192.168.0.4,0.14335900 1165953594,GET,file=WebStartTest.jar written 7493 bytes, 0.15168200 1165953594
+192.168.0.4,0.76862400 1165953602,HEAD,file=TestWebStart.jnlp Mon, 11 Dec 2006 22:23:30 +0000
+192.168.0.4,0.93908000 1165953602,HEAD,file=WebStartTest.jar Sun, 10 Dec 2006 22:08:25 +0000
+192.168.0.4,0.62778000 1165953626,GET,file=TestWebStart.jnlp 304 -- No change since: Mon, 11 Dec 2006 22:23:30 GMT
+192.168.0.4,0.58976600 1165953627,HEAD,file=TestWebStart.jnlp Mon, 11 Dec 2006 22:23:30 +0000
+192.168.0.4,0.75891400 1165953627,HEAD,file=WebStartTest.jar Sun, 10 Dec 2006 22:08:25 +0000</pre>
+</blockquote>
+   The second column is the result of the PHP microtime() method which retuns a 
+pair consisting of a floating point microseconds value followed by the integer 
+seconds since 1970 (UNIX time stamp). Entries where files are delivered also 
+have this timestamp at the end of the line reflecting the point where the 
+transfer is complete.
+
+<h2>Notes</h2>
+The jnlpVersions.php script is used internally to resolve JNLP version 
+specifications.
+</body>
+</html>

@@ -1,0 +1,1 @@
+Couple of demos (tweaks) to mattnathans JXSlider. See his incubator section for the source.

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="jdnc-incubator" default="all">
+
+
+    <property file="jdnc-incubator.properties"/>
+    <!-- Uncomment the following property if no tests compilation is needed -->
+    <property name="skip.tests" value="true"/>
+
+    <!-- Compiler options -->
+
+    <property name="compiler.debug" value="on"/>
+    <property name="compiler.generate.no.warnings" value="off"/>
+    <property name="compiler.args" value=""/>
+    <property name="compiler.target" value="1.5"/>
+    <property name="compiler.max.memory" value="128m"/>
+    <patternset id="ignored.files">
+        <exclude name="**/CVS/**"/>
+        <exclude name="**/SCCS/**"/>
+        <exclude name="**/RCS/**"/>
+        <exclude name="**/rcs/**"/>
+        <exclude name="**/.DS_Store/**"/>
+        <exclude name="**/.svn/**"/>
+        <exclude name="**/.sbas/**"/>
+        <exclude name="**/.IJI.*/**"/>
+        <exclude name="**/vssver.scc/**"/>
+        <exclude name="**/vssver2.scc/**"/>
+    </patternset>
+    <patternset id="compiler.resources">
+        <include name="**/?*.properties"/>
+        <include name="**/?*.xml"/>
+        <include name="**/?*.gif"/>
+        <include name="**/?*.png"/>
+        <include name="**/?*.jpeg"/>
+        <include name="**/?*.jpg"/>
+        <include name="**/?*.html"/>
+        <include name="**/?*.dtd"/>
+        <include name="**/?*.tld"/>
+    </patternset>
+
+
+    <!-- Project Libraries -->
+
+    <path id="library.swingx.classpath">
+        <pathelement location="${basedir}/../../lib/share/swingx.jar"/>
+    </path>
+
+    <path id="library.timingframework.classpath">
+        <pathelement location="${basedir}/../../lib/share/TimingFramework.jar"/>
+    </path>
+
+
+    <!-- Global Libraries -->
+
+    <path id="library.junit.classpath">
+        <pathelement location="${module.jdnc-demos.basedir}/../../junit-4.0.jar"/>
+    </path>
+
+    <!-- Modules -->
+
+
+    <!-- Module jdnc-incubator -->
+
+    <dirname property="module.jdnc-incubator.basedir" file="${ant.file}"/>
+
+    <property name="jdnc-incubator.jar.name" value="Incubator.jar"/>
+    <property name="compiler.args.jdnc-incubator" value="${compiler.args}"/>
+
+    <property name="jdnc-incubator.output.dir"
+              value="${module.jdnc-incubator.basedir}/../../classes/production/jdnc-incubator"/>
+    <property name="jdnc-incubator.testoutput.dir"
+              value="${module.jdnc-incubator.basedir}/../../classes/test/jdnc-incubator"/>
+
+    <path id="jdnc-incubator.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="jdnc-incubator.module.classpath">
+        <path refid="library.swingx.classpath"/>
+        <path refid="library.timingframework.classpath"/>
+        <path refid="library.junit.classpath"/>
+    </path>
+
+    <path id="jdnc-incubator.runtime.module.classpath">
+        <path refid="library.swingx.classpath"/>
+        <path refid="library.timingframework.classpath"/>
+        <path refid="library.junit.classpath"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.jdnc-incubator">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.jdnc-incubator">
+        <patternset refid="excluded.from.module.jdnc-incubator"/>
+    </patternset>
+
+    <path id="jdnc-incubator.module.sourcepath">
+        <dirset dir="${module.jdnc-incubator.basedir}/../../../jdnc-incubator">
+            <include name="src/mattnathan/beaninfo"/>
+            <include name="src/mattnathan/java"/>
+            <include name="src/mattnathan/temp"/>
+        </dirset>
+    </path>
+
+    <path id="jdnc-incubator.module.test.sourcepath">
+        <dirset dir="${module.jdnc-incubator.basedir}/../../../jdnc-incubator">
+            <include name="src/mattnathan/test"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.jdnc-incubator"
+            depends="compile.module.jdnc-incubator.production,compile.module.jdnc-incubator.tests"
+            description="Compile module jdnc-incubator"/>
+
+    <target name="compile.module.jdnc-incubator.production"
+            description="Compile module jdnc-incubator; production classes">
+        <mkdir dir="${jdnc-incubator.output.dir}"/>
+        <javac destdir="${jdnc-incubator.output.dir}" debug="${compiler.debug}"
+               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true"
+               target="${compiler.target}">
+            <compilerarg line="${compiler.args.jdnc-incubator}"/>
+            <bootclasspath refid="jdnc-incubator.module.bootclasspath"/>
+            <classpath refid="jdnc-incubator.module.classpath"/>
+            <src refid="jdnc-incubator.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.jdnc-incubator"/>
+        </javac>
+
+        <copy todir="${jdnc-incubator.output.dir}">
+            <fileset dir="${module.jdnc-incubator.basedir}/beaninfo">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+            <fileset dir="${module.jdnc-incubator.basedir}/java">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+            <fileset dir="${module.jdnc-incubator.basedir}/temp">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.jdnc-incubator.tests" depends="compile.module.jdnc-incubator.production"
+            description="compile module jdnc-incubator; test classes" unless="skip.tests">
+        <mkdir dir="${jdnc-incubator.testoutput.dir}"/>
+        <javac destdir="${jdnc-incubator.testoutput.dir}" debug="${compiler.debug}"
+               nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true"
+               target="${compiler.target}">
+            <compilerarg line="${compiler.args.jdnc-incubator}"/>
+            <classpath refid="jdnc-incubator.module.classpath"/>
+            <classpath location="${jdnc-incubator.output.dir}"/>
+            <src refid="jdnc-incubator.module.test.sourcepath"/>
+            <patternset refid="excluded.from.compilation.jdnc-incubator"/>
+        </javac>
+
+        <copy todir="${jdnc-incubator.testoutput.dir}">
+            <fileset dir="${module.jdnc-incubator.basedir}/test">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="package.module.jdnc-incubator" depends="compile.module.jdnc-incubator.production"
+            description="Creates a jar file containing all incubator classes">
+        <jar basedir="${jdnc-incubator.output.dir}" destfile="${jdnc-incubator.output.dir}/${jdnc-incubator.jar.name}"/>
+    </target>
+
+    <target name="clean.module.jdnc-incubator" description="cleanup module">
+        <delete dir="${jdnc-incubator.output.dir}"/>
+        <delete dir="${jdnc-incubator.testoutput.dir}"/>
+    </target>
+
+
+    <!-- Module jdnc-demos -->
+
+    <dirname property="module.jdnc-demos.basedir" file="${ant.file}"/>
+
+
+    <property name="compiler.args.jdnc-demos" value="${compiler.args}"/>
+    <property name="jdnc-demos.jar.name" value="demo-all.jar"/>
+
+    <property name="jdnc-demos.output.dir" value="${module.jdnc-demos.basedir}/../../classes/production/jdnc-demos"/>
+    <property name="jdnc-demos.testoutput.dir" value="${module.jdnc-demos.basedir}/../../classes/test/jdnc-demos"/>
+
+    <path id="jdnc-demos.module.bootclasspath">
+        <!-- Paths to be included in compilation bootclasspath -->
+    </path>
+
+    <path id="jdnc-demos.module.classpath">
+        <pathelement location="${jdnc-incubator.output.dir}"/>
+        <pathelement location="${jdnc-incubator.testoutput.dir}"/>
+        <pathelement location="${module.jdnc-demos.basedir}/../../lib/share/swingx.jar"/>
+        <pathelement location="${module.jdnc-demos.basedir}/../../lib/share/TimingFramework.jar"/>
+    </path>
+
+    <path id="jdnc-demos.runtime.module.classpath">
+        <pathelement location="${jdnc-incubator.output.dir}"/>
+        <pathelement location="${jdnc-incubator.testoutput.dir}"/>
+        <pathelement location="${module.jdnc-demos.basedir}/../../lib/share/swingx.jar"/>
+        <pathelement location="${module.jdnc-demos.basedir}/../../lib/share/TimingFramework.jar"/>
+        <pathelement
+                location="${module.jdnc-demos.basedir}/../../junit-4.0.jar"/>
+    </path>
+
+
+    <patternset id="excluded.from.module.jdnc-demos">
+        <patternset refid="ignored.files"/>
+    </patternset>
+
+    <patternset id="excluded.from.compilation.jdnc-demos">
+        <patternset refid="excluded.from.module.jdnc-demos"/>
+    </patternset>
+
+    <path id="jdnc-demos.module.sourcepath">
+        <dirset dir="${module.jdnc-demos.basedir}">
+            <include name="demo"/>
+        </dirset>
+    </path>
+
+
+    <target name="compile.module.jdnc-demos"
+            depends="compile.module.jdnc-demos.production,compile.module.jdnc-demos.tests"
+            description="Compile module jdnc-demos"/>
+
+    <target name="compile.module.jdnc-demos.production" depends="compile.module.jdnc-incubator"
+            description="Compile module jdnc-demos; production classes">
+        <mkdir dir="${jdnc-demos.output.dir}"/>
+        <javac destdir="${jdnc-demos.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
+               memorymaximumsize="${compiler.max.memory}" fork="true" target="${compiler.target}">
+            <compilerarg line="${compiler.args.jdnc-demos}"/>
+            <bootclasspath refid="jdnc-demos.module.bootclasspath"/>
+            <classpath refid="jdnc-demos.module.classpath"/>
+            <src refid="jdnc-demos.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.jdnc-demos"/>
+        </javac>
+
+        <copy todir="${jdnc-demos.output.dir}">
+            <fileset dir="${module.jdnc-demos.basedir}/demo">
+                <patternset refid="compiler.resources"/>
+                <type type="file"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="compile.module.jdnc-demos.tests" depends="compile.module.jdnc-demos.production"
+            description="compile module jdnc-demos; test classes" unless="skip.tests"/>
+
+    <target name="package.module.jdnc-demos" depends="compile.module.jdnc-demos.production"
+            description="Package all demos into a jar">
+        <jar basedir="${jdnc-demos.output.dir}" destfile="${jdnc-demos.output.dir}/${jdnc-demos.jar.name}"/>
+    </target>
+
+    <target name="clean.module.jdnc-demos" description="cleanup module">
+        <delete dir="${jdnc-demos.output.dir}"/>
+        <delete dir="${jdnc-demos.testoutput.dir}"/>
+    </target>
+
+    <target name="init" description="Build initialization">
+        <!-- Perform any build initialization in this target -->
+    </target>
+
+    <target name="clean" depends="clean.module.jdnc-incubator, clean.module.jdnc-demos" description="cleanup all"/>
+
+    <target name="all"
+            depends="init, clean, compile.module.jdnc-incubator, compile.module.jdnc-demos, package.module.jdnc-incubator, package.module.jdnc-demos"
+            description="build all"/>
+</project>

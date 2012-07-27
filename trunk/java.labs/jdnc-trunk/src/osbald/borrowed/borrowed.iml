@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module relativePaths="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/jasperpotts/RangeListSelectionModel/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/jasperpotts/RangeListSelectionModel/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/mario_cesar/VerticalTabbedPane/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mario_cesar/VerticalTabbedPane/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/mattnathan/JXComponent/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/santhosh/VerticalTabbedPane/demo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/santhosh/VerticalTabbedPane/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/scottviolet/AppFramework/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/softAMIS/DelayedInvoker/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/testing/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thierry/HTMLReportBuilder/java" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="swingx" level="project" />
+    <orderEntry type="library" name="junit" level="project" />
+    <orderEntryProperties />
+  </component>
+</module>
+
