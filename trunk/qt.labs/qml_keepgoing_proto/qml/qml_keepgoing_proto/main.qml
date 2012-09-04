@@ -7,7 +7,8 @@ Item {
     height: 600
 
     LeftNavigation {
-        width: 300
+        id: leftnavigation1
+        width: 150
 
         anchors {
             left: parent.left
@@ -15,6 +16,18 @@ Item {
             bottom: parent.bottom
 
         }
+
+
+    }
+
+    Rectangle {
+        id: simpleTaskView
+        width: 300
+        height: 300
+        color: "#dff7e0"
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+
 
 
     }

@@ -80,9 +80,15 @@
          drag.target: bar
          drag.minimumY: 0
          drag.maximumY: scrollBar.height - bar.height
+         drag.minimumX: 0
+         drag.maximumX: scrollBar.width- bar.width
          onMousePositionChanged: {
              if (drag.active) {
-                 target.contentY = pos.y /pageSize
+                 if (orientation == Qt.Vertical) {
+                    target.contentY = pos.y /pageSize
+                 } else {
+                     target.contentX = pos.x /pageSize
+                 }
              }
          }
      }
