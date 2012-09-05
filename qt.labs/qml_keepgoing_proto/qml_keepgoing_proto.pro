@@ -41,3 +41,6 @@ qtcAddDeployment()
 HEADERS += \
     qmlobject.h \
     projectlistmodel.h
+
+OTHER_FILES += \
+    challenge.txt

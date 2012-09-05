@@ -16,7 +16,7 @@ Item {
             bottom: parent.bottom
 
         }
-
+        z: 10
 
     }
 
@@ -24,10 +24,10 @@ Item {
         id: simpleTaskView
         width: 300
         height: 300
-        color: "#dff7e0"
+        color: "#64dff7e0"
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
-
+        z: 0
 
 
     }

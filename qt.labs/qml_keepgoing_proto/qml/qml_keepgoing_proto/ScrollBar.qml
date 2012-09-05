@@ -79,9 +79,11 @@
          drag.axis: orientation == Qt.Vertical? Drag.YAxis: Drag.XAxis
          drag.target: bar
          drag.minimumY: 0
-         drag.maximumY: scrollBar.height - bar.height
+         drag.maximumY: orientation == Qt.Vertical? scrollBar.height - bar.height:0
          drag.minimumX: 0
-         drag.maximumX: scrollBar.width- bar.width
+         drag.maximumX: orientation == Qt.Vertical? 0:scrollBar.width - bar.width
+
+
          onMousePositionChanged: {
              if (drag.active) {
                  if (orientation == Qt.Vertical) {
@@ -92,4 +94,6 @@
              }
          }
      }
+
+
  }
