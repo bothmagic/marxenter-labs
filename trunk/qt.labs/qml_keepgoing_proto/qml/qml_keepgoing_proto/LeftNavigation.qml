@@ -23,8 +23,12 @@ Item {
         id: listView
         property Item selItem;
         interactive: true
+        focus: true
+        Keys.onDownPressed: {
 
-        KeyNavigation.down: listView.incrementCurrentIndex()
+            listView.incrementCurrentIndex()
+        }
+
         onFocusChanged: console.log("focus")
         model: ProjectListModel {}
         anchors.fill:parent
@@ -45,12 +49,12 @@ Item {
                 id:text
                 color: "grey"
                 //anchors.fill: parent
-                width: 100
+                width: tt.width
                 height: 20
                 TextInput {
-                    focus: true
-                    text: model.text
 
+                    text: model.text
+                    anchors.fill: parent
                 }
                 transform: Rotation {
                     id: rotation
