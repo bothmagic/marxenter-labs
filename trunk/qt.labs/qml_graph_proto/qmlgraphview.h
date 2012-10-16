@@ -3,42 +3,30 @@
 
 #include <QDeclarativeItem>
 
+class QmlGraphItem;
+class QmlGraphEdge;
 class QmlGraphView : public QDeclarativeItem
 {
     Q_OBJECT
 
-    Q_PROPERTY(QDeclarativeItem* start READ start WRITE setStart)
-    Q_PROPERTY(QDeclarativeItem* end READ end WRITE setEnd)
-
 public:
     explicit QmlGraphView(QDeclarativeItem *parent = 0);
-    void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
 
-
-
-    void setStart(QDeclarativeItem* start);
-    QDeclarativeItem* start() const;
-
-    void setEnd(QDeclarativeItem* end);
-    QDeclarativeItem* end() const;
-
-
-
-
-
+    //void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
+    Q_INVOKABLE void registerItem(int id, QmlGraphItem *node);
+    Q_INVOKABLE void registerEdge(int firstId, int secondId);
 signals:
     
 public slots:
-    void upaint();
+    void updateItem(int itemId);
 protected:
-    bool sceneEventFilter(QGraphicsItem *watched, QEvent *event);
-    bool eventFilter(QObject *item, QEvent *event);
-private:
-    QDeclarativeItem* m_start;
-    QDeclarativeItem* m_end;
 
-    void registerItem(QDeclarativeItem *start);
-    
+private:
+    QHash<int, QmlGraphItem*> m_items;
+    QMultiHash<int, QmlGraphEdge*> m_edge;
+
+    void addEdge(int firstId, int secondId);
+
 };
 
 #endif // EDGELAYER_H

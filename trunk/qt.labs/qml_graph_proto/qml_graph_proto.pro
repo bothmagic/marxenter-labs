@@ -31,11 +31,15 @@ symbian:TARGET.CAPABILITY += NetworkServices
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    qmlgraphview.cpp
+    qmlgraphview.cpp \
+    qmlgraphitem.cpp \
+    qmlgraphedge.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    qmlgraphview.h
+    qmlgraphview.h \
+    qmlgraphitem.h \
+    qmlgraphedge.h

@@ -2,79 +2,95 @@
 #include <QPainter>
 #include <QDebug>
 #include <QApplication>
+#include <QDeclarativeProperty>
+#include "qmlgraphitem.h"
+#include "qmlgraphedge.h"
+
 QmlGraphView::QmlGraphView(QDeclarativeItem *parent) :
-    QDeclarativeItem(parent), m_start(0), m_end(0)
+    QDeclarativeItem(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents, false);
     setFiltersChildEvents(false);
 }
 
-void QmlGraphView::paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *)
+//void QmlGraphView::paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *)
+//{
+
+//    if (!m_end|| !m_start)
+//        return;
+
+//    p->save();
+//    p->setPen(QPen(Qt::black));
+
+//    QRectF startR = m_start->boundingRect().translated(m_start->x(), m_start->y());
+//    QRectF endR = m_end->boundingRect().translated(m_end->x(), m_end->y());
+
+//    p->drawLine(startR.center(), endR.center());
+
+
+//    p->restore();
+
+//}
+
+//void QmlGraphView::registerItem(QmlGraphItem *start)
+//{
+//    connect(start, SIGNAL(xChanged()), this, SLOT(upaint()));
+//    connect(start, SIGNAL(yChanged()), this, SLOT(upaint()));
+//}
+
+
+void QmlGraphView::updateItem(int itemId)
 {
+    QHash<int, QmlGraphEdge*>::const_iterator i = m_edge.find(itemId);
+    QmlGraphItem* item = m_items.value(itemId);
 
-    if (!m_end|| !m_start)
-        return;
-
-    p->save();
-    p->setPen(QPen(Qt::black));
-
-    QRectF startR = m_start->boundingRect().translated(m_start->x(), m_start->y());
-    QRectF endR = m_end->boundingRect().translated(m_end->x(), m_end->y());
-
-    p->drawLine(startR.center(), endR.center());
-
-
-    p->restore();
-
-}
-
-void QmlGraphView::registerItem(QDeclarativeItem *start)
-{
-    connect(start, SIGNAL(xChanged()), this, SLOT(upaint()));
-    connect(start, SIGNAL(yChanged()), this, SLOT(upaint()));
-}
-
-void QmlGraphView::setStart(QDeclarativeItem *start)
-{
-    qDebug() << "start " << start;
-    m_start = start;
-    //start->installSceneEventFilter(this);
-    registerItem(start);
-}
-
-QDeclarativeItem *QmlGraphView::start() const
-{
-    return m_start;
-}
-
-void QmlGraphView::setEnd(QDeclarativeItem *end)
-{
-    qDebug() << "end " << end;
-    m_end = end;
-    registerItem(end);
-}
-
-QDeclarativeItem *QmlGraphView::end() const
-{
-    return m_end;
-}
-
-void QmlGraphView::upaint()
-{
+    if (item) {
+        while (i != m_edge.end() && i.key() == itemId) {
+            if (i.value()->firstItemId() == itemId) {
+                QPointF p;
+                if (item->parent() != this) {
+                    p = item->mapRectToScene(item->boundingRect()).center();
+                } else {
+                    p = item->boundingRect().translated(item->x(), item->y()).center();
+                }
+                i.value()->setFirstPoint(p);
+            } else if (i.value()->secondItemId() == itemId) {
+                QPointF p;
+                if (item->parent() != this) {
+                    p = item->mapRectToScene(item->boundingRect()).center();
+                } else {
+                    p = item->boundingRect().translated(item->x(), item->y()).center();
+                }
+                i.value()->setSecondPoint(p);
+            }
+            ++i;
+        }
+    }
     update();
 }
 
-bool QmlGraphView::sceneEventFilter(QGraphicsItem *watched, QEvent *event)
+void QmlGraphView::addEdge(int firstId, int secondId)
 {
-    qDebug() << "filter " << event;
+    QmlGraphEdge* edge = new QmlGraphEdge(this);
+    edge->setFirstItemId(firstId);
+    edge->setSecondItemId(secondId);
+    m_edge.insert(firstId, edge);
+    m_edge.insert(secondId, edge);
 }
 
-bool QmlGraphView::eventFilter(QObject *item, QEvent *event)
+void QmlGraphView::registerItem(int id, QmlGraphItem *node)
 {
-    qDebug() << "eventfilter " << event;
-    QApplication::postEvent(item, event);
-
-    return true;
+    node->setGraphItemId(id);
+    m_items.insert(id, node);
+    connect(node, SIGNAL(itemChanged(int)), this, SLOT(updateItem(int)));
 }
+
+void QmlGraphView::registerEdge(int firstId, int secondId)
+{
+    addEdge(firstId, secondId);
+}
+
+
+
 
 
