@@ -3,7 +3,7 @@
 
 #include <QDeclarativeItem>
 
-class EdgeLayer : public QDeclarativeItem
+class QmlGraphView : public QDeclarativeItem
 {
     Q_OBJECT
 
@@ -11,7 +11,7 @@ class EdgeLayer : public QDeclarativeItem
     Q_PROPERTY(QDeclarativeItem* end READ end WRITE setEnd)
 
 public:
-    explicit EdgeLayer(QDeclarativeItem *parent = 0);
+    explicit QmlGraphView(QDeclarativeItem *parent = 0);
     void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget = 0);
 
 
