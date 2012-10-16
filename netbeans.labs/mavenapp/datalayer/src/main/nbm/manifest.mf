@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-OpenIDE-Module-Localizing-Bundle: de/mx/tpl/datalayer/Bundle.properties
-OpenIDE-Module-Layer: de/mx/tpl/datalayer/layer.xml
-OpenIDE-Module-Requires: org.openide.windows.WindowManager

@@ -1,9 +1,0 @@
-The goal with this project is to prototype ideas for a new versions of itemviews in Qt.
-Feel free to join the fun (preferably by making your own branch)! :)
-
-To test the examples just type:
-qmake
-make
-
-Online API docs can be found at
-http://labs.trolltech.com/docs/Projects/itemviews-ng/

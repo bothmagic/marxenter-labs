@@ -1,6 +1,0 @@
-# Application dependencies
-
-require:
-    - play
-    - play -> orientdb 0.1.1
-    - play -> crud

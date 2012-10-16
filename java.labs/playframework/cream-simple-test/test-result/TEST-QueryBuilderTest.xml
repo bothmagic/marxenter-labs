@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
-<testsuite failures="0" time="0" errors="0" skipped="0" tests="2" name="QueryBuilderTest">
-  <testcase classname="QueryBuilderTest" name="testQuery" time="0">
-      </testcase>
-  <testcase classname="QueryBuilderTest" name="testBadChars" time="0">
-      </testcase>
-</testsuite>

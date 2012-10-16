@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file alias="foo">timeline/timelineView.qml</file>
-    </qresource>
-</RCC>

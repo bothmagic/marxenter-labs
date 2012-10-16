@@ -1,7 +1,0 @@
-
-Instead of a documentation (hope to have made more or less clear what I intended to do in the forum's thread "Some experiments.."):
-
-All examples are in src/demo/<jdnc>/kleopatra, the most advanced are AutoOverviewList/-Table - they adapt list/tabular data to a OverviewDataModel and fed that to a form which will build and bind a list/table as overview and the details to a nested form. 
-
-Navigation across the overviewing datastructure is handled by a dedicated class which exposes Actions to move around and enable/disable them appropriately. The navigation is coupled to the overviewing View's selectionModel. Reset/Submit Actions are handled by a class named FormHandler: it enables/disables the actions in synch with form modification and vetos navigation if dirty.
-
