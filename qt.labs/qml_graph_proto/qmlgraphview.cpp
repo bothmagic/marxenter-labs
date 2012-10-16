@@ -1,15 +1,15 @@
-#include "edgelayer.h"
+#include "qmlgraphview.h"
 #include <QPainter>
 #include <QDebug>
 #include <QApplication>
-EdgeLayer::EdgeLayer(QDeclarativeItem *parent) :
+QmlGraphView::QmlGraphView(QDeclarativeItem *parent) :
     QDeclarativeItem(parent), m_start(0), m_end(0)
 {
     setFlag(QGraphicsItem::ItemHasNoContents, false);
     setFiltersChildEvents(false);
 }
 
-void EdgeLayer::paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *)
+void QmlGraphView::paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *)
 {
 
     if (!m_end|| !m_start)
@@ -28,13 +28,13 @@ void EdgeLayer::paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *)
 
 }
 
-void EdgeLayer::registerItem(QDeclarativeItem *start)
+void QmlGraphView::registerItem(QDeclarativeItem *start)
 {
     connect(start, SIGNAL(xChanged()), this, SLOT(upaint()));
     connect(start, SIGNAL(yChanged()), this, SLOT(upaint()));
 }
 
-void EdgeLayer::setStart(QDeclarativeItem *start)
+void QmlGraphView::setStart(QDeclarativeItem *start)
 {
     qDebug() << "start " << start;
     m_start = start;
@@ -42,34 +42,34 @@ void EdgeLayer::setStart(QDeclarativeItem *start)
     registerItem(start);
 }
 
-QDeclarativeItem *EdgeLayer::start() const
+QDeclarativeItem *QmlGraphView::start() const
 {
     return m_start;
 }
 
-void EdgeLayer::setEnd(QDeclarativeItem *end)
+void QmlGraphView::setEnd(QDeclarativeItem *end)
 {
     qDebug() << "end " << end;
     m_end = end;
     registerItem(end);
 }
 
-QDeclarativeItem *EdgeLayer::end() const
+QDeclarativeItem *QmlGraphView::end() const
 {
     return m_end;
 }
 
-void EdgeLayer::upaint()
+void QmlGraphView::upaint()
 {
     update();
 }
 
-bool EdgeLayer::sceneEventFilter(QGraphicsItem *watched, QEvent *event)
+bool QmlGraphView::sceneEventFilter(QGraphicsItem *watched, QEvent *event)
 {
     qDebug() << "filter " << event;
 }
 
-bool EdgeLayer::eventFilter(QObject *item, QEvent *event)
+bool QmlGraphView::eventFilter(QObject *item, QEvent *event)
 {
     qDebug() << "eventfilter " << event;
     QApplication::postEvent(item, event);
