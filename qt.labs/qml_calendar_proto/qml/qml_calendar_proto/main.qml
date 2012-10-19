@@ -4,7 +4,7 @@ Rectangle {
     id: calendarChooser
     property int monthId: 0
     property int yearId: 0
-    property int dayId:8
+    property int dayId:0
 
     property Item monthView
     property Item dayView
@@ -13,10 +13,29 @@ Rectangle {
     property Item nextView
     property Scale monthViewScale: Scale{}
     property Scale dayViewScale: Scale{}
+    property variant currentDate
 
-    width: 200
-    height: 200
+    property ListModel dayNames: ListModel {
+        ListElement {name: "Mon"} ListElement {name: "Tue"}
+        ListElement {name: "Wed"} ListElement {name: "Thu"}
+        ListElement {name: "Fri"} ListElement {name: "Sat"}
+        ListElement {name: "Sun"}
+    }
+
+    property ListModel monthNames: ListModel {
+        ListElement {name: "Jan"} ListElement {name: "Feb"}
+        ListElement {name: "Mar"} ListElement {name: "Apr"}
+        ListElement {name: "May"} ListElement {name: "Jun"}
+        ListElement {name: "Jul"} ListElement {name: "Aug"}
+        ListElement {name: "Sep"} ListElement {name: "Oct"}
+        ListElement {name: "Nov"} ListElement {name: "Dec"}
+    }
+
+    width: 220
+    height: 160
     clip:true
+
+
 
     function fnZoomOutOfDayView() {
 
@@ -28,21 +47,28 @@ Rectangle {
         currentView = monthView;
         currentViewType = 1
         //console.log(gridScale.origin.x + ", "+gridScale.origin.y)
+        fnUpdateHeader()
         zoomOutToMonth.start();
     }
 
     function fnZoomIntoDayView(newMonthIdx) {
-        monthView.children[monthId].color = "white"
+//        monthView.children[monthId].color = "white"
         monthId = newMonthIdx;
-        monthView.children[monthId].color = "blue"
+//        monthView.children[monthId].color = "blue"
+
+        currentView = dayView;
+        dayView.dayModel = fnLoadDayModel(new Date(currentDate.getFullYear(), monthId, 1))
+
         dayViewScale.origin.x = monthView.children[monthId].x + monthView.children[monthId].width/2
         dayViewScale.origin.y = monthView.children[monthId].y + monthView.children[monthId].height/2
 
         monthViewScale.origin.x = monthView.children[monthId].x + monthView.children[monthId].width/2
         monthViewScale.origin.y = monthView.children[monthId].y + monthView.children[monthId].height/2
-        currentView = dayView;
+
+
         currentViewType = 0
         //console.log(gridScale.origin.x + ", "+gridScale.origin.y)
+        fnUpdateHeader()
         zoomInToDay.start();
     }
 
@@ -50,28 +76,44 @@ Rectangle {
 
         switch (currentViewType) {
         case 0:
-            nextView = dayViewComponent.createObject(calendarChooser, {x: -200})
-            nextView.children[dayId].color = "blue"
+            nextView = dayViewComponent.createObject(calendarChooser, {x: -220})
+            nextView.dayModel = fnLoadDayModel(new Date(currentDate.getFullYear(), currentDate.getMonth()-1, 1))
+            //nextView.children[dayId].color = "blue"
+//            var newMonthIdx = currentDate.getMonth()
+//            monthView.children[monthId].color = "white"
+//            monthId = newMonthIdx;
+//            monthView.children[monthId].color = "blue"
+
             break;
         case 1:
-            nextView = monthViewComponent.createObject(calendarChooser, {x: -200, opacity:1})
-            nextView.children[monthId].color = "blue"
+            nextView = monthViewComponent.createObject(calendarChooser, {x: -220, opacity:1})
+            //nextView.children[monthId].color = "blue"
+            currentDate = new Date(currentDate.getFullYear()-1, currentDate.getMonth(), 1)
+
         }
 
+        fnUpdateHeader()
         showPreviosAnimation.start();
     }
 
     function fnShowNextView() {
         switch (currentViewType) {
         case 0:
-            nextView = dayViewComponent.createObject(calendarChooser, {x: 200})
-            nextView.children[dayId].color = "blue"
+
+            nextView = dayViewComponent.createObject(calendarChooser, {x: 220})
+            nextView.dayModel = fnLoadDayModel(new Date(currentDate.getFullYear(), currentDate.getMonth()+1, 1))
+
+            //var newMonthIdx = currentDate.getMonth()
+            //monthView.children[monthId].color = "white"
+            //monthId = newMonthIdx;
+            //monthView.children[monthId].color = "blue"
             break;
         case 1:
-            nextView = monthViewComponent.createObject(calendarChooser, {x: 200, opacity:1})
-            nextView.children[monthId].color = "blue"
+            nextView = monthViewComponent.createObject(calendarChooser, {x: 220, opacity:1})
+            //nextView.children[monthId].color = "blue"
+            currentDate = new Date(currentDate.getFullYear()+1, currentDate.getMonth(), 1)
         }
-
+        fnUpdateHeader()
         showNextAnimation.start();
     }
 
@@ -90,56 +132,80 @@ Rectangle {
         currentView = nextView
     }
 
+    function fnUpdateHeader() {
+        switch (currentViewType) {
+            case 0: txt_header.text = Qt.formatDate(currentDate, "MMMM yyyy"); break;
+            case 1: txt_header.text = Qt.formatDate(currentDate, "yyyy"); break;
+        }
+        monthId = currentDate.getMonth()
+    }
+
+    function fnLoadDayModel(da) {
+
+        var daym = dayModelComponent.createObject(calendarChooser);
+
+        currentDate = da
+
+        var year = da.getFullYear();
+        var month = da.getMonth();
+        da.setDate(1)
+        da.setDate(da.getDate() - da.getDay() +1 );
+        console.log("load daymodel for " + currentDate);
+
+        for (var i = 0; i < 42; i++) {
+            daym.append({name: da.getDate(), inRange: da.getMonth() == month})
+            da.setDate(da.getDate()+1);
+        }
+        return daym
+    }
+
 
     Component.onCompleted: {
 
         dayView = dayViewComponent.createObject(calendarChooser);
         monthView = monthViewComponent.createObject(calendarChooser);
         currentView = dayView
-        for (var i = 0 ; i < 48; i++) {
-            daymodel.append({name: ""+i});
+
+        dayView.dayModel = fnLoadDayModel(new Date())
+
+        //monthView.children[currentDate.getMonth()].color = "blue"
+        //dayView.children[dayId].color = "blue"
+        fnUpdateHeader()
+
+    }
+
+    Component {
+        id:dayModelComponent
+        ListModel {
+
         }
-
-        for (i = 0 ; i < 12; i++) {
-            monthmodel.append({name: "Month"+i});
-        }
-
-        monthView.children[monthId].color = "blue"
-        dayView.children[dayId].color = "blue"
-
-
     }
-
-    ListModel {
-        id:daymodel
-    }
-
-    ListModel {
-        id:monthmodel
-    }
-
 
     Item {
         id: header
         anchors.right: parent.right
         anchors.left: parent.left
         height: 20
-
-        Row {
-            anchors.horizontalCenter: parent.horizontalCenter
-            Text {
-
-                text: "Left"
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        fnShowPreviousView();
-                    }
+        z: 10
+        Rectangle {
+            anchors.fill: parent
+        }
+        Text {
+            anchors.left: parent.left
+            text: "Left"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    fnShowPreviousView();
                 }
             }
+        }
+
+
 
             Text {
-
+                id:txt_header
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: "Month"
                 MouseArea {
                     anchors.fill: parent
@@ -149,7 +215,7 @@ Rectangle {
                 }
             }
             Text {
-
+                anchors.right: parent.right
                 text: "Right"
                 MouseArea {
                     anchors.fill: parent
@@ -158,49 +224,71 @@ Rectangle {
                     }
                 }
             }
-        }
+
     }
 
 
     Component {
         id: dayViewComponent
-
-        Grid {
+        Column {
             x: 0; y: 20
-
-            spacing: 0
-            columns: 7
-            opacity: 1
             transform: dayViewScale
+            spacing: 10
+            z:0
+            property ListModel dayModel
 
-            Repeater {
+            Row {
+                Repeater {
+                    model: dayNames
+                    delegate:
+                        Rectangle {
+                            width: 30; height: 15
 
-                model: daymodel
-                delegate: Rectangle {
-                    id:delegate
-                    width: 25; height: (index < 7)? 25: 15
+                            Text {
+                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.right: parent.right
+                                text: qsTr(name)
+                                font.bold: true
 
-                    Text {
-                        Component.onCompleted: {
-                            if (index <7) {
-                                anchors.top = parent.top
-                                font.bold = true
-                            } else
-                                anchors.verticalCenter = parent.verticalCenter
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+
+                            }
                         }
-                        anchors.right: parent.right
-                        text: name
-                    }
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
 
-                        }
-                    }
                 }
             }
 
+            Grid {
+                spacing: 0
+                columns: 7
+                opacity: 1
 
+                Repeater {
+
+                    model: dayModel
+                    delegate: Rectangle {
+                        id:delegate
+                        width: 30; height: 17
+
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.right: parent.right
+                            text: name
+                            color: inRange?"black":"lightgrey"
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+
+                            }
+                        }
+                    }
+                }
+
+
+            }
         }
     }
     Component {
@@ -210,22 +298,25 @@ Rectangle {
 
             x: 0; y: 20
             opacity: 0
-            spacing: 10
+            spacing: 12
             columns: 4
             transform: monthViewScale
+            z: 0
             Repeater {
 
-                model: monthmodel
+                model: monthNames
                 delegate: Rectangle {
                     id:monthDelegate
                     width: 40; height: 35
-
+                    color: month_mousearea.containsMouse || monthId == index? "blue": "white"
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
-                        text: name
+                        text: qsTr(name)
                     }
                     MouseArea {
+                        id: month_mousearea
+                        hoverEnabled: true
                         anchors.fill: parent
                         onClicked: {
                             fnZoomIntoDayView(index)
@@ -261,8 +352,8 @@ Rectangle {
         PropertyAnimation {
             target: monthView
             properties: "x"
-            from: monthView.width/2 - (monthView.children[monthId].x + monthView.children[monthId].width/2)
-            to: 0
+            from: monthView.width/2 - (monthView.children[monthId].x + monthView.children[monthId].width/2) + 10
+            to: 10
         }
 
         PropertyAnimation {
@@ -307,7 +398,7 @@ Rectangle {
         PropertyAnimation {
             target: monthView
             properties: "x"
-            to: monthView.width/2 - (monthView.children[monthId].x + monthView.children[monthId].width/2)
+            to: monthView.width/2 - (monthView.children[monthId].x + monthView.children[monthId].width/2)+10
         }
 
         PropertyAnimation {
@@ -323,12 +414,12 @@ Rectangle {
         PropertyAnimation {
             target: currentView
             property: "x"
-            to: 200
+            to: 220
         }
         PropertyAnimation {
             target: nextView
             property: "x"
-            to: 0
+            to: currentViewType < 1? 0: 10
         }
         onCompleted: fnAnimationComplete()
     }
@@ -337,14 +428,16 @@ Rectangle {
         id: showNextAnimation
 
         PropertyAnimation {
+
             target: currentView
             property: "x"
-            to: -200
+            to: -220
         }
-        PropertyAnimation {
+        PropertyAnimation
+        {
             target: nextView
             property: "x"
-            to: 0
+            to: currentViewType < 1? 0: 10
         }
         onCompleted: fnAnimationComplete()
 
