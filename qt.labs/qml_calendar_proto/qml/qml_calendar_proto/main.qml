@@ -4,15 +4,10 @@ Rectangle {
     id: calendarChooser
     property int monthId: 0
     property int yearId: 0
-    property int dayId:0
 
-    property Item monthView
-    property Item dayView
     property int currentViewType:0
     property Item currentView
     property Item nextView
-    property Scale monthViewScale: Scale{}
-    property Scale dayViewScale: Scale{}
     property variant currentDate
 
     property ListModel dayNames: ListModel {
@@ -36,100 +31,150 @@ Rectangle {
     clip:true
 
 
+    function fnViewZoomOut() {
+        if (currentViewType > 1)
+            return;
 
-    function fnZoomOutOfDayView() {
+        nextView = fnCreateView(currentViewType+1, currentDate, {})
+        var selId
+        switch (currentViewType) {
+            case 0: selId = monthId;break;
+            case 1: selId = yearId;break;
+        }
 
-        dayViewScale.origin.x = monthView.children[monthId].x + monthView.children[monthId].width/2
-        dayViewScale.origin.y = monthView.children[monthId].y + monthView.children[monthId].height/2
+        var currentViewScale = currentView.myScale;
+        var nextViewScale = nextView.myScale;
 
-        monthViewScale.origin.x = monthView.children[monthId].x + monthView.children[monthId].width/2
-        monthViewScale.origin.y = monthView.children[monthId].y + monthView.children[monthId].height/2
-        currentView = monthView;
-        currentViewType = 1
+        currentViewScale.origin.x = nextView.children[selId].x + nextView.children[selId].width/2
+        currentViewScale.origin.y = nextView.children[selId].y + nextView.children[selId].height/2
+
+        nextViewScale.origin.x = nextView.children[selId].x + nextView.children[selId].width/2
+        nextViewScale.origin.y = nextView.children[selId].y + nextView.children[selId].height/2
+
         //console.log(gridScale.origin.x + ", "+gridScale.origin.y)
+        currentViewType++;
         fnUpdateHeader()
-        zoomOutToMonth.start();
+
+        var anim = anim_viewzoomout_comp.createObject(currentView)
+        anim.startX = nextView.width/2 - (nextView.children[selId].x + nextView.children[selId].width/2) + 10
+        anim.startY = nextView.height/2 - (nextView.children[selId].y + nextView.children[selId].height/2) + 30
+        anim.start()
+
     }
 
-    function fnZoomIntoDayView(newMonthIdx) {
-//        monthView.children[monthId].color = "white"
+    function fnViewZoomIn(newMonthIdx) {
+        if (currentViewType == 0)
+            return;
+
+        nextView = fnCreateView(currentViewType-1
+                                ,new Date(currentDate.getFullYear(), newMonthIdx, currentDate.getDate())
+                                , {})
         monthId = newMonthIdx;
-//        monthView.children[monthId].color = "blue"
 
-        currentView = dayView;
-        dayView.dayModel = fnLoadDayModel(new Date(currentDate.getFullYear(), monthId, 1))
+        var currentViewScale = currentView.myScale;
+        var nextViewScale = nextView.myScale;
 
-        dayViewScale.origin.x = monthView.children[monthId].x + monthView.children[monthId].width/2
-        dayViewScale.origin.y = monthView.children[monthId].y + monthView.children[monthId].height/2
+        nextViewScale.origin.x = currentView.children[monthId].x + currentView.children[monthId].width/2
+        nextViewScale.origin.y = currentView.children[monthId].y + currentView.children[monthId].height/2
 
-        monthViewScale.origin.x = monthView.children[monthId].x + monthView.children[monthId].width/2
-        monthViewScale.origin.y = monthView.children[monthId].y + monthView.children[monthId].height/2
+        currentViewScale.origin.x = currentView.children[monthId].x + currentView.children[monthId].width/2
+        currentViewScale.origin.y = currentView.children[monthId].y + currentView.children[monthId].height/2
 
-
-        currentViewType = 0
         //console.log(gridScale.origin.x + ", "+gridScale.origin.y)
+        currentViewType--;
         fnUpdateHeader()
-        zoomInToDay.start();
+        var anim = anim_viewzoomin_comp.createObject(currentView)
+        anim.endX =
+            currentView.width/2 - (currentView.children[monthId].x + currentView.children[monthId].width/2)+10
+        anim.endY =
+            currentView.height/2 - (currentView.children[monthId].y + currentView.children[monthId].height/2)+20
+        anim.start()
+
+
     }
 
+    /**
+      *
+      */
     function fnShowPreviousView() {
 
-        switch (currentViewType) {
+        switch(currentViewType) {
         case 0:
-            nextView = dayViewComponent.createObject(calendarChooser, {x: -220})
-            nextView.dayModel = fnLoadDayModel(new Date(currentDate.getFullYear(), currentDate.getMonth()-1, 1))
-            //nextView.children[dayId].color = "blue"
-//            var newMonthIdx = currentDate.getMonth()
-//            monthView.children[monthId].color = "white"
-//            monthId = newMonthIdx;
-//            monthView.children[monthId].color = "blue"
-
+            currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth()-1, currentDate.getDate())
             break;
         case 1:
-            nextView = monthViewComponent.createObject(calendarChooser, {x: -220, opacity:1})
-            //nextView.children[monthId].color = "blue"
-            currentDate = new Date(currentDate.getFullYear()-1, currentDate.getMonth(), 1)
-
+            currentDate = new Date(currentDate.getFullYear()-1, currentDate.getMonth(), currentDate.getDate())
+            break;
         }
+        nextView = fnCreateView(currentViewType
+                                ,currentDate
+                                , {x: -220, opacity: 1})
 
         fnUpdateHeader()
         showPreviosAnimation.start();
     }
 
     function fnShowNextView() {
-        switch (currentViewType) {
+        switch(currentViewType) {
         case 0:
-
-            nextView = dayViewComponent.createObject(calendarChooser, {x: 220})
-            nextView.dayModel = fnLoadDayModel(new Date(currentDate.getFullYear(), currentDate.getMonth()+1, 1))
-
-            //var newMonthIdx = currentDate.getMonth()
-            //monthView.children[monthId].color = "white"
-            //monthId = newMonthIdx;
-            //monthView.children[monthId].color = "blue"
+            currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth()+1, currentDate.getDate())
             break;
         case 1:
-            nextView = monthViewComponent.createObject(calendarChooser, {x: 220, opacity:1})
-            //nextView.children[monthId].color = "blue"
-            currentDate = new Date(currentDate.getFullYear()+1, currentDate.getMonth(), 1)
+            currentDate = new Date(currentDate.getFullYear()+1, currentDate.getMonth(), currentDate.getDate())
+            break;
         }
         fnUpdateHeader()
+        nextView = fnCreateView(currentViewType
+                                ,currentDate
+                                , {x: +220, opacity: 1})
+
+        fnUpdateHeader()
         showNextAnimation.start();
+
     }
 
-    function fnAnimationComplete() {
 
-        switch (currentViewType) {
+    function fnCreateView(type, date, options) {
+        var view
+        switch (type) {
         case 0:
-            dayView.destroy();
-            dayView = nextView;
+            view = dayViewComponent.createObject(calendarChooser, options);
+            view.model = fnLoadModel(date, view)
+            console.debug("create day view")
             break;
         case 1:
-            monthView.destroy();
-            monthView = nextView;
+            view = monthViewComponent.createObject(calendarChooser, options)
+            view.model = monthNames
+            monthId = date.getMonth()
+            console.debug("create month view")
+            break;
+        case 2:
+            view = monthViewComponent.createObject(calendarChooser, options)
+            var startYear = date.getFullYear() - date.getFullYear()%10;
+            var model = dynamicmodel.createObject(view)
+            yearId = currentDate.getFullYear()-startYear
+            date.setFullYear(startYear)
+            for (var i = 0; i < 12; i++) {
+                model.append({name:Qt.formatDate(date, "yyyy")});
+                date.setFullYear(date.getFullYear()+1)
+            }
+            console.debug("yearid is " +yearId)
+            view.model = model
         }
+        return view
+    }
 
-        currentView = nextView
+    /**
+      * release current view.
+      */
+    function fnAnimationComplete(anim) {
+
+       // if (currentView != dayView || currentViewType == 0) {
+            currentView.destroy();
+        //}
+        currentView = nextView;
+        if (anim)
+            anim.destroy()
     }
 
     function fnUpdateHeader() {
@@ -137,12 +182,11 @@ Rectangle {
             case 0: txt_header.text = Qt.formatDate(currentDate, "MMMM yyyy"); break;
             case 1: txt_header.text = Qt.formatDate(currentDate, "yyyy"); break;
         }
-        monthId = currentDate.getMonth()
     }
 
-    function fnLoadDayModel(da) {
+    function fnLoadModel(da, view) {
 
-        var daym = dayModelComponent.createObject(calendarChooser);
+        var daym = dynamicmodel.createObject(view);
 
         currentDate = da
 
@@ -153,20 +197,26 @@ Rectangle {
         console.log("load daymodel for " + currentDate);
 
         for (var i = 0; i < 42; i++) {
-            daym.append({name: da.getDate(), inRange: da.getMonth() == month})
+            daym.append({date: da, inRange: da.getMonth() == month})
             da.setDate(da.getDate()+1);
         }
+
         return daym
+    }
+
+    function fnEqualsDate(d1, d2) {
+        return d1.getDate() == d2.getDate() && d1.getMonth() == d2.getMonth()
+                && d1.getFullYear() == d2.getFullYear();
     }
 
 
     Component.onCompleted: {
 
-        dayView = dayViewComponent.createObject(calendarChooser);
-        monthView = monthViewComponent.createObject(calendarChooser);
-        currentView = dayView
+        currentView = fnCreateView(currentViewType, new Date(), {})
+        //monthView = monthViewComponent.createObject(calendarChooser);
+        //currentView = dayView
 
-        dayView.dayModel = fnLoadDayModel(new Date())
+        currentView.model = fnLoadModel(new Date(), currentView)
 
         //monthView.children[currentDate.getMonth()].color = "blue"
         //dayView.children[dayId].color = "blue"
@@ -175,7 +225,7 @@ Rectangle {
     }
 
     Component {
-        id:dayModelComponent
+        id:dynamicmodel
         ListModel {
 
         }
@@ -210,7 +260,7 @@ Rectangle {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        fnZoomOutOfDayView()
+                        fnViewZoomOut()
                     }
                 }
             }
@@ -228,14 +278,18 @@ Rectangle {
     }
 
 
+
     Component {
-        id: dayViewComponent
+        id:dayViewComponent
         Column {
+
+            property ListModel model
+            property Scale myScale: Scale {}
+
             x: 0; y: 20
-            transform: dayViewScale
+            transform: myScale
             spacing: 10
             z:0
-            property ListModel dayModel
 
             Row {
                 Repeater {
@@ -244,6 +298,9 @@ Rectangle {
                         Rectangle {
                             width: 30; height: 15
 
+            z:0
+            property ListModel dayModel
+
                             Text {
                                 anchors.verticalCenter: parent.verticalCenter
                                 anchors.right: parent.right
@@ -251,12 +308,7 @@ Rectangle {
                                 font.bold: true
 
                             }
-                            MouseArea {
-                                anchors.fill: parent
-
-                            }
                         }
-
                 }
             }
 
@@ -267,16 +319,25 @@ Rectangle {
 
                 Repeater {
 
-                    model: dayModel
+                    model: parent.parent.model
                     delegate: Rectangle {
                         id:delegate
                         width: 30; height: 17
-
+                        color: fnEqualsDate(date, currentDate) ? "blue": "white"
                         Text {
                             anchors.verticalCenter: parent.verticalCenter
                             anchors.right: parent.right
-                            text: name
+                            text: date.getDate()
                             color: inRange?"black":"lightgrey"
+                        }
+                        MouseArea {
+                            id: dayview_mousearea
+                            hoverEnabled: true
+                            anchors.fill: parent
+
+                            onClicked: {
+                                currentDate = date
+                            }
                         }
                         MouseArea {
                             anchors.fill: parent
@@ -291,24 +352,29 @@ Rectangle {
             }
         }
     }
+
     Component {
         id: monthViewComponent
 
         Grid {
-
+            property Scale myScale: Scale {}
+            property ListModel model
             x: 0; y: 20
             opacity: 0
             spacing: 12
             columns: 4
-            transform: monthViewScale
-            z: 0
+
+            transform: myScale
+            z: 1
+
             Repeater {
 
-                model: monthNames
+                model: parent.model
                 delegate: Rectangle {
                     id:monthDelegate
                     width: 40; height: 35
-                    color: month_mousearea.containsMouse || monthId == index? "blue": "white"
+                    color: month_mousearea.containsMouse
+                           || monthId == index? "blue": "white"
                     Text {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
@@ -319,7 +385,7 @@ Rectangle {
                         hoverEnabled: true
                         anchors.fill: parent
                         onClicked: {
-                            fnZoomIntoDayView(index)
+                            fnViewZoomIn(index)
                         }
                     }
                 }
@@ -329,84 +395,108 @@ Rectangle {
         }
     }
 
-    ParallelAnimation {
-        id: zoomOutToMonth
-        PropertyAnimation {
 
-            target: dayViewScale
-            properties: "xScale, yScale"
-            from: 1; to: 0.5
-        }
-        PropertyAnimation {
-            target: monthViewScale
-            properties: "xScale, yScale"
-            from: 4; to: 1
-        }
+    Component {
+        id: anim_viewzoomout_comp
+        ParallelAnimation {
+            id:anim_viewzoomout;
+            property int startX
+            property int startY
 
-        PropertyAnimation {
-            target: monthView
-            property: "opacity"
-            to: 1
-        }
+            PropertyAnimation {
 
-        PropertyAnimation {
-            target: monthView
-            properties: "x"
-            from: monthView.width/2 - (monthView.children[monthId].x + monthView.children[monthId].width/2) + 10
-            to: 10
-        }
+                target:currentView.myScale
+                properties: "xScale, yScale"
+                from: 1; to: 0.5
+            }
+            PropertyAnimation {
+                target: nextView.myScale
+                properties: "xScale, yScale"
+                from: 4; to: 1
+            }
 
-        PropertyAnimation {
-            target: monthView
-            properties: "y"
-            from: monthView.height/2 - (monthView.children[monthId].y + monthView.children[monthId].height/2) + 30
-            to: 20
-        }
+            PropertyAnimation {
+                target: nextView
+                property: "opacity"
+                to: 1
+            }
 
-        PropertyAnimation {
-            target: dayView
-            property: "opacity"
-            to: 0
+            PropertyAnimation {
+                target: nextView
+                properties: "x"
+                from: startX
+                to: 10
+            }
+
+            PropertyAnimation {
+                target: nextView
+                properties: "y"
+                from: startY
+                to: 20
+            }
+
+            PropertyAnimation {
+                target: currentView
+                property: "opacity"
+                to: 0
+            }
+
+            onCompleted: {
+
+                fnAnimationComplete(anim_viewzoomout);
+            }
         }
     }
 
-    ParallelAnimation {
-        id: zoomInToDay
-        PropertyAnimation {
 
-            target: dayViewScale
-            properties: "xScale, yScale"
-            from: 0.5; to: 1
-        }
-        PropertyAnimation {
-            target: monthViewScale
-            properties: "xScale, yScale"
-            from: 1; to: 4
-        }
 
-        PropertyAnimation {
-            target: monthView
-            property: "opacity"
-            to: 0
-        }
-        PropertyAnimation {
-            target: dayView
-            property: "opacity"
-            to: 1
-        }
+    Component {
+        id: anim_viewzoomin_comp
+        ParallelAnimation {
+            id:anim_viewzoomin
+            property int endX
+            property int endY
+            PropertyAnimation {
 
-        PropertyAnimation {
-            target: monthView
-            properties: "x"
-            to: monthView.width/2 - (monthView.children[monthId].x + monthView.children[monthId].width/2)+10
-        }
+                target: nextView.myScale
+                properties: "xScale, yScale"
+                from: 0.3; to: 1
+            }
+            PropertyAnimation {
+                target: currentView.myScale
+                properties: "xScale, yScale"
+                from: 1; to: 4
+            }
 
-        PropertyAnimation {
-            target: monthView
-            properties: "y"
-            to: monthView.height/2 - (monthView.children[monthId].y + monthView.children[monthId].height/2)+20
+            PropertyAnimation {
+                target: currentView
+                property: "opacity"
+                to: 0
+            }
+            PropertyAnimation {
+                target: nextView
+                property: "opacity"
+                to: 1
+            }
+
+            PropertyAnimation {
+                target: currentView
+                properties: "x"
+                to: endX
+            }
+
+            PropertyAnimation {
+                target: currentView
+                properties: "y"
+                to: endY
+            }
+            onCompleted: {
+                fnAnimationComplete(anim_viewzoomin);
+            }
         }
     }
+
+
 
     ParallelAnimation {
         id: showPreviosAnimation
