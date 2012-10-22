@@ -5,6 +5,7 @@ Item {
     id: leftNavigation
 
     Rectangle {
+
         anchors.fill: parent
     }
 
@@ -183,30 +184,14 @@ Item {
 
     //    }
 
-    Item {
-        id: buttonBar
-        anchors.bottom: parent.bottom
-        height: btImage.height
-        width: btImage.width
-        Image {
-            id: btImage
-            source: "content/button-add.png"
-        }
-        MouseArea {
-            anchors.fill: parent
-            onClicked: projectPopup.state = "open"
-        }
-    }
-
-
     Rectangle {
         id: projectPopup
 
         height: 0
         color: "#173efd"
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.right: parent.right
+        anchors.bottom: buttonBar.bottom
+        anchors.left: leftNavigation.left
+        anchors.right: leftNavigation.right
         Behavior on height {
             NumberAnimation {duration: 200; easing.type: Easing.OutQuad}
         }
@@ -222,6 +207,21 @@ Item {
                     target: projectPopup
                     height: 0
                 }
+                PropertyChanges {
+                    target: buttonBar
+                    height: btImage.height
+                }
+                PropertyChanges {
+                    target: buttonBarScale
+                    xScale: 1
+                    yScale: 1
+
+                }
+                ParentChange {
+                    target: btImage
+                    parent: buttonBar
+
+                }
             },
             State {
                 name: "open"
@@ -229,11 +229,54 @@ Item {
                     target: projectPopup
                     height: 200
                 }
+                PropertyChanges {
+                    target: buttonBar
+                    height: 0
+
+                }
+                PropertyChanges {
+                    target: buttonBarScale
+                    xScale: 0
+                    yScale: 0
+
+                }
 
             }
         ]
 
     }
+
+    Item {
+        id: buttonBar
+        anchors.bottom: parent.bottom
+        height: btImage.height
+        width: btImage.width
+        transform: Scale {
+            id: buttonBarScale;
+            origin.x: 0; origin.y: btImage.height;
+            xScale: 1; yScale: 1
+            Behavior on xScale {
+                 NumberAnimation {duration: 200; easing.type: Easing.InOutQuad}
+            }
+            Behavior on yScale {
+                 NumberAnimation {duration: 200; easing.type: Easing.InOutQuad}
+            }
+        }
+        Image {
+            id: btImage
+            source: "content/button-add.png"
+        }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: projectPopup.state = "open"
+        }
+
+        Behavior on height {
+            NumberAnimation {duration: 200; easing.type: Easing.InOutQuad}
+        }
+    }
+
+
 
 
 
