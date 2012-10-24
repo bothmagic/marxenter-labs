@@ -7,10 +7,11 @@ Rectangle {
 
     Rectangle {
         x:10;y:10
-        width:221
-        height:200
+        width:d.width+10
+        height:d.height+10
         border.color:"black"
         DateChooser {
+            id: d
             anchors.horizontalCenter:parent.horizontalCenter
             anchors.verticalCenter:parent.verticalCenter
             onSelectedDateChanged: console.log(selectedDate)

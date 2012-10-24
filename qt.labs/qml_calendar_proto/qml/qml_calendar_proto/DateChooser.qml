@@ -1,4 +1,4 @@
-import QtQuick 1.1
+import QtQuick 1.0
 
 Item {
     id: dateChooser
@@ -21,8 +21,12 @@ Item {
         property int dayWidth: 25
         property int dayHeight: 20
 
-        property int monthWidth: 40
-        property int monthHeight: 35
+        property int monthWidth: 45
+        property int monthHeight: 40
+        property int monthViewWidth
+        property int monthViewHeight
+
+        property int headerHeight: 20
 
     }
 
@@ -83,9 +87,10 @@ Item {
         fnUpdateHeader()
         p.anim = anim_viewzoomin_comp.createObject(p.currentView)
         p.anim.endX =
-                p.currentView.width/2 - (currentViewScale.origin.x)+10
+                p.currentView.width/2 - (currentViewScale.origin.x)+p.currentView.x
         p.anim.endY =
-                p.currentView.height/2 - (currentViewScale.origin.y)+22
+                p.currentView.height/2 - (currentViewScale.origin.y)+p.currentView.y
+
         p.anim.start()
 
 
@@ -125,11 +130,15 @@ Item {
         }
         p.nextView = fnCreateView(p.currentViewType
                                   ,p.currentDate
-                                  , {x: -220, opacity: 1})
+                                  , {opacity: 1})
 
         fnUpdateHeader()
-        showPreviosAnimation.start();
-        p.anim = showPreviosAnimation
+        var anim = anim_horizontal_comp.createObject(p.currentView)
+        anim.nextX = p.nextView.x
+        p.nextView.x = -dateChooser.width
+        anim.currentX = dateChooser.width
+        anim.start();
+        p.anim = anim
     }
 
     function fnShowNextView() {
@@ -148,11 +157,18 @@ Item {
         fnUpdateHeader()
         p.nextView = fnCreateView(p.currentViewType
                                   ,p.currentDate
-                                  , {x: +220, opacity: 1})
+                                  , {opacity: 1})
 
         fnUpdateHeader()
-        showNextAnimation.start();
-        p.anim = showNextAnimation
+
+        var anim = anim_horizontal_comp.createObject(p.currentView)
+
+        anim.nextX = p.nextView.x
+        anim.currentX = -dateChooser.width
+        p.nextView.x = dateChooser.width
+        anim.start();
+        p.anim = anim
+
     }
 
 
@@ -167,8 +183,8 @@ Item {
             break;
         case 1:
             view = monthViewComponent.createObject(dateChooser, options)
-            view.model = p.monthNames
             view.selectionIndex = date.getMonth()
+            view.model = p.monthNames
             console.debug("create month view")
             break;
         case 2:
@@ -206,7 +222,7 @@ Item {
 
     function fnUpdateHeader() {
         switch (p.currentViewType) {
-        case 0: txt_header.text = Qt.formatDate(p.currentDate, "MMMM") + Qt.formatDate(p.currentDate, " yyyy"); break;
+        case 0: txt_header.text = Qt.formatDate(p.currentDate, "MMMM yyyy"); break;
         case 1: txt_header.text = Qt.formatDate(p.currentDate, "yyyy"); break;
         case 2: txt_header.text = p.nextView.model.get(1).name + " - " + p.nextView.model.get(10).name
         }
@@ -249,13 +265,37 @@ Item {
             d.setDate(d.getDate()+1)
         }
 
+
+
+
         d = new Date(2012,0,1)
         for (var i = 0; i < 12; i++) {
             p.monthNames.append({name: Qt.formatDate(d, "MMM"), inRange:true})
             d.setMonth(d.getMonth()+1)
         }
+
+
         p.currentView = fnCreateView(p.currentViewType, selectedDate, {})
         p.currentView.model = fnLoadModel(selectedDate, p.currentView)
+
+        var textElement = Qt.createQmlObject('import QtQuick 1.0; Text { text: "Wed"}',
+                                                 parent, "calcTextWidth");
+
+            // Use textElement.width for the width of the text
+        console.log(textElement.width)
+        p.dayWidth = textElement.width
+        p.dayHeight = textElement.height+5
+        width = (p.dayWidth+5) * 7+1
+        height = (p.dayHeight+5) *7 + p.headerHeight
+
+        p.monthViewWidth = (p.monthWidth+11)*3+p.monthWidth
+        p.monthViewHeight = (p.monthHeight+11)*2+p.monthHeight
+
+        width = Math.max(width, p.monthViewWidth)
+
+        // Dispose of temporary element
+        textElement.destroy()
+
         fnUpdateHeader()
 
     }
@@ -275,7 +315,7 @@ Item {
         anchors.left: parent.left
         anchors.leftMargin: 5
         anchors.rightMargin:5
-        height: 20
+        height: p.headerHeight
         z: 10
         Rectangle {
             anchors.fill: parent
@@ -332,7 +372,7 @@ Item {
                 }
 
                 Image {
-                    anchors.right:parent.right
+
                     source: "zoom_out.svg"
 
                 }
@@ -363,7 +403,7 @@ Item {
             property Scale myScale: Scale {}
             property int selectionIndex
 
-            x: 10; y: 20
+            x: dateChooser.width/2-width/2; y: p.headerHeight
             transform: myScale
             spacing: 5
             z:0
@@ -450,9 +490,10 @@ Item {
             property Scale myScale: Scale {}
             property ListModel model
             property int selectionIndex
-            x: 10; y: 40
+            x: dateChooser.width/2 - p.monthViewWidth/2
+            ; y: (dateChooser.height+p.headerHeight)/2 - height/2
             opacity: 0
-            spacing: 12
+            spacing: 11
             columns: 4
 
             transform: myScale
@@ -530,14 +571,14 @@ Item {
                 target: p.nextView
                 properties: "x"
                 from: startX
-                to: 10
+                to: dateChooser.width/2 - p.monthViewWidth/2
             }
 
             PropertyAnimation {
                 target: p.nextView
                 properties: "y"
                 from: startY
-                to: p.currentViewType < 1?22:40
+                to: (dateChooser.height+p.headerHeight)/2 - p.monthViewHeight/2
             }
 
             PropertyAnimation {
@@ -602,39 +643,24 @@ Item {
     }
 
 
+    Component {
+        id: anim_horizontal_comp
+        ParallelAnimation {
+            property int nextX
+            property int currentX
 
-    ParallelAnimation {
-        id: showPreviosAnimation
-
-        PropertyAnimation {
-            target: p.currentView
-            property: "x"
-            to: 220
+            PropertyAnimation {
+                target: p.currentView
+                property: "x"
+                to: currentX
+            }
+            PropertyAnimation {
+                target: p.nextView
+                property: "x"
+                to: nextX
+            }
+            onCompleted:  fnAnimationComplete()
         }
-        PropertyAnimation {
-            target: p.nextView
-            property: "x"
-            to: 10
-        }
-        onCompleted: fnAnimationComplete()
     }
 
-    ParallelAnimation {
-        id: showNextAnimation
-
-        PropertyAnimation {
-
-            target: p.currentView
-            property: "x"
-            to: -220
-        }
-        PropertyAnimation
-        {
-            target: p.nextView
-            property: "x"
-            to: 10
-        }
-        onCompleted: fnAnimationComplete()
-
-    }
 }
