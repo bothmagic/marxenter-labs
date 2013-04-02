@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+
+		@import url("http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/resources/dojo.css");
+        @import url("http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/resources/dnd.css");
+        @import url("dnd.css");
+        @import url("http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dijit/themes/claro/claro.css");
+    </style>
+
+</head>
+<body class="claro">
+<h1>Demo: helloworld</h1>
+<div id="helloworld"></div>
+<button id="btn" data-dojo-type="dijit/form/Button"
+            onClick="{ console.log('First button was clicked!');}">
+    Click Me!
+</button>
+
+<ol id="wishlistNode" class="container">
+    <li class="dojoDndItem">Wrist watch</li>
+    <li class="dojoDndItem">Life jacket</li>
+    <li class="dojoDndItem">Toy bulldozer</li>
+    <li class="dojoDndItem">Vintage microphone</li>
+    <li class="dojoDndItem">TIE fighter</li>
+</ol>
+<script>
+    var dojoConfig = {
+        async: true,
+        has: {
+            "dojo-firebug": true,
+            "dojo-debug-messages": true
+        },
+        parseOnLoad: true
+    };
+</script>
+<!-- load dojo and provide config via data attribute -->
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.8.3/dojo/dojo.js"></script>
+<script>
+    require(["dojo/on", "dojo/parser", "dojo/query", "dojo/dnd/Source", "dijit/form/Button", "dojo/domReady!"],
+            function(on, parser, query, Source) {
+                var dndItemLi = query("li");
+                var dndItem = new Source("wishlistNode");
+
+                var ff = function() {
+                    console.log(dndItem.selection);
+
+                }
+                dndItemLi.onclick(ff);
+
+
+            }
+    )
+</script>
+
+</body>
+</html>
