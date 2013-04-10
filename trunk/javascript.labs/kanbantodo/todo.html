@@ -59,10 +59,10 @@
     <li class="item" id="todo.<%=this.todo.id%>">
         <div class="mod">
             <div class="inner">
-                <div class="loading"><%=this.todo.text%></div>
+                <div class="task-text"><%=this.todo.text%></div>
             </div>
-            <h2><strong></strong> <a title="minimize module" class="min" href="#">-</a>
-                <a title="close module" class="close" href="#">X</a></h2>
+            <h2><strong></strong> <!--a title="minimize module" class="min" href="#">-</a>
+                <a title="close module" class="close" href="#"></a--></h2>
         </div>
     </li>
 </script>
@@ -70,8 +70,19 @@
 
 <script>
 //Use loader to grab the modules needed
-YUI().use(
-        'dd', 'anim', 'yql', 'cookie', 'json', 'template-micro', 'node-base', 'view', 'overlay', 'my-module',
+YUI({
+    modules:{
+        ipe: {
+            name: 'ipe',
+            type: 'js',
+            // The full path to the IPE file...
+            fullpath: 'in_place_edit.js',
+            requires: ['plugin', 'io-base', 'io-form']
+        }
+    },
+    filter: 'error'
+}).use(
+        'dd', 'anim', 'yql', 'cookie', 'json', 'template-micro', 'node-base', 'view', 'overlay', 'my-module', 'editor', 'ipe',
         function(Y) {
 
     Y.TodoView = Y.Base.create('todoView', Y.View, [], {
@@ -257,7 +268,54 @@ YUI().use(
 
     };
 
-
+    var createTodoWidget = function(data) {
+        var li = new Y.TodoView({
+            todo: data
+        });
+        li.render();
+        var node = li.get('container').one('li');
+        node.one(".task-text").plug(Y.Plugin.InPlaceEditor,
+                {url:"http://localhost:4567/test",
+                 rows: 2});
+        /*node.one(".task-text").on("click", function () {
+            var mynode = this;
+            var editor = new Y.EditorBase({
+                content: this.getHTML()
+            });
+            //Add the BiDi plugin
+            editor.plug(Y.Plugin.EditorBidi);
+            editor.after('dom:focusout', function (e) {
+                //console.log("focus out");
+                console.log(mynode);
+                Y.Lang.later(50, Y, function () {
+                    mynode.setHTML(editor.get('content'));
+                    editor.destroy();
+                });
+            });
+            //Focusing the Editor when the frame is ready..
+            editor.on('frame:ready', function () {
+                var editorY = editor.getInstance();
+                //sel = new editorY.EditorSelection();
+                //sel.selectAllChildren(editor.getInstance());
+                this.focus();
+                mynode.setStyle("height", "100px");
+                Y.Lang.later(50, Y, function () {
+                    //console.log(editorY.);
+                });
+            });
+            editor.on('dom:keypress', function (e) {
+                if (e.keyCode == 13) {
+                    mynode.setHTML(editor.get('content'));
+                    editor.destroy();
+                }
+            });
+            this.setHTML('');
+            //Rendering the Editor.
+            editor.render(this);
+        });*/
+        _createFeedDD(node, data);
+        return node;
+    }
     //Helper method to create the markup for the module..
     var createMod = function(todo) {
         console.log("createMod ");
@@ -275,16 +333,10 @@ YUI().use(
     //Walk through the feeds list and create the list on the left
     var todoList = Y.one('#list1');
     Y.each(todos, function(v) {
-        console.log(v);
-        var li = new Y.TodoView({
-            todo: v
-        });
-        //console.log(li.get('container'));
-        li.render();
-        var node = li.get('container').one('li');
+        var node = createTodoWidget(v);
         node.appendTo(todoList);
         // Create the DD instance for this item
-        _createFeedDD(node, v);
+
     });
 
     //This does the calculations for when and where to move a module
@@ -484,11 +536,9 @@ YUI().use(
     todoOverlay.render();
 
     Y.one('#add-list1').on('click', function(e) {
-        e.preventDefault();
-        var m = new Y.MyModule({output:"Hallo Welt!"});
-        m.sayHello();
-        todoOverlay.set("centered","#yui-main");
-        todoOverlay.show();
+        var node = createTodoWidget({id: 'yy', text: 'Das ist ein weiterer Test.'});
+        node.appendTo(Y.one('#list1'));
+        node.one('.task-text').click();
     });
 
 
