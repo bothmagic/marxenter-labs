@@ -113,8 +113,8 @@ div.mod h2 {
 
 div.mod h2 strong {
     font-weight: bold;
-    background-image: url(http://l.yimg.com/a/i/tb/iconsgif/rss_1.gif);
-    background-repeat: no-repeat;
+    /*background-image: url(http://l.yimg.com/a/i/tb/iconsgif/rss_1.gif);
+    */background-repeat: no-repeat;
     padding-left: 25px;
 }
 
@@ -171,5 +171,8 @@ div.todo-overlay {
 
 .todo-overlay .text {
     width: 100%;
+}
 
+.task-text {
+    cursor: text;
 }

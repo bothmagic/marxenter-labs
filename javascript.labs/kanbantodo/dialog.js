@@ -2,10 +2,10 @@ YUI.add('my-module', function (Y) {
 
     // Write your module code here, and make your module available on the Y
     // object if desired.
-    Y.MyModule = function(output) {
+    Y.MyModule = {
 
         sayHello: function() {
-            console.log(this.output);
+            console.log("");
         }
 
     };

@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="8a544775-b05c-4272-aaa8-d5100e9824cc" name="Default" comment="" />
+    <list default="true" readonly="true" id="8a544775-b05c-4272-aaa8-d5100e9824cc" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/in_place_edit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dialog.js" afterPath="$PROJECT_DIR$/dialog.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.css" afterPath="$PROJECT_DIR$/todo.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/todo.html" afterPath="$PROJECT_DIR$/todo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="kanbantodo.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/todo.html" changelist="8a544775-b05c-4272-aaa8-d5100e9824cc" time="1365519806202" ignored="false" />
-    <file path="/todo.css" changelist="8a544775-b05c-4272-aaa8-d5100e9824cc" time="1365516773737" ignored="false" />
+    <file path="/todo.html" changelist="8a544775-b05c-4272-aaa8-d5100e9824cc" time="1365605957921" ignored="false" />
+    <file path="/todo.css" changelist="8a544775-b05c-4272-aaa8-d5100e9824cc" time="1365594081861" ignored="false" />
     <file path="/dialog.js" changelist="8a544775-b05c-4272-aaa8-d5100e9824cc" time="1365520593715" ignored="false" />
+    <file path="/fragment.js2" changelist="8a544775-b05c-4272-aaa8-d5100e9824cc" time="1365594331592" ignored="false" />
+    <file path="/in_place_edit.js" changelist="8a544775-b05c-4272-aaa8-d5100e9824cc" time="1365606199185" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,16 +37,27 @@
       <file leaf-file-name="todo.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="487" column="53" selection-start="16000" selection-end="16000" vertical-scroll-proportion="-8.076923">
+            <state line="278" column="24" selection-start="9413" selection-end="9413" vertical-scroll-proportion="2.9230769">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dialog.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="in_place_edit.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/in_place_edit.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="439" column="39" selection-start="10840" selection-end="10840" vertical-scroll-proportion="0.6367647">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dialog.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dialog.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="30" selection-start="206" selection-end="206" vertical-scroll-proportion="0.16915423">
+            <state line="10" column="6" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -47,7 +66,7 @@
       <file leaf-file-name="todo.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todo.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="34" selection-start="3188" selection-end="3188" vertical-scroll-proportion="0.0">
+            <state line="173" column="1" selection-start="3709" selection-end="3709" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -63,9 +82,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/dialog.js" />
         <option value="$PROJECT_DIR$/todo.css" />
         <option value="$PROJECT_DIR$/todo.html" />
-        <option value="$PROJECT_DIR$/dialog.js" />
+        <option value="$PROJECT_DIR$/in_place_edit.js" />
       </list>
     </option>
   </component>
@@ -195,15 +215,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1408" height="998" extended-state="7" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1408" height="998" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.257379" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16646989" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2533235" sideWeight="0.742621" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24963072" sideWeight="0.8335301" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2732644" sideWeight="0.8335301" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -297,24 +317,33 @@
         <state line="388" column="19" selection-start="6592" selection-end="6592" vertical-scroll-proportion="0.33252132" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dialog.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="6" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/todo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="34" selection-start="3188" selection-end="3188" vertical-scroll-proportion="0.0">
+        <state line="173" column="1" selection-start="3709" selection-end="3709" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="487" column="53" selection-start="16000" selection-end="16000" vertical-scroll-proportion="-8.076923">
+        <state line="278" column="24" selection-start="9413" selection-end="9413" vertical-scroll-proportion="2.9230769">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dialog.js">
+    <entry file="file://$PROJECT_DIR$/in_place_edit.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="30" selection-start="206" selection-end="206" vertical-scroll-proportion="0.16915423">
-          <folding />
+        <state line="439" column="39" selection-start="10840" selection-end="10840" vertical-scroll-proportion="0.6367647">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
