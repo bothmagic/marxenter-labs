@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/2.8.2/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="todo.css">
     <script src="http://yui.yahooapis.com/3.9.1/build/yui/yui-min.js"></script>
+    <script src="todo_model.js"></script>
     <script src="dialog.js"></script>
 </head>
 <body class="yui3-skin-sam">
@@ -28,10 +29,12 @@
                         <div class="list">
                             <div class="header">Doing</div>
                             <ul class="list" id="list2"></ul>
-                            </div>
+                            <div class="footer"><span id="add-list2">Add Card ...</span></div>
+                        </div>
                         <div class="list">
                             <div class="header">Done</div>
-                        <ul class="list" id="list3"></ul>
+                            <ul class="list" id="list3"></ul>
+                            <div class="footer"><span id="add-list3">Add Card ...</span></div>
                         </div>
                     </div>
                 </div>
@@ -47,11 +50,7 @@
     <div id="ft">
         Built with YUI 3: Core, Loader, Get, Cookie, Animation, YQL, JSON &amp; DragDrop.
     </div>
-    <div id="todo-overlay" class="overlay todo-overlay">
-        <div class="yui3-widget-hd">Overlay Header</div>
-        <div class="yui3-widget-bd"><textarea class="text"></textarea></div>
-        <div class="yui3-widget-ft">Overlay Footer</div>
-    </div>
+
 
 </div>
 
@@ -80,10 +79,14 @@ YUI({
             requires: ['plugin', 'io-base', 'io-form']
         }
     },
-    filter: 'error'
+    useBrowserConsole: true,
+    filter: 'debug',
+    logInclude: {
+        ipe: true
+    }
 }).use(
-        'dd', 'anim', 'yql', 'cookie', 'json', 'template-micro', 'node-base', 'view', 'overlay', 'my-module', 'editor', 'ipe',
-        function(Y) {
+    'dd', 'anim', 'yql', 'cookie', 'json', 'template-micro', 'node-base', 'view', 'overlay', 'my-module', 'editor', 'ipe',
+    function(Y) {
 
     Y.TodoView = Y.Base.create('todoView', Y.View, [], {
         // The template source is pulled from the HTML, then compiled into a
@@ -143,112 +146,12 @@ YUI({
         setupModDD(node, data, dd);
     };
 
-    //Handle the node:click event
-    var _nodeClick = function(e) {
-        //Is the target an href?
-        if (e.target.test('a')) {
-            var a = e.target, anim = null, div = a.get('parentNode').get('parentNode');
-            //Did they click on the min button
-            if (a.hasClass('min')) {
-                //Get some node references
-                var ul = div.one('ul'),
-                        h2 = div.one('h2'),
-                        h = h2.get('offsetHeight'),
-                        hUL = ul.get('offsetHeight'),
-                        inner = div.one('div.inner');
-
-                //Create an anim instance on this node.
-                anim = new Y.Anim({
-                    node: inner
-                });
-                //Is it expanded?
-                if (!div.hasClass('minned')) {
-                    //Set the vars for collapsing it
-                    anim.setAttrs({
-                        to: {
-                            height: 0
-                        },
-                        duration: '.25',
-                        easing: Y.Easing.easeOut,
-                        iteration: 1
-                    });
-                    //On the end, toggle the minned class
-                    //Then set the cookies for state
-                    anim.on('end', function() {
-                        div.toggleClass('minned');
-                    });
-                } else {
-                    //Set the vars for expanding it
-                    anim.setAttrs({
-                        to: {
-                            height: (hUL)
-                        },
-                        duration: '.25',
-                        easing: Y.Easing.easeOut,
-                        iteration: 1
-                    });
-                    //Toggle the minned class
-                    //Then set the cookies for state
-                    div.toggleClass('minned');
-                }
-                //Run the animation
-                anim.run();
-
-            }
-            //Was close clicked?
-            if (a.hasClass('close')) {
-                //Get some Node references..
-                var li = div.get('parentNode'),
-                        id = li.get('id'),
-                        dd = Y.DD.DDM.getDrag('#' + id),
-                        data = dd.get('data'),
-                        item = Y.one('#' + data.id);
-
-                //Destroy the DD instance.
-                dd.destroy();
-                //Setup the animation for making it disappear
-                anim = new Y.Anim({
-                    node: div,
-                    to: {
-                        opacity: 0
-                    },
-                    duration: '.25',
-                    easing: Y.Easing.easeOut
-                });
-                anim.on('end', function() {
-                    //On end of the first anim, setup another to make it collapse
-                    var anim = new Y.Anim({
-                        node: div,
-                        to: {
-                            height: 0
-                        },
-                        duration: '.25',
-                        easing: Y.Easing.easeOut
-                    });
-                    anim.on('end', function() {
-                        //Remove it from the document
-                        li.get('parentNode').removeChild(li);
-                        item.removeClass('disabled');
-                        //Setup a drag instance on the feed list
-                        _createFeedDD(item, data);
-
-                    });
-                    //Run the animation
-                    anim.run();
-                });
-                //Run the animation
-                anim.run();
-            }
-            //Stop the click
-            e.halt();
-        }
-    };
 
     //This creates the module, either from a drag event or from the cookie load
     var setupModDD = function(mod, data, dd) {
         var node = mod;
         //Listen for the click so we can react to the buttons
-        node.one('h2').on('click', _nodeClick);
+        //node.one('h2').on('click', _nodeClick);
 
         //Remove the event's on the original drag instance
         //dd.detachAll('drag:start');
@@ -277,58 +180,10 @@ YUI({
         node.one(".task-text").plug(Y.Plugin.InPlaceEditor,
                 {url:"http://localhost:4567/test",
                  rows: 2});
-        /*node.one(".task-text").on("click", function () {
-            var mynode = this;
-            var editor = new Y.EditorBase({
-                content: this.getHTML()
-            });
-            //Add the BiDi plugin
-            editor.plug(Y.Plugin.EditorBidi);
-            editor.after('dom:focusout', function (e) {
-                //console.log("focus out");
-                console.log(mynode);
-                Y.Lang.later(50, Y, function () {
-                    mynode.setHTML(editor.get('content'));
-                    editor.destroy();
-                });
-            });
-            //Focusing the Editor when the frame is ready..
-            editor.on('frame:ready', function () {
-                var editorY = editor.getInstance();
-                //sel = new editorY.EditorSelection();
-                //sel.selectAllChildren(editor.getInstance());
-                this.focus();
-                mynode.setStyle("height", "100px");
-                Y.Lang.later(50, Y, function () {
-                    //console.log(editorY.);
-                });
-            });
-            editor.on('dom:keypress', function (e) {
-                if (e.keyCode == 13) {
-                    mynode.setHTML(editor.get('content'));
-                    editor.destroy();
-                }
-            });
-            this.setHTML('');
-            //Rendering the Editor.
-            editor.render(this);
-        });*/
+
         _createFeedDD(node, data);
         return node;
     }
-    //Helper method to create the markup for the module..
-    var createMod = function(todo) {
-        console.log("createMod ");
-        console.log(todo);
-        var li = new Y.TodoView({
-            todo: todo
-        });
-
-        li.render();
-        return li.get('container').one('li');
-    };
-
-
 
     //Walk through the feeds list and create the list on the left
     var todoList = Y.one('#list1');
@@ -522,27 +377,26 @@ YUI({
         });
     });
 
-    var todoOverlay = new Y.Overlay({
-        // Specify a reference to a node which already exists
-        // on the page and contains header/body/footer content
-        srcNode:"#todo-overlay",
-
-        // Also set some of the attributes inherited from
-        // the base Widget class.
-        visible:false,
-        width:"20em"
-    });
-
-    todoOverlay.render();
-
     Y.one('#add-list1').on('click', function(e) {
-        var node = createTodoWidget({id: 'yy', text: 'Das ist ein weiterer Test.'});
+        var node = createTodoWidget({id: 'yy', text: ''});
         node.appendTo(Y.one('#list1'));
-        node.one('.task-text').click();
+        node.one('.task-text').ipe.enterEditMode();
+    });
+
+    Y.one('#add-list2').on('click', function(e) {
+        var node = createTodoWidget({id: 'yy', text: ''});
+        node.appendTo(Y.one('#list2'));
+        node.one('.task-text').ipe.enterEditMode();
+    });
+
+    Y.one('#add-list3').on('click', function(e) {
+        var node = createTodoWidget({id: 'yy', text: ''});
+        node.appendTo(Y.one('#list3'));
+        node.one('.task-text').ipe.enterEditMode();
     });
 
 
-});
+        });
 </script>
 </body>
 </html>
