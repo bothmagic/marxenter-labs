@@ -4,6 +4,7 @@
     "autoload": {
         "psr-0": { "": "src/" }
     },
+    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
         "symfony/symfony": "2.1.*",
@@ -12,7 +13,7 @@
         "twig/extensions": "1.0.*@dev",
         "symfony/assetic-bundle": "2.1.*",
         "symfony/swiftmailer-bundle": "2.1.*",
-        "symfony/monolog-bundle": "2.1.*",
+        "symfony/monolog-bundle": "2.2.*",
         "sensio/distribution-bundle": "2.1.*",
         "sensio/framework-extra-bundle": "2.1.*",
         "sensio/generator-bundle": "2.1.*",
@@ -20,7 +21,10 @@
         "jms/di-extra-bundle": "1.3.x-dev",
         "kriswallsmith/assetic": "1.1.*@dev",
         "friendsofsymfony/rest-bundle": "0.10.0",
-        "jms/serializer-bundle": "0.11"
+        "jms/serializer-bundle": "dev-master",
+        "jackalope/jackalope-doctrine-dbal": "dev-master",
+        "doctrine/phpcr-bundle": "1.0.*",
+        "doctrine/phpcr-odm": "1.0.*"
     },
     "scripts": {
         "post-install-cmd": [
