@@ -1,0 +1,24 @@
+# src/Mtol/TodoBundle/Resources/config/doctrine/Task.orm.yml
+Mtol\TodoBundle\Entity\Task:
+    type: entity
+    table: task
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        shortdescr:
+            type: string
+            length: 100
+        longdescr:
+            type: text
+        state:
+            type: boolean
+    manyToOne:
+        product:
+          targetEntity: TaskList
+          inversedBy: tasklist
+          joinColumn:
+            name: tasklist_id
+            referencedColumnName: id
+        

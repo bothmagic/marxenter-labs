@@ -1,0 +1,12 @@
+## YAML Template.
+Mtol\TodoBundle\Entity\Task:
+  exclusion_policy: ALL
+  properties:
+      id:
+          expose: true
+      longdescr:
+          expose: true
+      shortdescr:
+          expose: true
+      state:
+          expose: true

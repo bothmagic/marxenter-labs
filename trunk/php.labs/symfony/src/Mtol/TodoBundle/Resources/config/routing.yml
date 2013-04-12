@@ -1,0 +1,39 @@
+#src/Mtol/TodoBundle/Resources/config/routing.yml
+mtoltodo_index:
+  pattern: /todos/index
+  defaults:
+    _controller: FrameworkBundle:Template:template
+    template: MtolTodoBundle:default:index.html.twig
+
+mtoltodo_all:
+  type: rest
+  pattern:  /todos
+  defaults: { _controller: MtolTodoBundle:Todo:all, _format: json }
+  type: rest
+  requirements:
+      _method: GET
+
+mtoltodo_get:
+  pattern:  /todos/{id}
+  defaults: { _controller: MtolTodoBundle:Todo:get, _format: json }
+  requirements:
+    _method: GET
+    id: "\d+"
+    
+mtoltodo_new:
+    pattern:  /todos
+    defaults: { _controller: MtolTodoBundle:Todo:new, _format: json }
+    requirements:
+        _method: POST
+
+mtoldoc_new:
+    pattern: /mydocs
+    defaults: { _controller: MtolTodoBundle:MyDocument:new, _format: json }
+    requirements:
+      _method: POST
+
+mtoldoc_new:
+    pattern: /mydocs
+    defaults: { _controller: MtolTodoBundle:MyDocument:get, _format: json }
+    requirements:
+      _method: GET

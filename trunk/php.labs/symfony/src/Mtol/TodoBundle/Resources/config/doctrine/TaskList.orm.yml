@@ -1,0 +1,21 @@
+# src/Mtol/TodoBundle/Resources/config/doctrine/TaskList.orm.yml
+Mtol\TodoBundle\Entity\TaskList:
+    type: entity
+    table: tasklist
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        shortdescr:
+            type: string
+            length: 100
+        longdescr:
+            type: text
+        state:
+            type: boolean
+    oneToMany:
+        tasks:
+            targetEntity: Task
+            mappedBy: tasklist
+        

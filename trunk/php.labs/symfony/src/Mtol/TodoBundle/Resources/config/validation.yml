@@ -1,0 +1,6 @@
+## YAML Template.
+Mtol\TodoBundle\Entity\Task:
+    getters:
+        shortdescr:
+        longdescr:
+        state:
