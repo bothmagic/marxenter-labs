@@ -1,0 +1,4 @@
+createSpace -propfile copcon.properties -spacekey qmvh -spacename "Qualitätsmanagement- und Verfahrenshandbuch" -nostructure
+copyPages -propfile copcon.properties qm "Qualitätsmanagement- und Verfahrenshandbuch" qmvh "Home" true
+setpermittion -propfile copcon.properties -spacekey qmvh -permit "VIEWSPACE" -to "confluence-users"
+setpermittion -propfile copcon.properties -spacekey qmvh -permit "VIEWSPACE|EDITSPACE|REMOVEPAGE|CREATEATTACHMENT|REMOVEATTACHMENT|SETPAGEPERMISSIONS" -to "qualitymanager"

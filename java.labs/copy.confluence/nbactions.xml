@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>run</actionName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-classpath %classpath de.mx.copcon.cli.App createSpace -serverurl http://10.96.18.170:8090 -user chefe -password erdgasi -spacekey test123 -spacename "sddf 234556"</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.classpathScope>runtime</exec.classpathScope>
+            </properties>
+        </action>
+        <action>
+            <actionName>debug</actionName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>-Xdebug -Xrunjdwp:transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath de.mx.copcon.cli.App createSpace -serverurl http://10.96.18.170:8090 -user chefe -password erdgasi -spacekey test123 -spacename "sddf 234556"</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.classpathScope>runtime</exec.classpathScope>
+                <jpda.listen>true</jpda.listen>
+            </properties>
+        </action>
+        <action>
+            <actionName>profile</actionName>
+            <goals>
+                <goal>process-classes</goal>
+                <goal>org.codehaus.mojo:exec-maven-plugin:1.2:exec</goal>
+            </goals>
+            <properties>
+                <exec.args>${profiler.args} -classpath %classpath de.mx.copcon.cli.App createSpace -serverurl http://10.96.18.170:8090 -user chefe -password erdgasi -spacekey test123 -spacename "sddf 234556"</exec.args>
+                <exec.executable>${profiler.java}</exec.executable>
+            </properties>
+        </action>
+        <action>
+            <actionName>CUSTOM-single</actionName>
+            <displayName>single</displayName>
+            <goals>
+                <goal>clean</goal>
+                <goal>install</goal>
+                <goal>assembly:single</goal>
+            </goals>
+        </action>
+    </actions>

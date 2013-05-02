@@ -1,0 +1,3 @@
+createSpace -propfile copcon.properties -spacekey team3 -spacename "TEAM 3.0 innovativ" -nostructure
+copyPages -propfile copcon.properties -withcontent -withattachment -withmetadata team3 "Home" team3 "Home" true
+copyTemplate -propfile copcon.properties team3 team3 Innovation

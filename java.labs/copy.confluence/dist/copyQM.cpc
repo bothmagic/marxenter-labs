@@ -1,0 +1,2 @@
+createSpace -propfile copcon.properties -spacekey qm -spacename "Qualitätsmanagement" -nostructure
+copyPages -propfile copcon.properties qm "Qualitätsmanagement" qmvh "Home" true
