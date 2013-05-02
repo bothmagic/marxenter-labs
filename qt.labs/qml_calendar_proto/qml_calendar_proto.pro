@@ -22,4 +22,7 @@ include(qmlapplicationviewer/qmlapplicationviewer.pri)
 qtcAddDeployment()
 
 OTHER_FILES += \
-    qml/qml_calendar_proto/DateChooser.qml
+    qml/qml_calendar_proto/DateChooser.qml \
+    utils.js
+
+HEADERS +=

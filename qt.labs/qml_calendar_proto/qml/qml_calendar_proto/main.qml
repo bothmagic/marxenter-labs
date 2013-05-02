@@ -1,23 +1,21 @@
 import QtQuick 1.1
+import QmlFeatures 1.0
 
 Rectangle {
 
     width: 800
     height: 600
+    FocusScope {
+    Column {
+        x: 100
+    DateEdit {
 
-    Rectangle {
-        x:10;y:10
-        width:d.width+10
-        height:d.height+10
-        border.color:"black"
-        DateChooser {
-            id: d
-            anchors.horizontalCenter:parent.horizontalCenter
-            anchors.verticalCenter:parent.verticalCenter
-            onSelectedDateChanged: console.log(selectedDate)
-        }
     }
 
+    DateEdit {
 
+    }
+}
+    }
 }
 
