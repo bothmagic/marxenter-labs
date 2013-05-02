@@ -1,0 +1,3 @@
+createSpace -propfile copcon.properties -spacekey team1501 -spacename "1501 Quality Management"
+copyPages -propfile copcon.properties -copyfile copyteam1501.csv
+setPermission -propfile copcon.properties -spacekey team1501 -permit "VIEWSPACE|EDITSPACE|REMOVEPAGE|CREATEATTACHMENT|REMOVEATTACHMENT|SETPAGEPERMISSIONS" -to "confluence-users"

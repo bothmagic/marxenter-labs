@@ -1,0 +1,3 @@
+createSpace -propfile copcon.properties -spacekey team1602 -spacename "1602 Product Infrastructure"
+copyPages -propfile copcon.properties -withcontent -withattachment -withmetadata team "Prozesse" team1602 "1.1.4 Arbeitsprozesse" true
+setPermission -propfile copcon.properties -spacekey team1602 -permit "VIEWSPACE|EDITSPACE|REMOVEPAGE|CREATEATTACHMENT|REMOVEATTACHMENT|SETPAGEPERMISSIONS" -to "confluence-users"
