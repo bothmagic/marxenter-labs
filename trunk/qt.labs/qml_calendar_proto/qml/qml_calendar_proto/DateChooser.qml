@@ -2,9 +2,10 @@ import QtQuick 1.0
 
 Item {
     id: dateChooser
-    property variant selectedDate: new Date()
+    property variant selectedDate
     property color selectColor: "#ccedff"
     property color selectBorderColor: "#008df2"
+    signal dayClicked(date clickedDate)
 
     QtObject {
         id: p
@@ -25,15 +26,12 @@ Item {
         property int monthHeight: 40
         property int monthViewWidth
         property int monthViewHeight
-
         property int headerHeight: 20
 
     }
 
-
-
     width: 220
-    height: 175
+    height: 182
     clip:true
 
 
@@ -41,7 +39,7 @@ Item {
         if (p.currentViewType > 1 || (p.anim && p.anim.running))
             return;
 
-        p.nextView = fnCreateView(p.currentViewType+1, p.currentDate, {})
+        p.nextView = fnCreateView(p.currentViewType+1, p.currentDate, {opacity: 0})
         var selId = p.nextView.selectionIndex
 
         var currentViewScale = p.currentView.myScale;
@@ -53,8 +51,8 @@ Item {
         fnUpdateHeader()
 
         p.anim = anim_viewzoomout_comp.createObject(p.currentView)
-        p.anim.startX = p.currentView.width/2 - currentViewScale.origin.x
-        p.anim.startY = p.currentView.height/2 - currentViewScale.origin.y
+        p.anim.startX = p.currentView.width/2 - currentViewScale.origin.x + p.monthWidth/2
+        p.anim.startY = p.currentView.height/2 - currentViewScale.origin.y + p.monthHeight
 
         p.anim.start()
 
@@ -73,7 +71,7 @@ Item {
             break;
         }
 
-        p.nextView = fnCreateView(p.currentViewType-1 ,newDate, {z:0})
+        p.nextView = fnCreateView(p.currentViewType-1 ,newDate, {z:0, opacity: 0})
         p.currentView.z = 1
 
         var selId = newMonthIdx
@@ -258,7 +256,8 @@ Item {
     Component.onCompleted: {
 
         // generate models
-
+        var thisDate = selectedDate
+        console.debug(thisDate)
         var d = new Date(2012, 9,1)
         for (var i = 0; i < 7; i++) {
             p.dayNames.append({name: Qt.formatDate(d, "ddd")})
@@ -285,10 +284,10 @@ Item {
         console.log(textElement.width)
         p.dayWidth = textElement.width
         p.dayHeight = textElement.height+5
-        width = (p.dayWidth+5) * 7+1
+        width = (p.dayWidth+5) * 7
         height = (p.dayHeight+5) *7 + p.headerHeight
 
-        p.monthViewWidth = (p.monthWidth+11)*3+p.monthWidth
+        p.monthViewWidth = (p.monthWidth+11)*3+p.monthWidth+1
         p.monthViewHeight = (p.monthHeight+11)*2+p.monthHeight
 
         width = Math.max(width, p.monthViewWidth)
@@ -317,6 +316,12 @@ Item {
         anchors.rightMargin:5
         height: p.headerHeight
         z: 10
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {}
+        }
+
         Rectangle {
             anchors.fill: parent
         }
@@ -358,6 +363,7 @@ Item {
                 id:header_mousearea
                 anchors.fill: parent
                 hoverEnabled: true
+                focus:true
                 onClicked: {
                     fnViewZoomOut()
                 }
@@ -469,9 +475,10 @@ Item {
                             anchors.fill: parent
 
                             onClicked: {
-                                selectedDate = date
                                 p.currentDate = date
+                                selectedDate = date
                                 selectionIndex = index
+                                dayClicked(date)
                             }
                         }
 
@@ -623,6 +630,7 @@ Item {
                 target: p.nextView
                 property: "opacity"
                 to: 1
+                easing.type: Easing.InOutBack
             }
 
             PropertyAnimation {
