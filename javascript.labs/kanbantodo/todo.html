@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/2.8.2/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="todo.css">
     <script src="http://yui.yahooapis.com/3.9.1/build/yui/yui-min.js"></script>
-    <script src="todo_model.js"></script>
     <script src="dialog.js"></script>
 </head>
 <body class="yui3-skin-sam">
@@ -77,7 +76,8 @@ YUI({
             // The full path to the IPE file...
             fullpath: 'in_place_edit.js',
             requires: ['plugin', 'io-base', 'io-form']
-        }
+        },
+        todomodel: 'todo_model.js'
     },
     useBrowserConsole: true,
     filter: 'debug',
@@ -86,7 +86,20 @@ YUI({
     }
 }).use(
     'dd', 'anim', 'yql', 'cookie', 'json', 'template-micro', 'node-base', 'view', 'overlay', 'my-module', 'editor', 'ipe',
+        'todomodel',
     function(Y) {
+
+        var todoModels = new Y.TodoModels();
+
+        // GET users list from: "/users"
+        todoModels.load(function () {
+            var firstTodo = todoModels.item(0);
+
+            Y.log(firstTodo.get('id')); // => "1"
+
+            // PUT updated user data at: "/users/1"
+            firstTodo.set('shortDesc', 'testtesttesttesttesttest').save();
+        });
 
     Y.TodoView = Y.Base.create('todoView', Y.View, [], {
         // The template source is pulled from the HTML, then compiled into a
