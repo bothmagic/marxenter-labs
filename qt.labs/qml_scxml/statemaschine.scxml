@@ -1,0 +1,10 @@
+<scxml initial="start" version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0.0 y=0.0 w=662.0 h=588.0  -->
+ <state id="start"><!--   node-size-and-position x=166.0 y=87.0 w=75.0 h=75.0  -->
+  <transition event="eins" target="end"></transition>
+  <transition event="zwei" target="soso"></transition>
+ </state>
+ <state id="soso"><!--   node-size-and-position x=440.0 y=190.0 w=75.0 h=75.0  -->
+  <transition event="drei" target="end"></transition>
+ </state>
+ <final id="end"><!--   node-size-and-position x=170.0 y=230.0 w=75.0 h=75.0  --></final>
+</scxml>
