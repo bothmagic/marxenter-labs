@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Name=qml_scxml
+Exec=/usr/bin/single-instance /opt/qml_scxml/bin/qml_scxml
+Icon=/usr/share/icons/hicolor/80x80/apps/qml_scxml80.png
+X-Window-Icon=
+X-HildonDesk-ShowInToolbar=true
+X-Osso-Type=application/x-executable
