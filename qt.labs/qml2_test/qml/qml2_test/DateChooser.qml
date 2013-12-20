@@ -1,11 +1,10 @@
-import QtQuick 2.0
+import QtQuick 2
 
 Item {
-    id: calendarNavigation
-    property variant selectedDate
+    id: dateChooser
+    property variant selectedDate: new Date()
     property color selectColor: "#ccedff"
     property color selectBorderColor: "#008df2"
-    signal dayClicked(date clickedDate)
 
     QtObject {
         id: p
@@ -22,16 +21,19 @@ Item {
         property int dayWidth: 25
         property int dayHeight: 20
 
-        property int monthWidth: 45
+        property int monthWidth: 40
         property int monthHeight: 40
         property int monthViewWidth
         property int monthViewHeight
+
         property int headerHeight: 20
 
     }
 
+
+
     width: 220
-    height: 182
+    height: 175
     clip:true
 
 
@@ -39,7 +41,7 @@ Item {
         if (p.currentViewType > 1 || (p.anim && p.anim.running))
             return;
 
-        p.nextView = fnCreateView(p.currentViewType+1, p.currentDate, {opacity: 0})
+        p.nextView = fnCreateView(p.currentViewType+1, p.currentDate, {})
         var selId = p.nextView.selectionIndex
 
         var currentViewScale = p.currentView.myScale;
@@ -51,8 +53,8 @@ Item {
         fnUpdateHeader()
 
         p.anim = anim_viewzoomout_comp.createObject(p.currentView)
-        p.anim.startX = p.currentView.width/2 - currentViewScale.origin.x + p.monthWidth/2
-        p.anim.startY = p.currentView.height/2 - currentViewScale.origin.y + p.monthHeight
+        p.anim.startX = p.currentView.width/2 - currentViewScale.origin.x
+        p.anim.startY = p.currentView.height/2 - currentViewScale.origin.y
 
         p.anim.start()
 
@@ -71,7 +73,7 @@ Item {
             break;
         }
 
-        p.nextView = fnCreateView(p.currentViewType-1 ,newDate, {z:0, opacity: 0})
+        p.nextView = fnCreateView(p.currentViewType-1 ,newDate, {z:0})
         p.currentView.z = 1
 
         var selId = newMonthIdx
@@ -133,8 +135,8 @@ Item {
         fnUpdateHeader()
         var anim = anim_horizontal_comp.createObject(p.currentView)
         anim.nextX = p.nextView.x
-        p.nextView.x = -calendarNavigation.width
-        anim.currentX = calendarNavigation.width
+        p.nextView.x = -dateChooser.width
+        anim.currentX = dateChooser.width
         anim.start();
         p.anim = anim
     }
@@ -162,8 +164,8 @@ Item {
         var anim = anim_horizontal_comp.createObject(p.currentView)
 
         anim.nextX = p.nextView.x
-        anim.currentX = -calendarNavigation.width
-        p.nextView.x = calendarNavigation.width
+        anim.currentX = -dateChooser.width
+        p.nextView.x = dateChooser.width
         anim.start();
         p.anim = anim
 
@@ -175,18 +177,18 @@ Item {
         p.currentDate = date
         switch (type) {
         case 0:
-            view = dayViewComponent.createObject(calendarNavigation, options);
+            view = dayViewComponent.createObject(dateChooser, options);
             view.model = fnLoadModel(date, view)
             console.debug("create day view")
             break;
         case 1:
-            view = monthViewComponent.createObject(calendarNavigation, options)
+            view = monthViewComponent.createObject(dateChooser, options)
             view.selectionIndex = date.getMonth()
             view.model = p.monthNames
             console.debug("create month view")
             break;
         case 2:
-            view = monthViewComponent.createObject(calendarNavigation, options)
+            view = monthViewComponent.createObject(dateChooser, options)
             var startYear = date.getFullYear() - date.getFullYear()%10;
             if (date.getFullYear()%10 == 0) startYear -= 10
             var model = dynamicmodel.createObject(view)
@@ -256,8 +258,7 @@ Item {
     Component.onCompleted: {
 
         // generate models
-        var thisDate = selectedDate
-        console.debug(thisDate)
+
         var d = new Date(2012, 9,1)
         for (var i = 0; i < 7; i++) {
             p.dayNames.append({name: Qt.formatDate(d, "ddd")})
@@ -277,7 +278,7 @@ Item {
         p.currentView = fnCreateView(p.currentViewType, selectedDate, {})
         p.currentView.model = fnLoadModel(selectedDate, p.currentView)
 
-        var textElement = Qt.createQmlObject('import QtQuick 2.0; Text { text: "Wed"}',
+        var textElement = Qt.createQmlObject('import QtQuick 2; Text { text: "Wed"}',
                                                  parent, "calcTextWidth");
 
             // Use textElement.width for the width of the text
@@ -287,7 +288,7 @@ Item {
         width = (p.dayWidth+5) * 7
         height = (p.dayHeight+5) *7 + p.headerHeight
 
-        p.monthViewWidth = (p.monthWidth+11)*3+p.monthWidth+1
+        p.monthViewWidth = (p.monthWidth+11)*3+p.monthWidth
         p.monthViewHeight = (p.monthHeight+11)*2+p.monthHeight
 
         width = Math.max(width, p.monthViewWidth)
@@ -316,12 +317,6 @@ Item {
         anchors.rightMargin:5
         height: p.headerHeight
         z: 10
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {}
-        }
-
         Rectangle {
             anchors.fill: parent
         }
@@ -363,7 +358,6 @@ Item {
                 id:header_mousearea
                 anchors.fill: parent
                 hoverEnabled: true
-                focus:true
                 onClicked: {
                     fnViewZoomOut()
                 }
@@ -409,7 +403,7 @@ Item {
             property Scale myScale: Scale {}
             property int selectionIndex
 
-            x: calendarNavigation.width/2-width/2; y: p.headerHeight
+            x: dateChooser.width/2-width/2; y: p.headerHeight
             transform: myScale
             spacing: 5
             z:0
@@ -475,10 +469,9 @@ Item {
                             anchors.fill: parent
 
                             onClicked: {
-                                p.currentDate = date
                                 selectedDate = date
+                                p.currentDate = date
                                 selectionIndex = index
-                                dayClicked(date)
                             }
                         }
 
@@ -497,8 +490,8 @@ Item {
             property Scale myScale: Scale {}
             property ListModel model
             property int selectionIndex
-            x: calendarNavigation.width/2 - p.monthViewWidth/2
-            ; y: (calendarNavigation.height+p.headerHeight)/2 - height/2
+            x: dateChooser.width/2 - p.monthViewWidth/2
+            ; y: (dateChooser.height+p.headerHeight)/2 - height/2
             opacity: 0
             spacing: 11
             columns: 4
@@ -578,14 +571,14 @@ Item {
                 target: p.nextView
                 properties: "x"
                 from: startX
-                to: calendarNavigation.width/2 - p.monthViewWidth/2
+                to: dateChooser.width/2 - p.monthViewWidth/2
             }
 
             PropertyAnimation {
                 target: p.nextView
                 properties: "y"
                 from: startY
-                to: (calendarNavigation.height+p.headerHeight)/2 - p.monthViewHeight/2
+                to: (dateChooser.height+p.headerHeight)/2 - p.monthViewHeight/2
             }
 
             PropertyAnimation {
@@ -594,7 +587,7 @@ Item {
                 to: 0
             }
 
-            onCompleted: {
+            onStopped: {
 
                 fnAnimationComplete(anim_viewzoomout);
             }
@@ -630,7 +623,6 @@ Item {
                 target: p.nextView
                 property: "opacity"
                 to: 1
-                easing.type: Easing.InOutBack
             }
 
             PropertyAnimation {
@@ -644,7 +636,7 @@ Item {
                 properties: "y"
                 to: endY
             }
-            onCompleted: {
+            onStopped: {
                 fnAnimationComplete(anim_viewzoomin);
             }
         }
@@ -667,7 +659,7 @@ Item {
                 property: "x"
                 to: nextX
             }
-            onCompleted:  fnAnimationComplete()
+            onStopped: fnAnimationComplete()
         }
     }
 
